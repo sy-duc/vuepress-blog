@@ -1,0 +1,11 @@
+# Node modules
+node_modules/
+# VuePress default temp directory
+.vuepress/.temp
+# VuePress default cache directory
+.vuepress/.cache
+# VuePress default build output directory
+docs/.vuepress/dist
+
+# Ignore lock files của package manager
+package-lock.json
