@@ -19,6 +19,7 @@ const scriptFiles = [
 ];
 
 export default defineUserConfig({
+  base: '/vuepress-blog/',
   head: [
     [
       "link",
