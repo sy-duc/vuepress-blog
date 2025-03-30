@@ -1,5 +1,7 @@
 :root {
   --font-family: "Josefin Sans", "IBM Plex Mono", sans-serif;
+  --vp-c-accent: #20B2AA;
+  --vp-c-text-gray: #9c9c9c;
 }
 
 body {
@@ -32,4 +34,13 @@ ul {
 
 a {
   text-decoration: none !important;
+}
+
+.vp-back-to-top-button svg,
+.back-to-top-icon {
+  color: var(--vp-c-accent);
+}
+
+.vp-toggle-color-mode-button :hover {
+  color: var(--vp-c-accent);
 }

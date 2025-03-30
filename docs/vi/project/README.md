@@ -2,6 +2,6 @@
 title: Dự án
 ---
 
-# Dự án cá nhân
+# Dự Án Cá Nhân
 
 <ProjectPage />

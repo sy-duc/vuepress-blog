@@ -9,7 +9,7 @@
         </div>
 
         <!--Call to Action-->
-        <a href="#" class="button">{{ messages[currentLang].action }}</a>
+        <RouterLink to="/about/" class="button">{{ messages[currentLang].action }}</RouterLink>
         <!--End Call to Action-->
       </div>
     </div>
@@ -20,18 +20,19 @@
 <script setup>
 import { useRoute } from "vue-router";
 import { getLangFromPath } from "../../utils/helpers";
+import { LANGUAGE } from "../../utils/constants";
 
 const route = useRoute();
 
 const messages = {
-  "en-US": {
+  [LANGUAGE.EN]: {
     title: "Hi, I'm Duc - Web Developer",
     welcome:
       "This is my personal GitHub Page site, created to introduce myself. It also serves as a place to note knowledge documents for work purposes!",
     action: "ABOUT ME",
   },
-  "vi-VN": {
-    title: "Hi, tôi là S. Đức - một Web Developer",
+  [LANGUAGE.VI]: {
+    title: "Hi, tôi là S. Đức - Web Developer",
     welcome:
       "Đây là trang GitHub Page cá nhân, với mục đích giới thiệu bản thân. Đồng thời cũng là nơi ghi chép các tài liệu kiến thức phục vụ công việc!",
     action: "VỀ TÔI",

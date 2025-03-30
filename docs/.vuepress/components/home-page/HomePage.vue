@@ -2,89 +2,55 @@
   <Banner />
 
   <main id="content">
-    <!--Projects-->
-    <section id="about" class="introduction scrollto">
-      <div class="row clearfix">
+    <!--Introduce Page-->
+    <div id="services" class="scrollto clearfix">
+      <div class="row no-padding-bottom clearfix">
+        <!--Content Left Side-->
+        <div class="col-3">
+          <!--User Testimonial-->
+          <blockquote class="testimonial text-right bigtest">
+            <q
+              >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua</q
+            >
+            <footer>— John Doe, Happy Customer</footer>
+          </blockquote>
+          <!-- End of Testimonial-->
+        </div>
+        <!--End Content Left Side-->
+
+        <!--Content of the Right Side-->
         <div class="col-3">
           <div class="section-heading">
-            <h3>PROJECTS</h3>
-            <h2 class="section-title">How We Help You To Sell Your Product</h2>
+            <h3>BELIEVING</h3>
+            <h2 class="section-title">Focusing On What Matters Most</h2>
             <p class="section-subtitle">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam!
             </p>
           </div>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+            quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo.
+          </p>
+          <p>
+            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+            fugit, sed quia consequuntur magni dolores eos qui ratione
+            voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
+            ipsum quia dolor sit amet!
+          </p>
         </div>
+        <!--End Content Right Side-->
 
-        <div class="col-2-3">
-          <!--Icon Block-->
-          <div
-            class="col-2 icon-block icon-top wow fadeInUp"
-            data-wow-delay="0.1s"
-          >
-            <!--Icon Block Description-->
-            <div class="icon-block-description">
-              <h4>HTML5 &amp; CSS3</h4>
-              <p>
-                Has ne tritani atomorum conclusionemque, in dolorum volumus
-                cotidieque eum. At vis choro neglegentur iudico
-              </p>
-            </div>
-          </div>
-          <!--End of Icon Block-->
-
-          <!--Icon Block-->
-          <div
-            class="col-2 icon-block icon-top wow fadeInUp"
-            data-wow-delay="0.3s"
-          >
-            <!--Icon Block Description-->
-            <div class="icon-block-description">
-              <h4>Easy to Use</h4>
-              <p>
-                Cu vero ipsum vim, doctus facilisi sea in. Eam ex falli
-                honestatis repudiandae, sit detracto mediocrem disputationi
-              </p>
-            </div>
-          </div>
-          <!--End of Icon Block-->
-
-          <!--Icon Block-->
-          <div
-            class="col-2 icon-block icon-top wow fadeInUp"
-            data-wow-delay="0.5s"
-          >
-            <!--Icon Block Description-->
-            <div class="icon-block-description">
-              <h4>Fully Responsive</h4>
-              <p>
-                Id porro tritani recusabo usu, eum intellegam consequuntur et.
-                Fugit debet ea sit, an pro nemore vivendum
-              </p>
-            </div>
-          </div>
-          <!--End of Icon Block-->
-
-          <!--Icon Block-->
-          <div
-            class="col-2 icon-block icon-top wow fadeInUp"
-            data-wow-delay="0.5s"
-          >
-            <!--Icon Block Description-->
-            <div class="icon-block-description">
-              <h4>Parallax Effect</h4>
-              <p>
-                Id porro tritani recusabo usu, eum intellegam consequuntur et.
-                Fugit debet ea sit, an pro nemore vivendum
-              </p>
-            </div>
-          </div>
-          <!--End of Icon Block-->
+        <div class="col-3">
+          <img src="/images/dancer.jpg" alt="Dancer" />
         </div>
       </div>
-    </section>
-    <!--End of Projects-->
+    </div>
+    <!--End of Introduce Page-->
 
     <!--Blog-->
     <section id="clients" class="scrollto clearfix">
@@ -104,56 +70,56 @@
         <div class="col-2-3">
           <a href="#" class="col-3">
             <img
-              src="../../public/images/company-images/company-logo1.png"
+              src="/images/company-images/company-logo1.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Tree</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="../../public/images/company-images/company-logo2.png"
+              src="/images/company-images/company-logo2.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Fingerprint</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="../../public/images/company-images/company-logo3.png"
+              src="/images/company-images/company-logo3.png"
               alt="Company"
             />
             <div class="client-overlay"><span>The Man</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="../../public/images/company-images/company-logo4.png"
+              src="/images/company-images/company-logo4.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Mustache</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="../../public/images/company-images/company-logo5.png"
+              src="/images/company-images/company-logo5.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Goat</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="../../public/images/company-images/company-logo6.png"
+              src="/images/company-images/company-logo6.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Justice</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="../../public/images/company-images/company-logo7.png"
+              src="/images/company-images/company-logo7.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Ball</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="../../public/images/company-images/company-logo8.png"
+              src="/images/company-images/company-logo8.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Cold</span></div>
@@ -161,7 +127,7 @@
 
           <a href="#" class="col-3">
             <img
-              src="../../public/images/company-images/company-logo9.png"
+              src="/images/company-images/company-logo9.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Cold</span></div>
@@ -195,5 +161,9 @@ p {
 
 .theme-default-content h3 {
   padding-top: unset;
+}
+
+blockquote {
+  border-inline-start: unset;
 }
 </style>

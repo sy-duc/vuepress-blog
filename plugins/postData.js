@@ -1,6 +1,6 @@
 /**
  * Duyệt qua tất cả các bài viết để lấy thông tin cần thiết
- * và lưu vào file posts.js trong thư mục temp
+ * và lưu vào file blogPosts.js trong thư mục temp
  */
 export default (options, app) => ({
   name: "post-data-plugin",
@@ -9,7 +9,7 @@ export default (options, app) => ({
     const grouped = {};
     // Lọc danh sách các trang (pages) có trong VuePress
     app.pages
-      .filter((page) => page.path.startsWith("/posts/")) // Chỉ lấy bài viết trong thư mục /posts/
+      .filter((page) => page.path.startsWith("/blog-posts/")) // Chỉ lấy bài viết trong thư mục /blog-posts/
       .forEach(({ title, frontmatter, path }) => {
         const category = frontmatter.category || "Uncategorized";
         const post = {
@@ -24,7 +24,7 @@ export default (options, app) => ({
         }
         grouped[category].push(post);
       });
-    
+
     // Sắp xếp bài viết trong từng category theo ngày từ mới đến cũ
     Object.keys(grouped).forEach((category) => {
       grouped[category].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -36,8 +36,12 @@ export default (options, app) => ({
       posts: grouped[category],
     }));
 
-    // Ghi danh sách bài viết vào file tạm @temp/posts.js
-    const content = `export const categorizedPosts = ${JSON.stringify(posts, null, 2)}`;
-    await app.writeTemp("posts.js", content);
+    // Ghi danh sách bài viết vào file tạm @temp/blogPosts.js
+    const content = `export const categorizedBlogPosts = ${JSON.stringify(
+      posts,
+      null,
+      2
+    )}`;
+    await app.writeTemp("blogPosts.js", content);
   },
 });

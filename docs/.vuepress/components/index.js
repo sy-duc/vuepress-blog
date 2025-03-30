@@ -9,6 +9,7 @@ import Banner from './home-page/Banner.vue'
 import PostCard from './card/PostCard.vue'
 import NewPostGallery from './blog-page/NewPostGallery.vue'
 import Profile from './about-page/Profile.vue'
+import ProjectCard from './card/ProjectCard.vue'
 
 export {
   BlogPage,
@@ -19,4 +20,5 @@ export {
   PostCard,
   NewPostGallery,
   Profile,
+  ProjectCard,
 }

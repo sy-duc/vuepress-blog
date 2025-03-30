@@ -5,7 +5,7 @@
 
   <!--List Posts-->
   <aside
-    v-for="(categorizedPost, index) in categorizedPosts"
+    v-for="(categorizedPost, index) in categorizedBlogPosts"
     :key="categorizedPost.category"
     id="testimonials"
     class="scrollto text-center"
@@ -31,10 +31,10 @@
 </template>
 
 <script setup>
-import { categorizedPosts } from '@temp/posts.js'
+import { categorizedBlogPosts } from '@temp/blogPosts.js'
 import { useRoute } from "vue-router";
 import { getLangFromPath } from "../../utils/helpers";
-import { LANGUAGE } from "../../utils/constants.js";
+import { LANGUAGE } from "../../utils/constants";
 
 const route = useRoute();
 
@@ -42,10 +42,10 @@ const route = useRoute();
 const currentLang = getLangFromPath(route.path);
 
 const messages = {
-  "en-US": {
+  [LANGUAGE.EN]: {
     title: "POSTS BY CATEGORY",
   },
-  "vi-VN": {
+  [LANGUAGE.VI]: {
     title: "BÀI VIẾT THEO DANH MỤC",
   },
 };

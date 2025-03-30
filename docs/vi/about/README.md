@@ -2,6 +2,6 @@
 title: Về tôi
 ---
 
-# Về tôi
+# Về Tôi
 
 <AboutPage />

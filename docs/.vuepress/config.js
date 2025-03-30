@@ -1,7 +1,8 @@
 import { viteBundler } from "@vuepress/bundler-vite";
 import { defaultTheme } from "@vuepress/theme-default";
 import { defineUserConfig } from "vuepress";
-import postDataPlugin from '../../plugins/postData.js';
+import blogPostDataPlugin from '../../plugins/postData.js';
+import projectPostDataPlugin from '../../plugins/projectData.js';
 
 const scriptFiles = [
   "jquery.1.8.3.min.js",
@@ -32,7 +33,7 @@ export default defineUserConfig({
     "link",
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext",
+        href: "https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,500,600,700&subset=latin,latin-ext",
       },
     ],
     [
@@ -42,20 +43,16 @@ export default defineUserConfig({
         href: "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
       },
     ],
-    // [
-    //   "link",
-    //   {
-    //     rel: "stylesheet",
-    //     href: "https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css",
-    //   },
-    // ],
     // ...scriptFiles.map(file => [
     //   "script",
     //   { src: `/js/${file}`, defer: true }
     // ])
   ],
   bundler: viteBundler(),
-  plugins: [postDataPlugin()],
+  plugins: [
+    blogPostDataPlugin(),
+    projectPostDataPlugin(),
+  ],
   locales: {
     "/": {
       lang: "en-US",
@@ -94,5 +91,7 @@ export default defineUserConfig({
         sidebar: 'false',
       },
     },
+    lastUpdated: false, // Tắt "Last Updated"
+    contributors: false, // Tắt "Contributors"
   }),
 });

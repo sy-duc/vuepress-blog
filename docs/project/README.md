@@ -2,6 +2,6 @@
 title: Project
 ---
 
-# Project
+# My Projects
 
 <ProjectPage />
