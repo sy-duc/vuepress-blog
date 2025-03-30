@@ -7,6 +7,3 @@ docs/.vuepress/.cache/
 
 # Ignore build output của VuePress
 docs/.vuepress/dist/
-
-# Ignore lock files của package manager
-package-lock.json
