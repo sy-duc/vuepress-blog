@@ -20,16 +20,16 @@
           <div class="social-icons">
             <ul>
               <li>
-                <a href=""><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
               </li>
               <li>
-                <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href=""><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
               </li>
               <li>
-                <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href=""><i class="fa-brands fa-twitch" aria-hidden="true"></i></a>
               </li>
               <li>
-                <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href=""><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
               </li>
             </ul>
           </div>

@@ -1,5 +1,5 @@
 ---
-title: Về tôi
+title: Về Tôi
 ---
 
 # Về Tôi

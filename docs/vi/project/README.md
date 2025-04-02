@@ -1,5 +1,5 @@
 ---
-title: Dự án
+title: Dự Án
 ---
 
 # Dự Án Cá Nhân

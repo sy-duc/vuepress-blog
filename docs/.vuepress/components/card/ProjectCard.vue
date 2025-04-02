@@ -24,8 +24,12 @@
         v-for="(technology, index) in technologies"
         :key="index"
         class="col-2 icon-block icon-top wow fadeInUp"
+        :style="index < 2 ? 'padding-top: 0' : ''"
         data-wow-delay="0.1s"
       >
+        <div class="icon">
+          <i :class="[technology.icon, 'fa-2x']"></i>
+        </div>
         <div class="icon-block-description">
           <h4>{{ technology.name }}</h4>
           <p>{{ technology.description }}</p>
@@ -94,6 +98,10 @@ const messages = {
   margin-top: unset;
 }
 
+.theme-default-content h4:first-child {
+  margin-bottom: 0;
+}
+
 .section-subtitle {
   font-size: 20px;
   font-weight: 300;
@@ -110,5 +118,9 @@ const messages = {
 
 a[target="_blank"]::after {
   content: none !important;
+}
+
+.icon-block-description h4 {
+  margin-top: unset !important;
 }
 </style>
