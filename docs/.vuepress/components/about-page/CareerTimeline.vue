@@ -5,6 +5,7 @@
         <div class="d-flex">
           <h3 class="resume-position-title">
             {{ item.organization }}
+            <span>{{ `(${item.role})` }}</span>
           </h3>
           <div class="resume-company-name ml-auto">
             {{ item.role }}
@@ -35,7 +36,7 @@ const timelineItems = [
     period: '08/2015 - 06/2020',
     organization: 'Đại học Bách Khoa',
     role: 'Sinh Viên',
-    summary: 'Sinh viên chuyên ngành Cơ khí Chế tạo máy',
+    summary: 'Sinh viên chuyên ngành Kỹ sư Cơ khí Chế tạo máy',
     details: [
       { action: 'Học tập và nghiên cứu', reference: "https://google.com"},
       { action: 'Tham gia các hoạt động ngoại khóa', reference: ""},
@@ -44,9 +45,9 @@ const timelineItems = [
   },
   {
     period: '06/2020 - 12/2020',
-    organization: 'LILAMA 10',
+    organization: 'Công ty Cổ phần LILAMA 10',
     role: 'Kỹ Sư',
-    summary: 'Sinh viên chuyên ngành Cơ khí Chế tạo máy',
+    summary: 'Sinh viên chuyên ngành Kỹ sư Cơ khí Chế tạo máy',
     details: [
       { action: 'Học tập và nghiên cứu', reference: ""},
       { action: 'Tham gia các hoạt động ngoại khóa', reference: ""},
@@ -55,22 +56,22 @@ const timelineItems = [
   },
   {
     period: '12/2020 - 12/2021',
-    organization: 'Luvina Acacdemy',
+    organization: 'Luvina Academy',
     role: 'Học Viên',
-    summary: 'Sinh viên chuyên ngành Cơ khí Chế tạo máy',
+    summary: 'Tham gia khóa học lập trình viên cho người trái ngành',
     details: [
-      { action: 'Học tập và nghiên cứu', reference: ""},
-      { action: 'Tham gia các hoạt động ngoại khóa', reference: ""},
-      { action: 'Kết quả học tập: 3.2/4.0', reference: ""},
+      { action: 'Java Core, HTML & CSS, ', reference: ""},
+      { action: 'Thực hành với Dự án JSP/Servlet: Quản lý nhân viên', reference: ""},
+      { action: 'Thủ khoa khóa học với kết quả: 9.2/10.0', reference: ""},
     ],
   },
   {
     period: '12/2021 - hiện tại',
-    organization: 'Luvina Software',
+    organization: 'Công ty Cổ phần Phần mềm Luvina Software',
     role: 'Kỹ Sư Phần Mềm',
-    summary: 'Sinh viên chuyên ngành Cơ khí Chế tạo máy',
+    summary: 'Nhân viên chính thức tại Luvina Software',
     details: [
-      { action: 'Học tập và nghiên cứu', reference: ""},
+      { action: 'Tham gia phát triển dự án cho khách hàng Nhật Bản', reference: ""},
       { action: 'Tham gia các hoạt động ngoại khóa', reference: ""},
       { action: 'Kết quả học tập: 3.2/4.0', reference: ""},
     ],
@@ -90,6 +91,10 @@ const timelineItems = [
 
 .pb-3 {
   padding-bottom: 3rem;
+}
+
+.resume-timeline-item-desc p {
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .resume-timeline-item-desc ul {
@@ -138,6 +143,12 @@ const timelineItems = [
 .resume-position-title {
   font-size: 1.125rem;
   color: #434e5e;
+}
+
+.resume-position-title span {
+  color: #58677c;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .resume-company-name {

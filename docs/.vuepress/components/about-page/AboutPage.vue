@@ -4,32 +4,41 @@
       <div class="left-content p-30">
         <div class="logo">
           <a href="index.html">
-            <span>My</span>
-            <span>Resume</span>
+            <span>{{ messages[currentLang].title.line1 }}</span>
+            <span>{{ messages[currentLang].title.line2 }}</span>
           </a>
         </div>
         <div class="nav">
           <ul>
-            <li><a>Profile</a></li>
-            <li><a>Career Timeline</a></li> <!-- Hành trình phát triển -->
-            <li><a>Project Experience</a></li> <!-- Kinh nghiệm dự án -->
-            <li><a>Skills</a></li>
+            <li v-for="item in messages[currentLang].navItems" :key="item.key" @click="selected = item.key">
+              <a :class="[selected === item.key ? 'nav-active' : '']">
+                {{ item.label }}
+              </a>
+            </li>
           </ul>
         </div>
         <div class="left-footer">
           <div class="social-icons">
             <ul>
               <li>
-                <a href=""><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                <a href=""
+                  ><i class="fa-brands fa-linkedin" aria-hidden="true"></i
+                ></a>
               </li>
               <li>
-                <a href=""><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                <a href=""
+                  ><i class="fa-brands fa-facebook" aria-hidden="true"></i
+                ></a>
               </li>
               <li>
-                <a href=""><i class="fa-brands fa-twitch" aria-hidden="true"></i></a>
+                <a href=""
+                  ><i class="fa-brands fa-twitch" aria-hidden="true"></i
+                ></a>
               </li>
               <li>
-                <a href=""><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                <a href=""
+                  ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+                ></a>
               </li>
             </ul>
           </div>
@@ -46,26 +55,81 @@
         <!-- Title -->
         <div class="p-30" id="Home">
           <div class="sec-title">
-            <div class="pg-sub-title">Profile</div>
-            <div class="pg-title">Personal Information</div>
+            <div class="pg-sub-title">{{ currentItemActive.label }}</div>
+            <div class="pg-title">{{ currentItemActive.description }}</div>
           </div>
         </div>
-        <!-- Thông tin cá nhân -->
-        <!-- <Profile /> -->
-        <!-- Hành trình phát triển -->
-        <CareerTimeline />
-        <!-- Kinh nghiệm dự án -->
-        <!-- <ProjectExperience /> -->
+        <component :is="getComponent(selected)" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import Profile from './Profile.vue';
-import CareerTimeline from './CareerTimeline.vue';
-import ProjectExperience from './ProjectExperience.vue';
+import { useRoute } from "vue-router";
+import { ref, computed  } from "vue";
+import { getLangFromPath } from "../../utils/helpers";
+import { LANGUAGE } from "../../utils/constants";
+import Profile from "./Profile.vue";
+import CareerTimeline from "./CareerTimeline.vue";
+import ProjectExperience from "./ProjectExperience.vue";
+import Skills from "./Skills.vue";
 
+const NAV = {
+  PROFILE: "profile",
+  CAREER_TIMELINE: "careerTimeline",
+  PROJECT_EXPERIENCE: "projectExperience",
+  SKILLS: "skills",
+};
+
+const route = useRoute();
+
+const messages = {
+  [LANGUAGE.EN]: {
+    title: { line1: "My", line2: "Resume" },
+    navItems: [
+      { key: NAV.PROFILE, label: "Profile", description: "Personal Information" },
+      { key: NAV.CAREER_TIMELINE, label: "Career Timeline", description: "Education & Work Journey" },
+      { key: NAV.PROJECT_EXPERIENCE, label: "Project Experience", description: "Highlighted Projects & Contributions" },
+      { key: NAV.SKILLS, label: "Skills", description: "Technical Skills & Toolset" },
+    ],
+  },
+  [LANGUAGE.VI]: {
+    title: { line1: "CV", line2: "Của Tôi" },
+    navItems: [
+      { key: NAV.PROFILE, label: "Giới Thiệu", description: "Thông Tin Cá Nhân" },
+      { key: NAV.CAREER_TIMELINE, label: "Quá Trình Phát Triển", description: "Quá Trình Học Tập & Làm Việc" },
+      { key: NAV.PROJECT_EXPERIENCE, label: "Kinh Nghiệm Dự Án", description: "Các Dự Án Tiêu Biểu Đã Tham Gia" },
+      { key: NAV.SKILLS, label: "Kỹ Năng", description: "Kỹ Năng Chuyên Môn & Công Cụ" },
+    ],
+  },
+};
+
+// Mặc định chọn Profile
+const selected = ref(NAV.PROFILE);
+
+const currentItemActive = computed(() => {
+  return messages[currentLang].navItems.find(item => item.key === selected.value);
+})
+
+// Xác định ngôn ngữ hiện tại dựa vào đường dẫn
+const currentLang = getLangFromPath(route.path);
+
+// Trả về component tương ứng
+const getComponent = (key) => {
+  switch (key) {
+    case NAV.PROFILE:
+      return Profile;
+    case NAV.CAREER_TIMELINE:
+      return CareerTimeline;
+    case NAV.PROJECT_EXPERIENCE:
+      return ProjectExperience;
+    case NAV.SKILLS:
+      return Skills;
+    default:
+      return Profile;
+  }
+};
 </script>
 
 <style scoped>
@@ -140,13 +204,13 @@ import ProjectExperience from './ProjectExperience.vue';
 }
 
 .nav ul li a:hover {
-  color: #000;
+  color: var(--vp-c-accent);
 }
 .nav ul li a:after {
   content: "";
   width: 0;
   height: 1px;
-  background: #000;
+  background: var(--vp-c-accent);
   position: absolute;
   bottom: 5px;
   left: 0;
@@ -238,5 +302,13 @@ import ProjectExperience from './ProjectExperience.vue';
   letter-spacing: 5px;
   line-height: 1.8;
   color: #000;
+}
+
+.nav li:hover {
+  cursor: pointer;
+}
+
+.nav .nav-active {
+  color: var(--vp-c-accent) !important;
 }
 </style>

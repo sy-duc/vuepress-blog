@@ -1,5 +1,5 @@
 <template>
-  <h1>Project Experience</h1>
+  <h1>Skills</h1>
 </template>
 
 <script setup>
