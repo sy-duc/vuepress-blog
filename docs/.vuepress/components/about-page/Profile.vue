@@ -1,60 +1,62 @@
 <template>
-  <div class="section1 p-30" id="Home">
-    <div class="sec-title">
-      <div class="pg-sub-title">Profile</div>
-      <div class="pg-title">Personal Information</div>
+  <div class="d-flex-align-center">
+    <div class="user-img flex-1">
+      <img src="https://colorlib.com/preview/theme/meetme/img/personal.jpg" />
     </div>
-    <div class="d-flex-align-center">
-      <div class="user-img flex-1">
-        <img src="https://colorlib.com/preview/theme/meetme/img/personal.jpg" />
+    <div class="user-profile flex-1">
+      <div class="pro-details">
+        <div class="sm-text">HELLO EVERYBODY, I AM</div>
+        <div class="name">Duc Ho Sy</div>
+        <div class="role">Web Developer</div>
       </div>
-      <div class="user-profile flex-1">
-        <div class="pro-details">
-          <div class="sm-text">HELLO EVERYBODY, I AM</div>
-          <div class="name">Duc Ho Sy</div>
-          <div class="role">Web Developer</div>
-        </div>
-        <div class="text">
-          You will begin to realise why this exercise is called the Dickens
-          Pattern (with reference to the ghost showing Scrooge some different
-          futures)
-        </div>
-        <div class="pr-list">
-          <ul>
-            <li>
-              <i class="fa fa-calendar" aria-hidden="true"></i>
-              06th Jan, 1997
-            </li>
-            <li>
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              +84 989944664
-            </li>
-            <li>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              duc.hosy97@gmail.com
-            </li>
-            <li>
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              Hanoi, Vietnam
-            </li>
-          </ul>
-        </div>
-        <div class="social-icons-head">
-          <ul>
-            <li>
-              <a href=""><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa-brands fa-twitch" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-            </li>
-          </ul>
-        </div>
+      <div class="text">
+        You will begin to realise why this exercise is called the Dickens
+        Pattern (with reference to the ghost showing Scrooge some different
+        futures)
+      </div>
+      <div class="pr-list">
+        <ul>
+          <li>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            06th Jan, 1997
+          </li>
+          <li>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            +84 989944664
+          </li>
+          <li>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            duc.hosy97@gmail.com
+          </li>
+          <li>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            Hanoi, Vietnam
+          </li>
+        </ul>
+      </div>
+      <div class="social-icons-head">
+        <ul>
+          <li>
+            <a href=""
+              ><i class="fa-brands fa-linkedin" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li>
+            <a href=""
+              ><i class="fa-brands fa-facebook" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li>
+            <a href=""
+              ><i class="fa-brands fa-twitch" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li>
+            <a href=""
+              ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+            ></a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -94,7 +96,8 @@
   color: #222222;
 }
 
-ul, .text {
+ul,
+.text {
   font-size: 17px;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -128,27 +131,5 @@ ul, .text {
 .social-icons-head ul li a:hover {
   color: #000;
   transform: scale(1.2) translateY(-5px);
-}
-.sec-title {
-  margin-bottom: 50px;
-}
-
-.pg-title {
-  font-size: 18px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  line-height: 1.8;
-  color: #000;
-}
-
-.pg-sub-title {
-  margin-bottom: 10px;
-  display: block;
-  font-size: 10px;
-  text-transform: uppercase;
-  color: #999999;
-  font-weight: 500;
-  letter-spacing: 5px;
 }
 </style>

@@ -11,8 +11,8 @@
         <div class="nav">
           <ul>
             <li><a>Profile</a></li>
-            <li><a>Education</a></li>
-            <li><a>Career Experience</a></li>
+            <li><a>Career Timeline</a></li> <!-- Hành trình phát triển -->
+            <li><a>Project Experience</a></li> <!-- Kinh nghiệm dự án -->
             <li><a>Skills</a></li>
           </ul>
         </div>
@@ -43,14 +43,30 @@
       </div>
 
       <div class="main-content">
-        <!--Thông tin cá nhân-->
-        <Profile />
+        <!-- Title -->
+        <div class="p-30" id="Home">
+          <div class="sec-title">
+            <div class="pg-sub-title">Profile</div>
+            <div class="pg-title">Personal Information</div>
+          </div>
+        </div>
+        <!-- Thông tin cá nhân -->
+        <!-- <Profile /> -->
+        <!-- Hành trình phát triển -->
+        <CareerTimeline />
+        <!-- Kinh nghiệm dự án -->
+        <!-- <ProjectExperience /> -->
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Profile from './Profile.vue';
+import CareerTimeline from './CareerTimeline.vue';
+import ProjectExperience from './ProjectExperience.vue';
+
+</script>
 
 <style scoped>
 .wraper {
@@ -76,7 +92,7 @@
 
 .main-content {
   flex: 1;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   margin-left: 10px;
   background: #fff;
   /* border-left: 1px solid rgba(221, 221, 221, 0.38); */
@@ -199,5 +215,28 @@
 .social-icons ul li a:hover {
   color: #000;
   transform: scale(1.2) translateY(-5px);
+}
+
+.sec-title {
+  margin-bottom: 50px;
+}
+
+.pg-sub-title {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #999999;
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+
+.pg-title {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 1.8;
+  color: #000;
 }
 </style>

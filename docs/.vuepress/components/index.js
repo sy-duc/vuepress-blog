@@ -8,7 +8,6 @@ import AboutPage from './about-page/AboutPage.vue'
 import Banner from './home-page/Banner.vue'
 import PostCard from './card/PostCard.vue'
 import NewPostGallery from './blog-page/NewPostGallery.vue'
-import Profile from './about-page/Profile.vue'
 import ProjectCard from './card/ProjectCard.vue'
 
 export {
@@ -19,6 +18,5 @@ export {
   Banner,
   PostCard,
   NewPostGallery,
-  Profile,
   ProjectCard,
 }

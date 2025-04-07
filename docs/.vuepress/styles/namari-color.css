@@ -170,7 +170,7 @@ body {
   /* font-family: 'Open Sans', sans-serif, Arial, Helvetica; */
   font-size: 18px;
   font-weight: 300;
-  color: #9c9c9c;
+  color: var(--vp-c-text-gray);
 }
 
 /* Testimonial */
