@@ -35,6 +35,8 @@ import { categorizedBlogPosts } from '@temp/blogPosts.js'
 import { useRoute } from "vue-router";
 import { getLangFromPath } from "../../utils/helpers";
 import { LANGUAGE } from "../../utils/constants";
+import PostCard from "../card/PostCard.vue";
+import NewPostGallery from "./NewPostGallery.vue";
 
 const route = useRoute();
 

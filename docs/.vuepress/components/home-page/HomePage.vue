@@ -139,7 +139,9 @@
   </main>
 </template>
 
-<script></script>
+<script setup>
+import Banner from "./Banner.vue";
+</script>
 
 <style scoped>
 h2 {

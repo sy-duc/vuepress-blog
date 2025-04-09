@@ -15,7 +15,8 @@
 </template>
 
 <script setup>
-import { projectPosts } from '@temp/projectPosts.js'
+import { projectPosts } from '@temp/projectPosts.js';
+import ProjectCard from "../card/ProjectCard.vue";
 </script>
 
 <style scoped></style>

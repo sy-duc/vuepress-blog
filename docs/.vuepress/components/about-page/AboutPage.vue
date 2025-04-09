@@ -21,24 +21,24 @@
           <div class="social-icons">
             <ul>
               <li>
-                <a href=""
-                  ><i class="fa-brands fa-linkedin" aria-hidden="true"></i
-                ></a>
+                <a href="">
+                  <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                </a>
               </li>
               <li>
-                <a href=""
-                  ><i class="fa-brands fa-facebook" aria-hidden="true"></i
-                ></a>
+                <a href="">
+                  <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
               </li>
               <li>
-                <a href=""
-                  ><i class="fa-brands fa-twitch" aria-hidden="true"></i
-                ></a>
+                <a href="">
+                  <i class="fa-brands fa-twitch" aria-hidden="true"></i>
+                </a>
               </li>
               <li>
-                <a href=""
-                  ><i class="fa-brands fa-instagram" aria-hidden="true"></i
-                ></a>
+                <a href="">
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
               </li>
             </ul>
           </div>
@@ -69,18 +69,11 @@
 import { useRoute } from "vue-router";
 import { ref, computed  } from "vue";
 import { getLangFromPath } from "../../utils/helpers";
-import { LANGUAGE } from "../../utils/constants";
+import { LANGUAGE, NAV } from "../../utils/constants";
 import Profile from "./Profile.vue";
 import CareerTimeline from "./CareerTimeline.vue";
 import ProjectExperience from "./ProjectExperience.vue";
 import Skills from "./Skills.vue";
-
-const NAV = {
-  PROFILE: "profile",
-  CAREER_TIMELINE: "careerTimeline",
-  PROJECT_EXPERIENCE: "projectExperience",
-  SKILLS: "skills",
-};
 
 const route = useRoute();
 
