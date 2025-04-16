@@ -33,42 +33,42 @@
         <div v-else id="clients">
           <a href="#" class="col-3">
             <img
-              src="/images/company-images/company-logo1.png"
+              src="/images/skills/python.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Tree</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="/images/company-images/company-logo2.png"
+              src="/images/skills/python.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Fingerprint</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="/images/company-images/company-logo2.png"
+              src="/images/skills/python.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Fingerprint</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="/images/company-images/company-logo1.png"
+              src="/images/skills/python.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Tree</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="/images/company-images/company-logo2.png"
+              src="/images/skills/python.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Fingerprint</span></div>
           </a>
           <a href="#" class="col-3">
             <img
-              src="/images/company-images/company-logo2.png"
+              src="/images/skills/python.png"
               alt="Company"
             />
             <div class="client-overlay"><span>Fingerprint</span></div>
