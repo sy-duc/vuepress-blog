@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex-align-center">
     <div class="user-img flex-1">
-      <img src="https://colorlib.com/preview/theme/meetme/img/personal.jpg" />
+      <img src="/images/avatar.png" />
     </div>
     <div class="user-profile flex-1">
       <div class="pro-details">
@@ -37,23 +37,23 @@
       <div class="social-icons-head">
         <ul>
           <li>
-            <a href="">
+            <a href="https://www.linkedin.com/in/duc-hosy" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://www.facebook.com/syducchelsea" target="_blank" rel="noopener noreferrer">
               <i class="fa-brands fa-facebook" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="fa-brands fa-twitch" aria-hidden="true"></i>
+            <a href="mailto:duc.hosy97@gmail.com">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            <a href="https://github.com/sy-duc" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
             </a>
           </li>
         </ul>

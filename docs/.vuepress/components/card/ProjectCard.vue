@@ -116,10 +116,6 @@ const messages = {
   padding: 50px 0;
 }
 
-a[target="_blank"]::after {
-  content: none !important;
-}
-
 .icon-block-description h4 {
   margin-top: unset !important;
 }

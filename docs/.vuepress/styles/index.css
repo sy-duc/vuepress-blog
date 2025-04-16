@@ -36,6 +36,10 @@ a {
   text-decoration: none !important;
 }
 
+a[target="_blank"]::after {
+  content: none !important;
+}
+
 .vp-back-to-top-button svg,
 .back-to-top-icon {
   color: var(--vp-c-accent);
