@@ -1,0 +1,20 @@
+---
+title: "Building A FastAPI Base Project Framework"
+summary: "With the aim of building a FastAPI base project framework ready for enterprise use while also helping those interested in learning FastAPI understand how to implement theoretical knowledge in real-world projects."
+technologies:
+  - name: "Python"
+    description: "The primary language used to build the entire FastAPI application."
+    icon: "fa-brands fa-python"
+  - name: "SQLModel (ORM)"
+    description: "An ORM that combines Pydantic and SQLAlchemy to define a single schema for both the database and the API."
+    icon: "fas fa-database"
+  - name: "PostgreSQL"
+    description: "A relational database management system used to store and query data."
+    icon: "fas fa-server"
+  - name: "JWT (JSON Web Token)"
+    description: "A mechanism for user authentication using tokens in requests after login."
+    icon: "fas fa-key"
+image: "/vuepress-blog/images/projects/fastapi.png"
+link: "https://github.com/sy-duc/training-fastapi"
+date: "2024-11-30"
+---

@@ -6,52 +6,76 @@
     data-featherlight-filter="a"
   >
     <a
-      href="/images/gallery-images/gallery-image-1.jpg"
+      href="#"
+      onclick="event.preventDefault()"
       data-featherlight="image"
       class="col-3 wow fadeIn"
       data-wow-delay="0.1s"
     >
-      <img src="/images/gallery-images/gallery-image-1.jpg" alt="Landing Page"/>
+      <img
+        src="/images/gallery-images/gallery-image-1.jpg"
+        alt="Landing Page"
+      />
     </a>
     <a
-      href="/images/gallery-images/gallery-image-2.jpg"
+      href="#"
+      onclick="event.preventDefault()"
       data-featherlight="image"
       class="col-3 wow fadeIn"
       data-wow-delay="0.3s"
     >
-      <img src="/images/gallery-images/gallery-image-2.jpg" alt="Landing Page"/>
+      <img
+        src="/images/gallery-images/gallery-image-2.jpg"
+        alt="Landing Page"
+      />
     </a>
     <a
-      href="/images/gallery-images/gallery-image-3.jpg"
+      href="#"
+      onclick="event.preventDefault()"
       data-featherlight="image"
       class="col-3 wow fadeIn"
       data-wow-delay="0.5s"
     >
-      <img src="/images/gallery-images/gallery-image-3.jpg" alt="Landing Page"/>
+      <img
+        src="/images/gallery-images/gallery-image-3.jpg"
+        alt="Landing Page"
+      />
     </a>
     <a
-      href="/images/gallery-images/gallery-image-4.jpg"
+      href="#"
+      onclick="event.preventDefault()"
       data-featherlight="image"
       class="col-3 wow fadeIn"
       data-wow-delay="1.1s"
     >
-      <img src="/images/gallery-images/gallery-image-4.jpg" alt="Landing Page"/>
+      <img
+        src="/images/gallery-images/gallery-image-4.jpg"
+        alt="Landing Page"
+      />
     </a>
     <a
-      href="/images/gallery-images/gallery-image-5.jpg"
+      href="#"
+      onclick="event.preventDefault()"
       data-featherlight="image"
       class="col-3 wow fadeIn"
       data-wow-delay="0.9s"
     >
-      <img src="/images/gallery-images/gallery-image-5.jpg" alt="Landing Page"/>
+      <img
+        src="/images/gallery-images/gallery-image-5.jpg"
+        alt="Landing Page"
+      />
     </a>
     <a
-      href="/images/gallery-images/gallery-image-6.jpg"
+      href="#"
+      onclick="event.preventDefault()"
       data-featherlight="image"
       class="col-3 wow fadeIn"
       data-wow-delay="0.7s"
     >
-      <img src="/images/gallery-images/gallery-image-6.jpg" alt="Landing Page"/>
+      <img
+        src="/images/gallery-images/gallery-image-6.jpg"
+        alt="Landing Page"
+      />
     </a>
   </aside>
 </template>
