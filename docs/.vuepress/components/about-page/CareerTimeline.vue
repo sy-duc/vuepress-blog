@@ -86,7 +86,7 @@ const timelineVNItems = [
       },
       { action: "Hạng tốt nghiệp: Khá" },
     ],
-    image: "/vuepress-blog/images/about/dhbkhn.png",
+    image: "/vuepress-blog/images/about/dhbkhn.jpg",
   },
   {
     period: "06/2020 - 12/2020",
