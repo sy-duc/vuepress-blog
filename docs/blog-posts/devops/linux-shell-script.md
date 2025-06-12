@@ -2,7 +2,7 @@
 title: Linux - Shell Script
 summary: "Shell Script giúp bạn tự động hóa các thao tác trên Linux thay vì nhập từng lệnh thủ công."
 date: "2025-06-09"
-image: "/vuepress-blog/images/user-images/user-3.jpg"
+image: "/vuepress-blog/images/skills/linux.png"
 category: "DEVOPS"
 ---
 

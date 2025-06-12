@@ -25,4 +25,8 @@ blockquote {
 img {
   cursor: pointer;
 }
+
+q {
+  min-height: 68px;
+}
 </style>
