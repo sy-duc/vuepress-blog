@@ -10,7 +10,11 @@
         </div>
         <div class="nav">
           <ul>
-            <li v-for="item in messages[currentLang].navItems" :key="item.key" @click="selected = item.key">
+            <li
+              v-for="item in messages[currentLang].navItems"
+              :key="item.key"
+              @click="selected = item.key"
+            >
               <a :class="[selected === item.key ? 'nav-active' : '']">
                 {{ item.label }}
               </a>
@@ -21,12 +25,20 @@
           <div class="social-icons">
             <ul>
               <li>
-                <a href="https://www.linkedin.com/in/duc-hosy" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/duc-hosy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
                 </a>
               </li>
               <li>
-                <a href="https://www.facebook.com/syducchelsea" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.facebook.com/syducchelsea"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i class="fa-brands fa-facebook" aria-hidden="true"></i>
                 </a>
               </li>
@@ -36,7 +48,11 @@
                 </a>
               </li>
               <li>
-                <a href="https://github.com/sy-duc" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/sy-duc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i class="fa-brands fa-github" aria-hidden="true"></i>
                 </a>
               </li>
@@ -67,7 +83,7 @@
 
 <script setup>
 import { useRoute } from "vue-router";
-import { ref, computed  } from "vue";
+import { ref, computed } from "vue";
 import { getLangFromPath } from "../../utils/helpers";
 import { LANGUAGE, NAV } from "../../utils/constants";
 import Profile from "./Profile.vue";
@@ -81,19 +97,51 @@ const messages = {
   [LANGUAGE.EN]: {
     title: { line1: "My", line2: "Resume" },
     navItems: [
-      { key: NAV.PROFILE, label: "Profile", description: "Personal Information" },
-      { key: NAV.CAREER_TIMELINE, label: "Career Timeline", description: "Education & Work Journey" },
-      { key: NAV.PROJECT_EXPERIENCE, label: "Project Experience", description: "Highlighted Projects & Contributions" },
-      { key: NAV.SKILLS, label: "Skills", description: "Technical Skills & Toolset" },
+      {
+        key: NAV.PROFILE,
+        label: "Profile",
+        description: "Personal Information",
+      },
+      {
+        key: NAV.CAREER_TIMELINE,
+        label: "Career Timeline",
+        description: "Education & Work Journey",
+      },
+      {
+        key: NAV.PROJECT_EXPERIENCE,
+        label: "Project Experience",
+        description: "Highlighted Projects & Contributions",
+      },
+      {
+        key: NAV.SKILLS,
+        label: "Skills",
+        description: "Technical Skills & Toolset",
+      },
     ],
   },
   [LANGUAGE.VI]: {
     title: { line1: "CV", line2: "Của Tôi" },
     navItems: [
-      { key: NAV.PROFILE, label: "Giới Thiệu", description: "Thông Tin Cá Nhân" },
-      { key: NAV.CAREER_TIMELINE, label: "Quá Trình Phát Triển", description: "Quá Trình Học Tập & Làm Việc" },
-      { key: NAV.PROJECT_EXPERIENCE, label: "Kinh Nghiệm Dự Án", description: "Các Dự Án Tiêu Biểu Đã Tham Gia" },
-      { key: NAV.SKILLS, label: "Kỹ Năng", description: "Kỹ Năng Chuyên Môn & Công Cụ" },
+      {
+        key: NAV.PROFILE,
+        label: "Giới Thiệu",
+        description: "Thông Tin Cá Nhân",
+      },
+      {
+        key: NAV.CAREER_TIMELINE,
+        label: "Chuỗi Phát Triển",
+        description: "Quá Trình Học Tập & Làm Việc",
+      },
+      {
+        key: NAV.PROJECT_EXPERIENCE,
+        label: "Kinh Nghiệm Dự Án",
+        description: "Các Dự Án Tiêu Biểu Đã Tham Gia",
+      },
+      {
+        key: NAV.SKILLS,
+        label: "Kỹ Năng",
+        description: "Kỹ Năng Chuyên Môn & Công Cụ",
+      },
     ],
   },
 };
@@ -102,8 +150,10 @@ const messages = {
 const selected = ref(NAV.PROFILE);
 
 const currentItemActive = computed(() => {
-  return messages[currentLang].navItems.find(item => item.key === selected.value);
-})
+  return messages[currentLang].navItems.find(
+    (item) => item.key === selected.value
+  );
+});
 
 // Xác định ngôn ngữ hiện tại dựa vào đường dẫn
 const currentLang = getLangFromPath(route.path);

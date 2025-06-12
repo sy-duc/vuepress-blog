@@ -1,6 +1,10 @@
 <template>
   <div class="resume-timeline position-relative">
-    <article v-for="(item, index) in items" :key="index" class="resume-timeline-item position-relative d-flex-align-center pb-3">
+    <article
+      v-for="(item, index) in items"
+      :key="index"
+      class="resume-timeline-item position-relative d-flex-align-center pb-3"
+    >
       <div class="timeline-item__left flex-1">
         <div class="resume-timeline-item-header">
           <div class="d-flex">
@@ -28,49 +32,35 @@
 
       <div class="timeline-item__right flex-1">
         <!-- Ảnh mô tả tại từng quá trình phát triển -->
-        <img class="img-career-timeline" v-if="type === NAV.CAREER_TIMELINE" src="/images/gallery-images/gallery-image-1.jpg" />
+        <img
+          class="img-career-timeline"
+          v-if="type === NAV.CAREER_TIMELINE && item.image"
+          :src="item.image"
+        />
         <!-- Các công nghệ sử dụng trong Dự án -->
-        <div v-else id="clients">
+        <div v-else-if="type === NAV.PROJECT_EXPERIENCE" id="clients">
           <a href="#" class="col-3">
-            <img
-              src="/images/skills/python.png"
-              alt="Company"
-            />
+            <img src="/images/skills/python.png" alt="Company" />
             <div class="client-overlay"><span>Tree</span></div>
           </a>
           <a href="#" class="col-3">
-            <img
-              src="/images/skills/python.png"
-              alt="Company"
-            />
+            <img src="/images/skills/python.png" alt="Company" />
             <div class="client-overlay"><span>Fingerprint</span></div>
           </a>
           <a href="#" class="col-3">
-            <img
-              src="/images/skills/python.png"
-              alt="Company"
-            />
+            <img src="/images/skills/python.png" alt="Company" />
             <div class="client-overlay"><span>Fingerprint</span></div>
           </a>
           <a href="#" class="col-3">
-            <img
-              src="/images/skills/python.png"
-              alt="Company"
-            />
+            <img src="/images/skills/python.png" alt="Company" />
             <div class="client-overlay"><span>Tree</span></div>
           </a>
           <a href="#" class="col-3">
-            <img
-              src="/images/skills/python.png"
-              alt="Company"
-            />
+            <img src="/images/skills/python.png" alt="Company" />
             <div class="client-overlay"><span>Fingerprint</span></div>
           </a>
           <a href="#" class="col-3">
-            <img
-              src="/images/skills/python.png"
-              alt="Company"
-            />
+            <img src="/images/skills/python.png" alt="Company" />
             <div class="client-overlay"><span>Fingerprint</span></div>
           </a>
         </div>

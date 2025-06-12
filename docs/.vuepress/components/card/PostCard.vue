@@ -29,4 +29,8 @@ img {
 q {
   min-height: 68px;
 }
+
+footer :hover {
+  text-decoration: underline;
+}
 </style>

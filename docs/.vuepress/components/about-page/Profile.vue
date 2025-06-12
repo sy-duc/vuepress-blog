@@ -10,9 +10,7 @@
         <div class="role">Web Developer</div>
       </div>
       <div class="text">
-        You will begin to realise why this exercise is called the Dickens
-        Pattern (with reference to the ghost showing Scrooge some different
-        futures)
+        {{ messages[currentLang].overview }}
       </div>
       <div class="pr-list">
         <ul>
@@ -37,12 +35,20 @@
       <div class="social-icons-head">
         <ul>
           <li>
-            <a href="https://www.linkedin.com/in/duc-hosy" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/in/duc-hosy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
             </a>
           </li>
           <li>
-            <a href="https://www.facebook.com/syducchelsea" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.facebook.com/syducchelsea"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fa-brands fa-facebook" aria-hidden="true"></i>
             </a>
           </li>
@@ -52,7 +58,11 @@
             </a>
           </li>
           <li>
-            <a href="https://github.com/sy-duc" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/sy-duc"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fa-brands fa-github" aria-hidden="true"></i>
             </a>
           </li>
@@ -62,7 +72,27 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRoute } from "vue-router";
+import { getLangFromPath } from "../../utils/helpers";
+import { LANGUAGE } from "../../utils/constants";
+
+const route = useRoute();
+
+// Xác định ngôn ngữ hiện tại dựa vào đường dẫn
+const currentLang = getLangFromPath(route.path);
+
+const messages = {
+  [LANGUAGE.EN]: {
+    overview:
+      "With over 4 years of experience in software development, I have taken on various roles throughout the development lifecycle — from requirements analysis, system design, coding (both backend and frontend), testing, to maintenance. As a flexible and proactive professional, I can quickly adapt to new tasks and challenges, even in areas I haven't previously worked in.",
+  },
+  [LANGUAGE.VI]: {
+    overview:
+      "Với hơn 4 năm kinh nghiệm trong lĩnh vực phát triển phần mềm, tôi đã đảm nhiệm nhiều vai trò khác nhau trong quy trình phát triển — từ phân tích yêu cầu, thiết kế hệ thống, lập trình (cả Backend và Frontend), kiểm thử cho đến bảo trì. Là người linh hoạt và chủ động, tôi có khả năng nhanh chóng thích nghi với yêu cầu công việc, kể cả trong những lĩnh vực chưa từng tiếp cận trước đó.",
+  },
+};
+</script>
 
 <style scoped>
 .user-profile {
