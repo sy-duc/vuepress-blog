@@ -39,29 +39,15 @@
         />
         <!-- Các công nghệ sử dụng trong Dự án -->
         <div v-else-if="type === NAV.PROJECT_EXPERIENCE" id="clients">
-          <a href="#" class="col-3">
-            <img src="/images/skills/python.png" alt="Company" />
-            <div class="client-overlay"><span>Tree</span></div>
-          </a>
-          <a href="#" class="col-3">
-            <img src="/images/skills/python.png" alt="Company" />
-            <div class="client-overlay"><span>Fingerprint</span></div>
-          </a>
-          <a href="#" class="col-3">
-            <img src="/images/skills/python.png" alt="Company" />
-            <div class="client-overlay"><span>Fingerprint</span></div>
-          </a>
-          <a href="#" class="col-3">
-            <img src="/images/skills/python.png" alt="Company" />
-            <div class="client-overlay"><span>Tree</span></div>
-          </a>
-          <a href="#" class="col-3">
-            <img src="/images/skills/python.png" alt="Company" />
-            <div class="client-overlay"><span>Fingerprint</span></div>
-          </a>
-          <a href="#" class="col-3">
-            <img src="/images/skills/python.png" alt="Company" />
-            <div class="client-overlay"><span>Fingerprint</span></div>
+          <a
+            href="#"
+            onclick="event.preventDefault()"
+            class="col-3"
+            v-for="(technology, index) in item.technologies"
+            :key="index"
+          >
+            <img :src="technology.image" :alt="technology.name" />
+            <div class="client-overlay"><span>{{ technology.name }}</span></div>
           </a>
         </div>
       </div>
