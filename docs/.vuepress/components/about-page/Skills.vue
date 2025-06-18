@@ -1,7 +1,7 @@
 <template>
   <section>
     <header>
-      <h1>Experience</h1>
+      <h1>{{ messages[currentLang].experience }}</h1>
     </header>
 
     <div class="qual full-qual">
@@ -21,13 +21,13 @@
     </div>
 
     <header>
-      <h1>Expertise</h1>
+      <h1>{{ messages[currentLang].expertise.title }}</h1>
     </header>
 
     <div class="sknex">
       <div class="skills-vis">
         <div id="skill1">
-          <h3>Role</h3>
+          <h3>{{ messages[currentLang].expertise.item1.title }}</h3>
           <hr />
           <br />
           <div class="skill-breakdown">
@@ -49,28 +49,28 @@
                     class="color-box"
                     style="background-color: #b4dad7"
                   ></span
-                  >Testing
+                  >{{ messages[currentLang].expertise.item1.subItem1 }}
                 </li>
                 <li>
                   <span
                     class="color-box"
                     style="background-color: #2196a7"
                   ></span
-                  >Coding
+                  >{{ messages[currentLang].expertise.item1.subItem2 }}
                 </li>
                 <li>
                   <span
                     class="color-box"
                     style="background-color: #215961"
                   ></span
-                  >Design
+                  >{{ messages[currentLang].expertise.item1.subItem3 }}
                 </li>
                 <li>
                   <span
                     class="color-box"
                     style="background-color: #1f2426"
                   ></span
-                  >Điều tra, tạo tài liệu
+                  >{{ messages[currentLang].expertise.item1.subItem4 }}
                 </li>
               </ul>
             </div>
@@ -78,7 +78,7 @@
         </div>
 
         <div id="skill2">
-          <h3>AI</h3>
+          <h3>{{ messages[currentLang].expertise.item2.title }}</h3>
           <hr />
           <br />
 
@@ -101,21 +101,21 @@
                     class="color-box"
                     style="background-color: #b4dad7"
                   ></span
-                  >ChatGPT
+                  >{{ messages[currentLang].expertise.item2.subItem1 }}
                 </li>
                 <li>
                   <span
                     class="color-box"
                     style="background-color: #2196a7"
                   ></span
-                  >GitHub Copilot
+                  >{{ messages[currentLang].expertise.item2.subItem2 }}
                 </li>
                 <li>
                   <span
                     class="color-box"
                     style="background-color: #1f2426"
                   ></span
-                  >Cursor
+                  >{{ messages[currentLang].expertise.item2.subItem3 }}
                 </li>
               </ul>
             </div>
@@ -128,6 +128,55 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { getLangFromPath } from "../../utils/helpers";
+import { LANGUAGE } from "../../utils/constants";
+
+const route = useRoute();
+
+// Xác định ngôn ngữ hiện tại dựa vào đường dẫn
+const currentLang = getLangFromPath(route.path);
+
+const messages = {
+  [LANGUAGE.EN]: {
+    experience: "Experience",
+    expertise: {
+      title: "Expertise",
+      item1: {
+        title: "Role",
+        subItem1: "Testing",
+        subItem2: "Coding",
+        subItem3: "Design",
+        subItem4: "Code Analysis & Documentation",
+      },
+      item2: {
+        title: "AI",
+        subItem1: "ChatGPT",
+        subItem2: "GitHub Copilot",
+        subItem3: "Cursor",
+      },
+    },
+  },
+  [LANGUAGE.VI]: {
+    experience: "Kinh nghiệm",
+    expertise: {
+      title: "Chuyên môn",
+      item1: {
+        title: "Vai trò",
+        subItem1: "Testing",
+        subItem2: "Coding",
+        subItem3: "Thiết kế",
+        subItem4: "Điều tra & tạo tài liệu",
+      },
+      item2: {
+        title: "AI",
+        subItem1: "ChatGPT",
+        subItem2: "GitHub Copilot",
+        subItem3: "Cursor",
+      },
+    },
+  },
+};
 
 const skillItems = [
   { title: "Microsoft SQL", width: 213.75 },
