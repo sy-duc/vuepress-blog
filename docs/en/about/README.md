@@ -1,5 +1,5 @@
 ---
-title: Về Tôi
+title: About
 ---
 
 <AboutPage />

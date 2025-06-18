@@ -1,7 +1,7 @@
 ---
-title: Project
+title: Dự án
 ---
 
-# My Projects
+# Dự Án Cá Nhân
 
 <ProjectPage />

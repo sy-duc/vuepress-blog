@@ -1,6 +1,6 @@
 ---
 home: true
-title: Trang Chủ
+title: Home
 footer: Made with VuePress by Duc. Ho Sy
 ---
 

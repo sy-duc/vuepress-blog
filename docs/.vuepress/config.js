@@ -1,8 +1,8 @@
 import { viteBundler } from "@vuepress/bundler-vite";
 import { defaultTheme } from "@vuepress/theme-default";
 import { defineUserConfig } from "vuepress";
-import blogPostDataPlugin from '../../plugins/postData.js';
-import projectPostDataPlugin from '../../plugins/projectData.js';
+import blogPostDataPlugin from "../../plugins/postData.js";
+import projectPostDataPlugin from "../../plugins/projectData.js";
 
 const scriptFiles = [
   "jquery.1.8.3.min.js",
@@ -16,11 +16,11 @@ const scriptFiles = [
   "jquery.waypoints.min.js",
   "images-loaded.min.js",
   "lightbox.min.js",
-  "site.js"
+  "site.js",
 ];
 
 export default defineUserConfig({
-  base: '/vuepress-blog/',
+  base: "/vuepress-blog/",
   head: [
     [
       "link",
@@ -30,7 +30,7 @@ export default defineUserConfig({
       },
     ],
     [
-    "link",
+      "link",
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,500,600,700&subset=latin,latin-ext",
@@ -49,46 +49,43 @@ export default defineUserConfig({
     // ])
   ],
   bundler: viteBundler(),
-  plugins: [
-    blogPostDataPlugin(),
-    projectPostDataPlugin(),
-  ],
+  plugins: [blogPostDataPlugin(), projectPostDataPlugin()],
   locales: {
     "/": {
-      lang: "en-US",
-      title: "Experience Breeds Wisdom",
-      description: "A blog powered by VuePress",
-    },
-    "/vi/": {
       lang: "vi-VN",
       title: "Kiến Thức Từ Trải Nghiệm",
       description: "Một blog được tạo bằng VuePress",
+    },
+    "/en/": {
+      lang: "en-US",
+      title: "Experience Breeds Wisdom",
+      description: "A blog powered by VuePress",
     },
   },
   theme: defaultTheme({
     logo: "/images/logo.png",
     locales: {
       "/": {
-        selectLanguageName: "English", // Tên ngôn ngữ hiển thị trong menu
-        selectLanguageText: "Language", // Tên hiển thị ngôn ngữ hiện tại trên navbar
-        navbar: [
-          { text: "Home", link: "/" },
-          { text: "Project", link: "/project/" },
-          { text: "Blog", link: "/blog/" },
-          { text: "About", link: "/about/" },
-        ],
-        sidebar: 'false',
-      },
-      "/vi/": {
         selectLanguageName: "Tiếng Việt",
         selectLanguageText: "Ngôn Ngữ",
         navbar: [
-          { text: "Trang Chủ", link: "/vi/" },
-          { text: "Dự Án", link: "/vi/project/" },
-          { text: "Blog", link: "/vi/blog/" },
-          { text: "Về Tôi", link: "/vi/about/" },
+          { text: "Trang Chủ", link: "/" },
+          { text: "Dự Án", link: "/project/" },
+          { text: "Blog", link: "/blog/" },
+          { text: "Về Tôi", link: "/about/" },
         ],
-        sidebar: 'false',
+        sidebar: "false",
+      },
+      "/en/": {
+        selectLanguageName: "English", // Tên ngôn ngữ hiển thị trong menu
+        selectLanguageText: "Language", // Tên hiển thị ngôn ngữ hiện tại trên navbar
+        navbar: [
+          { text: "Home", link: "/en/" },
+          { text: "Project", link: "/en/project/" },
+          { text: "Blog", link: "/en/blog/" },
+          { text: "About", link: "/en/about/" },
+        ],
+        sidebar: "false",
       },
     },
     lastUpdated: false, // Tắt "Last Updated"
