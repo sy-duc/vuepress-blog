@@ -77,7 +77,7 @@
           </div>
         </div>
 
-        <div id="skill1">
+        <div id="skill2">
           <h3>AI</h3>
           <hr />
           <br />
@@ -113,7 +113,7 @@
                 <li>
                   <span
                     class="color-box"
-                    style="background-color: #215961"
+                    style="background-color: #1f2426"
                   ></span
                   >Cursor
                 </li>
@@ -369,7 +369,8 @@ hr {
   width: 100%;
 }
 
-#skill1 {
+#skill1,
+#skill2 {
   width: 45%;
   margin-right: 5%;
   float: left;
@@ -377,10 +378,10 @@ hr {
 
 #skill1 #puters .pie {
   background-color: #b4dad7;
-  -webkit-transform: rotate(80deg);
-  -moz-transform: rotate(80deg);
-  -o-transform: rotate(80deg);
-  transform: rotate(80deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 #skill1 #puters4 {
@@ -391,13 +392,13 @@ hr {
   transform: rotate(210deg);
 }
 
-#skill1 #movies {
+/* #skill1 #movies {
   background-color: #307982;
   -webkit-transform: rotate(170deg);
   -moz-transform: rotate(170deg);
   -o-transform: rotate(170deg);
   transform: rotate(170deg);
-}
+} */
 
 #skill1 #games {
   background-color: #2196a7;
@@ -408,7 +409,7 @@ hr {
 }
 
 #skill1 #music {
-  background-color: #519ca4;
+  background-color: #2196a7;
   -webkit-transform: rotate(110deg);
   -moz-transform: rotate(110deg);
   -o-transform: rotate(110deg);
@@ -416,14 +417,63 @@ hr {
 }
 
 #skill1 #music2 {
-  background-color: #519ca4;
+  background-color: #2196a7;
   -webkit-transform: rotate(80deg);
   -moz-transform: rotate(80deg);
   -o-transform: rotate(80deg);
   transform: rotate(80deg);
 }
 
-#skill1 h3 {
+#skill2 #puters .pie {
+  background-color: #b4dad7;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+#skill2 #puters4 {
+  background-color: #2196a7;
+  -webkit-transform: rotate(230deg);
+  -moz-transform: rotate(230deg);
+  -o-transform: rotate(230deg);
+  transform: rotate(230deg);
+}
+
+#skill2 #movies {
+  background-color: #2196a7;
+  -webkit-transform: rotate(170deg);
+  -moz-transform: rotate(170deg);
+  -o-transform: rotate(170deg);
+  transform: rotate(170deg);
+}
+
+#skill2 #games {
+  background-color: #2196a7;
+  -webkit-transform: rotate(160deg);
+  -moz-transform: rotate(160deg);
+  -o-transform: rotate(160deg);
+  transform: rotate(160deg);
+}
+
+#skill2 #music {
+  background-color: #b4dad7;
+  -webkit-transform: rotate(110deg);
+  -moz-transform: rotate(110deg);
+  -o-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+
+#skill2 #music2 {
+  background-color: #b4dad7;
+  -webkit-transform: rotate(80deg);
+  -moz-transform: rotate(80deg);
+  -o-transform: rotate(80deg);
+  transform: rotate(80deg);
+}
+
+#skill1 h3,
+#skill2 h3 {
   margin-bottom: 0;
   padding-bottom: 0;
 }
