@@ -10,7 +10,7 @@
           <div class="d-flex">
             <h3 class="resume-position-title">
               {{ item.organization }}
-              <span>{{ `(${item.role})` }}</span>
+              <span v-if="item.role">{{ `(${item.role})` }}</span>
             </h3>
           </div>
           <div class="resume-position-time">{{ item.period }}</div>
@@ -47,7 +47,9 @@
             :key="index"
           >
             <img :src="technology.image" :alt="technology.name" />
-            <div class="client-overlay"><span>{{ technology.name }}</span></div>
+            <div class="client-overlay">
+              <span>{{ technology.name }}</span>
+            </div>
           </a>
         </div>
       </div>

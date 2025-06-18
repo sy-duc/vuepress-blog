@@ -48,7 +48,7 @@ const timelineENItems = [
     ],
   },
   {
-    period: "12/2020 - 12/2021",
+    period: "12/2020 - 07/2021",
     organization: "Luvina Academy",
     role: "Trainee",
     summary: "Programmer course for non-professionals",
@@ -62,7 +62,7 @@ const timelineENItems = [
     ],
   },
   {
-    period: "12/2021 - Present",
+    period: "07/2021 - Present",
     organization: "Luvina Software Joint Stock Company",
     role: "Web Developer",
     summary: "Software Engineer",
@@ -104,7 +104,7 @@ const timelineVNItems = [
     ],
   },
   {
-    period: "12/2020 - 12/2021",
+    period: "12/2020 - 07/2021",
     organization: "Luvina Academy",
     role: "Học Viên",
     summary: "Tham gia khóa học lập trình viên cho người trái ngành",
@@ -118,7 +118,7 @@ const timelineVNItems = [
     ],
   },
   {
-    period: "12/2021 - hiện tại",
+    period: "07/2021 - hiện tại",
     organization: "Công ty Cổ phần Phần mềm Luvina",
     role: "Kỹ Sư Phần Mềm",
     summary: "Nhân viên chính thức tại Luvina Software",
