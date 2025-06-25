@@ -4,6 +4,9 @@ summary: "Nếu đã đã tìm hiểu cơ bản về Linux, thì phần này s�
 date: "2025-06-10"
 image: "/vuepress-blog/images/skills/linux.png"
 category: "DEVOPS"
+tags:
+  - linux
+  - training-linux
 ---
 
 # Intermediate

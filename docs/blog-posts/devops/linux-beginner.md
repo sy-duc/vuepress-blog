@@ -4,6 +4,9 @@ summary: "Linux là một hệ điều hành mã nguồn mở, miễn phí, bả
 date: "2025-06-11"
 image: "/vuepress-blog/images/skills/linux.png"
 category: "DEVOPS"
+tags:
+  - linux
+  - training-linux
 ---
 
 # Thao tác & Khái niệm Cơ Bản

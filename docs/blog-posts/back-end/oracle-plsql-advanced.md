@@ -4,6 +4,9 @@ summary: "Tiếp cận và khai thác sức mạnh thực sự của PL/SQL tron
 date: "2025-06-14"
 image: "/vuepress-blog/images/posts/plsql.png"
 category: "BACK-END"
+tags:
+  - oracle
+  - training-plsql
 ---
 
 # PL/SQL nâng cao

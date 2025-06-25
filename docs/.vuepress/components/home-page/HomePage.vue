@@ -120,7 +120,7 @@ const topics = [
   {
     img: "/vuepress-blog/images/skills/linux.png",
     title: "Linux",
-    to: "#",
+    to: "/vuepress-blog/blog/?tag=linux",
   },
   {
     img: "/vuepress-blog/images/skills/docker.png",

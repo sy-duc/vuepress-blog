@@ -18,6 +18,7 @@ export default (options, app) => ({
           path: path,
           date: frontmatter.date || "1970-01-01",
           image: frontmatter.image,
+          tags: frontmatter.tags || [],
         };
         if (!grouped[category]) {
           grouped[category] = [];

@@ -4,6 +4,9 @@ summary: "Tìm hiểu những kỹ thuật nâng cao của Redis và cách áp d
 date: "2025-06-17"
 image: "/vuepress-blog/images/posts/redis.png"
 category: "BACK-END"
+tags:
+  - redis
+  - training-redis
 ---
 
 # Redis Advanced

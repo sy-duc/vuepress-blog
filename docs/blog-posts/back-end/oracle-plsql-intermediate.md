@@ -4,6 +4,9 @@ summary: "PL/SQL cung cấp các công cụ giúp xử lý logic nghiệp vụ t
 date: "2025-06-13"
 image: "/vuepress-blog/images/posts/plsql.png"
 category: "BACK-END"
+tags:
+  - oracle
+  - training-plsql
 ---
 
 # Store Procedure, Function, Cursor và Triggers

@@ -4,6 +4,9 @@ summary: "PL/SQL là một phần quan trọng của Oracle Database, giúp vi�
 date: "2025-06-12"
 image: "/vuepress-blog/images/posts/plsql.png"
 category: "BACK-END"
+tags:
+  - oracle
+  - training-plsql
 ---
 
 # Làm quen với PL/SQL

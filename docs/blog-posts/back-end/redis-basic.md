@@ -4,6 +4,9 @@ summary: "Redis (REmote DIctionary Server) là một kho lưu trữ cấu trúc 
 date: "2025-06-16"
 image: "/vuepress-blog/images/posts/redis.png"
 category: "BACK-END"
+tags:
+  - redis
+  - training-redis
 ---
 
 # Redis Basic
