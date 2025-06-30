@@ -70,7 +70,7 @@ import PostCard from "../card/PostCard.vue";
 import NewPostGallery from "./NewPostGallery.vue";
 
 const route = useRoute();
-const currentTag = computed(() => route.query.tag?.toString() || '');
+const currentTag = computed(() => route.query.tag?.toString().trim() || '');
 
 // Lọc các bài viết theo thẻ nếu có
 const filteredPosts = computed(() => {

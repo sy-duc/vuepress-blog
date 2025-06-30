@@ -6,15 +6,14 @@
     data-featherlight-filter="a"
   >
     <a
-      href="#"
-      onclick="event.preventDefault()"
+      href="/vuepress-blog/blog-posts/hidden/plsql-training-series.html"
       data-featherlight="image"
       class="col-3 wow fadeIn"
       data-wow-delay="0.1s"
     >
       <img
-        src="/images/gallery-images/gallery-image-1.jpg"
-        alt="Landing Page"
+        src="/images/posters/plsql-training-series.png"
+        alt="PL/SQL Training Series"
       />
     </a>
     <a

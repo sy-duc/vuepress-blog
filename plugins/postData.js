@@ -9,7 +9,7 @@ export default (options, app) => ({
     const grouped = {};
     // Lọc danh sách các trang (pages) có trong VuePress
     app.pages
-      .filter((page) => page.path.startsWith("/blog-posts/")) // Chỉ lấy bài viết trong thư mục /blog-posts/
+      .filter((page) => page.path.startsWith("/blog-posts/") && !page.path.startsWith("/blog-posts/hidden/")) // Chỉ lấy bài viết trong thư mục /blog-posts/
       .forEach(({ title, frontmatter, path }) => {
         const category = frontmatter.category || "Uncategorized";
         const post = {
