@@ -79,7 +79,9 @@ const filteredPosts = computed(() => {
   // Lọc theo tag và gộp lại thành một mảng phẳng
   return categorizedBlogPosts.flatMap(category =>
     category.posts.filter(post =>
-      post.tags?.includes(currentTag.value)
+      post.tags?.some(tag =>
+        tag.toLowerCase().includes(currentTag.value.toLowerCase())
+      )
     )
   );
 });

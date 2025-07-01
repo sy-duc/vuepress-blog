@@ -48,3 +48,11 @@ a[target="_blank"]::after {
 .vp-toggle-color-mode-button :hover {
   color: var(--vp-c-accent);
 }
+
+.vp-footer {
+  background-color: var(--vp-navbar-c-bg);
+}
+
+.vp-home {
+  padding: 0;
+}

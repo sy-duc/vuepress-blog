@@ -132,6 +132,10 @@ ul,
   color: rgba(0, 0, 0, 0.6);
 }
 
+.text {
+  line-height: 1.3;
+}
+
 .pr-list {
   margin: 30px 0px;
 }

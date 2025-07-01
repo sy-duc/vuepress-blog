@@ -128,9 +128,9 @@ const topics = [
     to: "#",
   },
   {
-    img: "/vuepress-blog/images/skills/postgreSQL.png",
-    title: "PostgreSQL",
-    to: "#",
+    img: "/vuepress-blog/images/skills/oracle.png",
+    title: "Oracle",
+    to: "/vuepress-blog/blog/?tag=oracle",
   },
 ];
 

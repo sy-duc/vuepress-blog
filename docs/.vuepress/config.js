@@ -22,6 +22,7 @@ const scriptFiles = [
 export default defineUserConfig({
   base: "/vuepress-blog/",
   head: [
+    ['link', { rel: 'icon', href: '/vuepress-blog/favicon.ico' }],
     [
       "link",
       {
