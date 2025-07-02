@@ -76,6 +76,9 @@ import { LANGUAGE } from "../../utils/constants";
 
 const route = useRoute();
 
+// Xác định ngôn ngữ hiện tại dựa vào đường dẫn
+const currentLang = getLangFromPath(route.path);
+
 const topics = [
   {
     img: "/vuepress-blog/images/skills/react.png",
@@ -120,7 +123,7 @@ const topics = [
   {
     img: "/vuepress-blog/images/skills/linux.png",
     title: "Linux",
-    to: "/vuepress-blog/blog/?tag=linux",
+    to: `/vuepress-blog${currentLang === LANGUAGE.EN ? '/en/' : '/'}blog/?tag=linux`,
   },
   {
     img: "/vuepress-blog/images/skills/docker.png",
@@ -128,9 +131,9 @@ const topics = [
     to: "#",
   },
   {
-    img: "/vuepress-blog/images/skills/oracle.png",
+    img: '/vuepress-blog/images/skills/oracle.png',
     title: "Oracle",
-    to: "/vuepress-blog/blog/?tag=oracle",
+    to: `/vuepress-blog${currentLang === LANGUAGE.EN ? '/en/' : '/'}blog/?tag=oracle`,
   },
 ];
 
@@ -185,11 +188,7 @@ const messages = {
   },
 };
 
-// Xác định ngôn ngữ hiện tại dựa vào đường dẫn
-const messagesLocal = computed(() => {
-  const currentLang = getLangFromPath(route.path);
-  return messages[currentLang];
-});
+const messagesLocal = computed(() => messages[currentLang]);
 </script>
 
 <style scoped>

@@ -56,3 +56,7 @@ a[target="_blank"]::after {
 .vp-home {
   padding: 0;
 }
+
+tbody tr:nth-child(odd) {
+  background: #f6f6f7;
+}
