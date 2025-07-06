@@ -9,7 +9,7 @@
         </div>
 
         <!--Call to Action-->
-        <RouterLink to="/about/" class="button">{{ messages[currentLang].action }}</RouterLink>
+        <RouterLink :to="currentLang === LANGUAGE.EN ? '/en/about/' : '/about/'" class="button">{{ messages[currentLang].action }}</RouterLink>
         <!--End Call to Action-->
       </div>
     </div>
