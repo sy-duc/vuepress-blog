@@ -118,7 +118,7 @@ const topics = [
   {
     img: "/vuepress-blog/images/skills/aws.png",
     title: "Cloud",
-    to: "#",
+    to: `/vuepress-blog${currentLang === LANGUAGE.EN ? '/en/' : '/'}blog/?tag=aws`,
   },
   {
     img: "/vuepress-blog/images/skills/linux.png",

@@ -24,8 +24,8 @@
       data-wow-delay="0.3s"
     >
       <img
-        src="/images/gallery-images/gallery-image-2.jpg"
-        alt="Landing Page"
+        src="/images/posters/aws-training-saa.png"
+        alt="AWS Certified Solutions Architect – Associate"
       />
     </a>
     <a
