@@ -1,7 +1,7 @@
 <template>
-  <!--New Post Gallery-->
-  <NewPostGallery />
-  <!--End of New Post Gallery-->
+  <!--Poster Gallery-->
+  <PosterGallery />
+  <!--End of Poster Gallery-->
 
   <!--List Posts-->
   <template v-if="!currentTag">
@@ -67,7 +67,7 @@ import { useRoute } from "vue-router";
 import { getLangFromPath } from "../../utils/helpers";
 import { LANGUAGE } from "../../utils/constants";
 import PostCard from "../card/PostCard.vue";
-import NewPostGallery from "./NewPostGallery.vue";
+import PosterGallery from './PosterGallery.vue';
 
 const route = useRoute();
 const currentTag = computed(() => route.query.tag?.toString().trim() || '');
