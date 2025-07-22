@@ -49,7 +49,7 @@ const posters = [
 ];
 
 // Thời gian tự chuyển poster (ms)
-const autoSlideInterval = 5000;
+const autoSlideInterval = 10000;
 
 const currentIndex = ref(0);
 let slideTimer = null;
