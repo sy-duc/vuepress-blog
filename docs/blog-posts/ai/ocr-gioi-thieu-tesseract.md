@@ -1,6 +1,6 @@
 ---
 title: OCR với Tesseract
-summary: "Bái viết này giúp bạn hiểu cách Tesseract xử lý hình ảnh, nhận dạng văn bản, và các yếu tố ảnh hưởng đến độ chính xác như chất lượng ảnh, font chữ, bố cục."
+summary: "Bài viết này giúp bạn hiểu cách Tesseract xử lý hình ảnh, nhận dạng văn bản, và các yếu tố ảnh hưởng đến độ chính xác như chất lượng ảnh, font chữ, bố cục."
 date: "2025-07-28"
 image: "/vuepress-blog/images/posts/ocr-tesseract.png"
 category: "AI / Machine Learning"
