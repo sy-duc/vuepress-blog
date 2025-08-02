@@ -39,7 +39,7 @@ const posters = [
   {
     image: "/vuepress-blog/images/posters/aws-training-saa.png",
     title: "AWS Certified Solutions Architect – Associate",
-    to: "#",
+    to: "/blog-posts/hidden/aws-training-saa-series.html",
   },
   {
     image: "/vuepress-blog/images/posters/plsql-training-series.png",

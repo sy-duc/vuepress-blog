@@ -1,5 +1,5 @@
 ---
-title: AWS EC2 - Máy chủ ảo
+title: Dịch vụ điện toán
 summary: "EC2 cho phép người dùng dễ dàng khởi tạo và quản lý các máy chủ ảo (instances) với nhiều cấu hình phần cứng và hệ điều hành khác nhau."
 date: "2025-07-29"
 image: "/vuepress-blog/images/posts/aws-ec2.png"
@@ -12,25 +12,48 @@ tags:
   - ec2
 ---
 
-# AWS EC2 - Máy chủ ảo
+# Các dịch vụ điện toán (Compute) & AWS EC2 - Máy chủ ảo
 
-[1. Giới thiệu Amazon EC2](#1)
+[1. Compute - Dịch vụ điện toán](#1)
 
-[2. Amazon Machine Image (AMI)](#2)
+[2. Giới thiệu Amazon EC2](#2)
 
-[3. Các dòng máy EC2 (Instance type)](#3)
+[3. Amazon Machine Image (AMI)](#3)
 
-[4. Vòng đời máy ảo EC2](#4)
+[4. Các dòng máy EC2 (Instance type)](#4)
 
-[5. EC2 Princing options](#5)
+[5. Vòng đời máy ảo EC2](#5)
 
-[6. Cân bằng tải (Elastic Load Balancing)](#6)
+[6. EC2 Princing options](#6)
 
-[7. EC2 auto scaling](#7)
+[7. Cân bằng tải (Elastic Load Balancing)](#7)
+
+[8. EC2 auto scaling](#8)
 
 <a name="1"></a>
 
-## 📌 1. Giới thiệu Amazon EC
+## 📌 1. Compute - Dịch vụ điện toán
+- Compute (hay điện toán) là nhóm các dịch vụ cho phép bạn cài đặt và triển khai ứng dụng của mình.
+
+- Compute đề cập đến các dịch vụ cung cấp khả năng tính toán và xử lý dữ liệu trên đám mây, tiêu biểu:
+
+### 1️⃣ Amazon EC2 - dịch vụ cung cấp các máy chủ ảo (Instances) trên đám mây
+- Là dịch vụ điện toán cơ bản nhất cho phép cấu hình các máy ảo này với nhiều loại tài nguyên khác nhau như CPU, RAM, dung lượng ổ cứng, và hệ điều hành.
+
+### 2️⃣ AWS Lambda - dịch vụ điện toán phi máy chủ
+- Có nghĩa là khi sử dụng bạn sẽ không cần quan tâm đến việc thiết lập, cài đặt, vận hành máy chủ và các phần mềm nền tảng để chạy ứng dụng.
+
+- Việc của bạn là coding và update code lên lamda, dịch vụ sẽ tự động triển khai và mở rộng ứng dụng theo yêu cầu của end-user.
+
+### 3️⃣ Amazon ECS, EKS, và Fargate - các dịch vụ Container
+
+- Cho phép đóng góp ứng dụng và các cấu phần liên quan vào trong thùng chứa (container, ví dụ như Docker).
+
+- Giải quyết vấn đề tính tương thích giữa các môi trường khác nhau.
+
+<a name="2"></a>
+
+## 📌 2. Giới thiệu Amazon EC
 
 - Amazon EC2 (Elastic Compute Cloud) là một trong những dịch vụ điện toán phổ biến nhất của AWS.
 
@@ -60,9 +83,9 @@ tags:
 
         - Nếu sử dụng Window, Private key sẽ được sử dụng để đổi lấy mật khẩu cho người dùng quản trị viên Administrator để đăng nhập vào máy chủ ảo.
 
-<a name="2"></a>
+<a name="3"></a>
 
-## 📌 2. Amazon Machine Image (AMI)
+## 📌 3. Amazon Machine Image (AMI)
 
 - Là một mẫu chứa thông tin cấu hình cần thiết để khởi tạo một hoặc nhiều instance (máy chủ ảo) trên Amazon EC2.
 
@@ -80,9 +103,9 @@ tags:
 
     - 3️⃣ AWS Marketplace AMI: là AMI có sẵn từ AWS Marketplace (chợ phần mềm), thường được cung cấp bởi các bên thứ ba và thường bao gồm các ứng dụng chuyên biệt đã được cấu hình sẵn.
 
-<a name="3"></a>
+<a name="4"></a>
 
-## 📌 3. Các dòng máy EC2 (Instance type)
+## 📌 4. Các dòng máy EC2 (Instance type)
 
 - Amazon EC2 Instance Types (Các loại máy chủ ảo EC2) là các cấu hình phần cứng khác nhau mà AWS cung cấp.
 
@@ -138,9 +161,9 @@ Trong đó:
 
     👉 Nếu có thể, thay vì chạy trên 1 máy chủ lớn, có thể chạy trên 2 hoặc nhiều máy chủ nhỏ hơn và cân bằng tải giữa các máy chủ để tăng tính sẵn sàng cho trường hợp 1 máy chủ gặp sự cố.
 
-<a name="4"></a>
+<a name="5"></a>
 
-## 📌 4. Vòng đời máy ảo EC2
+## 📌 5. Vòng đời máy ảo EC2
 
 ![Vòng đời máy ảo EC2](./images/aws-vong-doi-ec2.png)
 
@@ -206,9 +229,9 @@ Trong đó:
 
 - Khi thực sự muốn xóa máy ảo này, bạn có thể tắt tính năng EC2 termination protection.
 
-<a name="5"></a>
+<a name="6"></a>
 
-## 📌 5. EC2 Princing options
+## 📌 6. EC2 Princing options
 
 EC2 có nhiều lựa chọn mô hình giá khác nhau phù hợp cho các loại ứng dụng khác nhau, bao gồm:
 
@@ -253,9 +276,9 @@ EC2 có nhiều lựa chọn mô hình giá khác nhau phù hợp cho các loạ
 
 ### ⚠️ Thực tế, không nhất thiết chúng ta chỉ sử dụng 1 mô hình giá duy nhất mà có thể kết hợp các mô hình để tối ưu chi phí.
 
-<a name="6"></a>
+<a name="7"></a>
 
-## 📌 6. Cân bằng tải (Elastic Load Balancing)
+## 📌 7. Cân bằng tải (Elastic Load Balancing)
 
 - Tính sẵn sàng (Availability) là một thuộc tính quan trọng chúng ta cần tính đến khi thiết kế ứng dụng.
 
@@ -302,9 +325,9 @@ EC2 có nhiều lựa chọn mô hình giá khác nhau phù hợp cho các loạ
 
 ![Cân bằng tải (Elastic Load Balancing)](./images/aws-elastic-load-balancing-2.png)
 
-<a name="7"></a>
+<a name="8"></a>
 
-## 📌 7. EC2 auto scaling
+## 📌 8. EC2 auto scaling
 
 - Là một dịch vụ giúp tự động mở rộng hoặc thu hẹp số lượng máy ảo EC2 dựa trên nhu cầu thực tế của ứng dụng.
 
