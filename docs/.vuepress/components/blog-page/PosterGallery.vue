@@ -42,6 +42,11 @@ const posters = [
     to: "/blog-posts/hidden/aws-training-saa-series.html",
   },
   {
+    image: "/vuepress-blog/images/posters/ocr-training-series.png",
+    title: "OCR Training Series",
+    to: "/blog-posts/hidden/ocr-tesseract-series.html",
+  },
+  {
     image: "/vuepress-blog/images/posters/plsql-training-series.png",
     title: "PL/SQL Training Series",
     to: "/blog-posts/hidden/plsql-training-series.html",

@@ -24,3 +24,5 @@ tags:
 <a name="1"></a>
 
 ## 📌 1. Giới thiệu Tesseract
+
+Đang cập nhật ...

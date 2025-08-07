@@ -1,5 +1,5 @@
 ---
-title: Dịch vụ điện toán
+title: Dịch vụ điện toán - AWS EC2
 summary: "EC2 cho phép người dùng dễ dàng khởi tạo và quản lý các máy chủ ảo (instances) với nhiều cấu hình phần cứng và hệ điều hành khác nhau."
 date: "2025-07-29"
 image: "/vuepress-blog/images/posts/aws-ec2.png"
