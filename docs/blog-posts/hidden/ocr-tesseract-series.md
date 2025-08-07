@@ -13,6 +13,8 @@ Chuỗi bài viết giới thiệu tổng quan về OCR cũng như hiểu cách 
 
 2. <a href="/vuepress-blog/blog-posts/back-end/oracle-gioi-thieu-tesseract.html" target="_blank">OCR với Tesseract</a>
 
-3. <a href="/vuepress-blog/blog-posts/back-end/oracle-gioi-thieu-tesseract.html" target="_blank">Tối ưu hóa và nâng cao với Tesseract</a>
+3. <a href="/vuepress-blog/blog-posts/back-end/oracle-gioi-thieu-tesseract.html" target="_blank">Tối ưu hóa với Tesseract</a>
 
 4. <a href="/vuepress-blog/blog-posts/back-end/oracle-gioi-thieu-tesseract.html" target="_blank">Ứng dụng thực tế & tích hợp</a>
+
+5. <a href="/vuepress-blog/blog-posts/back-end/oracle-gioi-thieu-tesseract.html" target="_blank">Huấn luyện AI OCR</a>
