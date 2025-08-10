@@ -18,3 +18,5 @@ Hy vọng tài liệu này cũng sẽ tiết kiệm thời gian trong việc l�
 4. <a href="/vuepress-blog/blog-posts/devops/aws-ec2.html" target="_blank">Các dịch vụ điện toán (Compute) & AWS EC2 - Máy chủ ảo</a>
 
 5. <a href="/vuepress-blog/blog-posts/devops/aws-storage.html" target="_blank">Storage - Các dịch vụ lưu trữ (S3 & EBS)</a>
+
+6. <a href="/vuepress-blog/blog-posts/devops/aws-database.html" target="_blank">Các dịch vụ Database - Amazone RDS</a>
