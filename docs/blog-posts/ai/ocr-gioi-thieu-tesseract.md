@@ -155,11 +155,14 @@ print(text)
   - ✧ Tránh phụ thuộc vào thư viện trung gian, chỉ cần Tesseract đã cài.
 
 - ❌ Nhược điểm:
-  - Cần đọc kết quả từ file trung gian (hoặc stdout), chậm hơn một chút (không đáng kể).
+  - ✧ Cần đọc kết quả từ file trung gian (hoặc stdout), chậm hơn một chút (không đáng kể).
 
-  - Không tiện khi xử lý ảnh trong RAM (phải lưu ra file tạm).
+  - ✧ Không tiện khi xử lý ảnh trong RAM (phải lưu ra file tạm).
 
-### 4️⃣ Cách chạy mã nguồn Python
+### 4️⃣ Phân biệt output OCR (text, TSV)
+- Todo...
+
+### 5️⃣ Cách chạy mã nguồn Python
 - Khi đã viết xong code Python OCR với Tesseract, bạn có hai cách để chạy:
 
 #### ❶ Cách 1 — Chạy trực tiếp bằng Python
