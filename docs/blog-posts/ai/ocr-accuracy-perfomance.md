@@ -378,7 +378,15 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 - ✔️ Luôn cố gắng gom nhiều vùng OCR vào một ảnh nếu có thể, sau đó tách kết quả sau một lần xử lý.
 
-- ✔️ Trường hợp các vùng cần OCR ở xa nhau → ghép các ảnh vào một ảnh lớn và OCR một lần.
+- ✔️ Trường hợp các vùng cần OCR ở xa nhau khó crop thành chỉ 1 ảnh → ghép các vùng vào một ảnh lớn và OCR một lần.
+
+- ✔️ Nếu các vùng cần OCR không khác nhau về cách tiền xử lý → nên ghép ảnh rồi mới tiền xử lý để:
+
+  - ✧ Giảm thời gian xử lý: Chỉ tiền xử lý 1 lần thay vì nhiều lần.
+
+  - ✧ Nhất quán: Cùng điều kiện tiền xử lý cho tất cả vùng số liệu.
+
+  - ✧ Tuy nhiên, trường hợp tiền xử lý các vùng cần OCR khác nhau → nên tiền xử lý xong mới ghép ảnh để tăng tính linh hoạt và giảm rủi ro lỗi OCR do nền khác nhau.
 
 ### 4️⃣ Tối ưu I/O (Input/Output Optimization)
 
@@ -398,6 +406,21 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
   # Thay vì cv2.imwrite() -> rồi OCR
   text = pytesseract.image_to_string(cropped_img)
   ```
+
+#### 🔥 Chú ý:
+
+- Với nguyên lý trên, ta thấy:
+
+  - ● Pytesseract sẽ nhanh hơn Tesseract CLI cho từng lần gọi đơn lẻ do:
+
+    - ✧ Tiết kiệm 15-30ms từ file I/O operations (tránh gọi cv2.imwrite).
+    - ✧ Không có process startup overhead.
+
+  - ● Nhưng trong môi trường đa tiến trình (multi-process) lâu dài:
+
+    - ✧ Tesseract CLI ổn định hơn về memory.
+    - ✧ Ít risk về thread safety issues.
+    - ✧ Tự động cleanup resources.
 
 ### 5️⃣ Song song hóa (Parallelization)
 
@@ -421,7 +444,13 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 #### 🚀 Nguyên lý:
 
-- Nếu ảnh hoặc vùng OCR không thay đổi → không cần OCR lại.
+- ● Nếu ảnh hoặc vùng OCR không thay đổi → không cần OCR lại.
+
+- ● Có thể cache theo nhiều mức:
+
+  - ❶ RAM cache: nhanh nhất, nhưng mất khi restart process.
+
+  - ❷ Disk cache: chậm hơn RAM một chút, nhưng giữ được kết quả qua nhiều lần chạy.
 
 #### 💡 Kinh nghiệm:
 

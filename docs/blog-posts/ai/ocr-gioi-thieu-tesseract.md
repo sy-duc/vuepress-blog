@@ -123,50 +123,55 @@ print(text)
 
   ```python
   import subprocess
+  import tempfile
 
   # Đường dẫn Tesseract (nếu chưa add vào PATH)
   tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-  input_image = "sample.png"
-  output_txt = "output"  # File tạm chứa kết quả OCR (Tesseract sẽ tự thêm .txt)
+  with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp_file:
+      tmp_path = tmp_file.name
+      cv2.imwrite(tmp_path, img)
 
-  # Lệnh CLI tương đương: tesseract sample.png output -l vie
+  input_image = "sample.png"
+  out_base = tmp_path.replace(".png", "")  # File tạm chứa kết quả OCR (Tesseract sẽ tự thêm .txt)
+
+  # Lệnh CLI tương đương: tesseract sample.png
   cmd = [
       tesseract_path,
       input_image,
-      output_txt,
-      "-l", "vie"
+      out_base
   ]
 
   # Chạy lệnh và chờ hoàn tất
-  subprocess.run(cmd, check=True)
+  subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
   # Đọc kết quả từ file .txt
-  with open(f"{output_txt}.txt", "r", encoding="utf-8") as f:
+  with open(f"{out_base}.txt", "r", encoding="utf-8") as f:
       text = f.read()
 
-  print("OCR Result:")
-  print(text)
+  print(f"OCR Result: {text}")
   ```
 
 - ✔️ Ưu điểm so với pytesseract:
+
   - ✧ Có thể dùng toàn bộ tính năng và tham số của CLI (thậm chí cả những tham số mà pytesseract chưa hỗ trợ).
 
   - ✧ Tránh phụ thuộc vào thư viện trung gian, chỉ cần Tesseract đã cài.
 
 - ❌ Nhược điểm:
+
   - ✧ Cần đọc kết quả từ file trung gian (hoặc stdout), chậm hơn một chút (không đáng kể).
 
   - ✧ Không tiện khi xử lý ảnh trong RAM (phải lưu ra file tạm).
 
-### 4️⃣ Phân biệt output OCR (text, TSV)
-- Todo...
+### 4️⃣ Cách chạy mã nguồn Python
 
-### 5️⃣ Cách chạy mã nguồn Python
 - Khi đã viết xong code Python OCR với Tesseract, bạn có hai cách để chạy:
 
 #### ❶ Cách 1 — Chạy trực tiếp bằng Python
+
 - Mở terminal hoặc Command Prompt:
+
 ```bash
 python main.py
 ```
@@ -176,12 +181,15 @@ python main.py
 - ❌ Nhược điểm: máy chạy cần có Python và các thư viện cần thiết đi kèm (pytesseract, opencv-python, Pillow, ...). Tại sao cần opencv-python hay Pillow sẽ đề cập ở các phần sau.
 
 #### ❷ Cách 2 — Build thành file .exe bằng PyInstaller
+
 - ➀ Cài PyInstaller:
+
   ```bash
   pip install pyinstaller
   ```
 
 - ➁ Build
+
   ```bash
   pyinstaller --onefile --name ocr_tool main.py
   ```
@@ -193,3 +201,7 @@ python main.py
 - Sau khi build xong, file .exe sẽ nằm trong thư mục dist/ocr_tool.exe
 
 - ✔️ Ưu điểm: có thể chạy trên máy khác mà không cần cài Python (nhưng vẫn cần cài Tesseract hoặc copy hoặc đóng gói cả Tesseract OCR vào cùng .exe nếu không muốn cài Tesseract trên máy đích).
+
+### 5️⃣ Phân biệt output OCR (text, TSV)
+
+- Nhiều người mới dùng Tesseract không biết rằng ngoài việc xuất plain text, nó còn có thể xuất dữ liệu dạng bảng (TSV) chứa nhiều thông tin chi tiết hơn.
