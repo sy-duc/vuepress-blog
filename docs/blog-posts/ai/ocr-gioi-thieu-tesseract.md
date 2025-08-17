@@ -135,11 +135,12 @@ print(text)
   input_image = "sample.png"
   out_base = tmp_path.replace(".png", "")  # File tạm chứa kết quả OCR (Tesseract sẽ tự thêm .txt)
 
-  # Lệnh CLI tương đương: tesseract sample.png
+  # Lệnh CLI tương đương: tesseract sample.png output -l vie
   cmd = [
       tesseract_path,
       input_image,
-      out_base
+      out_base,
+      "-l", "vie"
   ]
 
   # Chạy lệnh và chờ hoàn tất
@@ -160,7 +161,7 @@ print(text)
 
 - ❌ Nhược điểm:
 
-  - ✧ Cần đọc kết quả từ file trung gian (hoặc stdout), chậm hơn một chút (không đáng kể).
+  - ✧ Do sinh file tạm ghi kết quả, nên cần đọc kết quả từ file trung gian (hoặc stdout), chậm hơn một chút (không đáng kể).
 
   - ✧ Không tiện khi xử lý ảnh trong RAM (phải lưu ra file tạm).
 
@@ -191,17 +192,89 @@ python main.py
 - ➁ Build
 
   ```bash
-  pyinstaller --onefile --name ocr_tool main.py
+  pyinstaller --onefile --noconsole --name ocr_tool main.py
   ```
 
   - Trong đó:
     - ✧ --onefile: tạo 1 file .exe duy nhất
-    - ✧ -name ocr_tool: tên file đầu ra
+    - ✧ --name ocr_tool: tên file đầu ra
+    - ✧ --noconsole: nếu muốn tool chạy ngầm và hiển thị cửa sổ terminal (thường khi phát triển sẽ bỏ option này để dễ check log)
 
 - Sau khi build xong, file .exe sẽ nằm trong thư mục dist/ocr_tool.exe
 
 - ✔️ Ưu điểm: có thể chạy trên máy khác mà không cần cài Python (nhưng vẫn cần cài Tesseract hoặc copy hoặc đóng gói cả Tesseract OCR vào cùng .exe nếu không muốn cài Tesseract trên máy đích).
 
-### 5️⃣ Phân biệt output OCR (text, TSV)
+### 5️⃣ Các loại Output khi OCR với Tesseract
 
 - Nhiều người mới dùng Tesseract không biết rằng ngoài việc xuất plain text, nó còn có thể xuất dữ liệu dạng bảng (TSV) chứa nhiều thông tin chi tiết hơn.
+
+#### ❶ Output dạng Text thuần
+
+- Mặc định Tesseract sẽ trả về chuỗi văn bản thuần túy chỉ chứa nội dung nhận dạng được.
+
+- ● pytesseract:
+  ```python
+  from pytesseract import image_to_string
+  text = image_to_string(img, lang="eng")
+  print(text)
+  ```
+
+- ● Tesseract CLI (gọi từ Python):
+  ```python
+  import subprocess
+  
+  subprocess.run(["tesseract", "input.png", "output"], check=True)
+  # Sinh ra file output.txt
+  with open("output.txt", "r", encoding="utf-8") as f:
+      text = f.read()
+  print(text)
+  ```
+
+- ✅ Ưu điểm: đơn giản, dễ dùng.
+
+- ✔️ Nhược điểm: không có thông tin vị trí, độ tin cây, không phân tích chi tiết từng từ.
+
+#### ❷ Output dạng TSV (Tab-Separated Values)
+
+- Xuất dữ liệu dạng bảng (tab-separated values) gồm các cột:
+
+  | Cột           | Ý nghĩa                                                                                             |
+  | ------------- | --------------------------------------------------------------------------------------------------- |
+  | **level**     | Cấp độ của đối tượng OCR: <br>1 = page, 2 = block, 3 = paragraph, 4 = line, 5 = word                |
+  | **page_num**  | Số thứ tự trang (nếu OCR nhiều trang)                                                               |
+  | **block_num** | Số thứ tự block trong trang (block = vùng text lớn)                                                 |
+  | **par_num**   | Số thứ tự đoạn văn (paragraph) trong block                                                          |
+  | **line_num**  | Số thứ tự dòng trong đoạn văn                                                                       |
+  | **word_num**  | Số thứ tự từ trong dòng                                                                             |
+  | **left**      | Tọa độ X (bên trái) của bounding box từ OCR (pixel)                                                 |
+  | **top**       | Tọa độ Y (trên cùng) của bounding box (pixel)                                                       |
+  | **width**     | Chiều rộng của bounding box (pixel)                                                                 |
+  | **height**    | Chiều cao của bounding box (pixel)                                                                  |
+  | **conf**      | Confidence (độ tin cậy OCR), giá trị từ **-1** (không xác định) hoặc **0–100** (cao hơn là tốt hơn) |
+  | **text**      | Nội dung ký tự/từ được OCR. Nếu rỗng nghĩa là không nhận diện được                                  |
+
+- ● pytesseract:
+  ```python
+  from pytesseract import image_to_data
+  data = image_to_data(img, lang="eng", output_type="dict")
+  print(data["text"], data["conf"])
+  ```
+
+- ● Tesseract CLI (gọi từ Python):
+  ```python
+  subprocess.run(["tesseract", "input.png", "output", "--psm", "6", "tsv"], check=True)
+  
+  import pandas as pd
+  df = pd.read_csv("output.tsv", sep="\t")
+  print(df.head())
+  ```
+
+- ● Ví dụ 1 dòng TSV:
+
+  ```
+  5	1	1	1	1	1	100	200	50	20	92	Hello
+  ```
+
+- ✅ Ưu điểm: có bounding box, confidence score → rất hữu ích để hậu xử lý (lọc theo độ tin cậy, highlight vùng OCR).
+
+- ✔️ Nhược điểm: dữ liệu phức tạp hơn, tốc độ chậm hơn và cần code thêm để phân tích hay get text.

@@ -158,10 +158,6 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 - ✔️ Nên thêm logic lưu ảnh sau khi tiền xử lý để dễ theo dõi trực tiếp chất lượng ảnh sau khi áp dụng hoặc thay đổi các kỹ thuật tiền xử lý ảnh khác nhau.
 
-#### Ví dụ:
-
-- Todo... (src + ảnh trước sau tiền xử lý)
-
 ### 2️⃣ Cấu hình PSM (Page Segmentation Mode)
 
 - PSM quyết định cách Tesseract chia ảnh thành các khối văn bản.
@@ -185,7 +181,7 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
   text = pytesseract.image_to_string(img, config=config)
   ```
 
-- ❷ Python (pytesseract):
+- ❷ Tesseract CLI (gọi từ Python):
 
   ```python
   import subprocess
@@ -215,8 +211,14 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 #### 👀 Khi nào nên dùng:
 
 - ➀ OCR số serial / mã hóa học sinh → chỉ cần số.
+  ```bash
+  -c tessedit_char_whitelist=0123456789
+  ```
 
 - ➁ OCR biển số xe → chỉ nhận chữ in hoa và số.
+  ```bash
+  -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+  ```
 
 - ➂ OCR văn bản tiếng Anh → loại bỏ ký tự đặc biệt, chỉ nhận a–z, A–Z.
 
@@ -290,17 +292,11 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 - ✦ Số cấu hình thử càng nhiều → độ chính xác cao hơn nhưng thời gian xử lý lâu hơn.
 
-#### 🚀 Cách triển khai:
-
-- ❶ Sử dụng một file cấu hình (.json)
-
-- Todo...
-
 ### 5️⃣ Training Tesseract với dữ liệu thực tế
 
 - Dữ liệu OCR thực tế thường khác xa tập huấn luyện mặc định của Tesseract (font lạ, ký tự đặc biệt, chữ viết tay, ảnh mờ).
 
-- 💡 Khi sử dụng các kỹ thuật nâng cao độ chính xác khi OCR phía trên mà không hiểu quả, giải pháp là [huấn luyện Tesseract](https://sy-duc.github.io/vuepress-blog/blog-posts/ai/ocr-training-tesseract.html) với bộ dữ liệu ảnh–label của riêng bạn.
+- 💡 Khi sử dụng các kỹ thuật nâng cao độ chính xác khi OCR phía trên mà không hiểu quả, giải pháp là [Huấn luyện Tesseract](https://sy-duc.github.io/vuepress-blog/blog-posts/ai/ocr-training-tesseract.html) (training AI OCR) với bộ dữ liệu ảnh–label của riêng bạn.
 
 ### 6️⃣ Kỹ thuật Hybrid OCR
 
@@ -388,6 +384,9 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
   - ✧ Tuy nhiên, trường hợp tiền xử lý các vùng cần OCR khác nhau → nên tiền xử lý xong mới ghép ảnh để tăng tính linh hoạt và giảm rủi ro lỗi OCR do nền khác nhau.
 
+#### 🚀 Ví dụ:
+- Todo...
+
 ### 4️⃣ Tối ưu I/O (Input/Output Optimization)
 
 #### 🚀 Nguyên lý:
@@ -444,13 +443,7 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 #### 🚀 Nguyên lý:
 
-- ● Nếu ảnh hoặc vùng OCR không thay đổi → không cần OCR lại.
-
-- ● Có thể cache theo nhiều mức:
-
-  - ❶ RAM cache: nhanh nhất, nhưng mất khi restart process.
-
-  - ❷ Disk cache: chậm hơn RAM một chút, nhưng giữ được kết quả qua nhiều lần chạy.
+- Nếu ảnh hoặc vùng OCR không thay đổi → không cần OCR lại.
 
 #### 💡 Kinh nghiệm:
 
@@ -474,6 +467,8 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
       text = pytesseract.image_to_string(cropped_img)
       cache[img_hash] = text
   ```
+
+#### 🔗 Chi tiết cách triển khai Cache xem [tại đây](https://sy-duc.github.io/vuepress-blog/blog-posts/ai/ocr-cache-tesseract.html).
 
 ### 🔥 Tóm tắt
 
