@@ -41,7 +41,7 @@ Bài viết này giới thiệu cách áp dụng cache để lưu kết quả OC
 
 - ⚠️ Trong những tình huống như vậy, nếu mỗi lần đều gửi ảnh vào Tesseract để OCR, hệ thống sẽ phải xử lý khối lượng công việc nặng nề, tốn CPU, và thời gian phản hồi chậm.
 
-### 1️⃣ Giải pháp Cache (bộ nhớ đệm)
+### 1️⃣ Giải pháp cache (bộ nhớ đệm)
 - Nếu ảnh đã từng được nhận diện, ta có thể lưu lại kết quả.
 
 - Khi gặp lại ảnh giống hệt, chỉ cần lấy kết quả từ cache thay vì chạy OCR lại.
@@ -174,7 +174,7 @@ Bài viết này giới thiệu cách áp dụng cache để lưu kết quả OC
     ocr_cache = OCRCacheManager(max_size=1000)
     ```
 
-    - Process 1 set cache → Process 2 không thấy cache của Process 1.
+    - Process 1 set cache → Process 2 không thấy cache của Process 1. Đó là lý do khi dùng RAM cache sẽ không chia sẻ dữ liệu đã lưu trước đó trong cache giữa các process được cho nhau.
 
 - 👉 **Giải pháp:** Shared cache giữa processes
     - ➀ Option A - Redis Cache / Memcached:
@@ -280,7 +280,7 @@ Bài viết này giới thiệu cách áp dụng cache để lưu kết quả OC
                 print(f"[CacheManager] Lỗi khi lưu cache: {e}")
     ```
 
-#### ❸ Kết hợp Hybrid (RAM + Disk) với thử viện diskcache
+#### ❸ Kết hợp Hybrid (RAM + Disk) với thư viện diskcache
 - Todo...
 
 ### 2️⃣ Sinh key duy nhất cho ảnh

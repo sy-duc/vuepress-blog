@@ -15,6 +15,6 @@ Chuỗi bài viết giới thiệu tổng quan về OCR cũng như hiểu cách 
 
 3. <a href="/vuepress-blog/blog-posts/ai/ocr-accuracy-perfomance.html" target="_blank">Độ chính xác & Performance với Tesseract</a>
 
-4. <a href="/vuepress-blog/blog-posts/ai/ocr-gioi-thieu-tesseract.html" target="_blank">Ứng dụng bài toán thực tế & tích hợp</a>
+4. <a href="/vuepress-blog/blog-posts/ai/ocr-training-tesseract.html" target="_blank">Huấn luyện Tesseract (training AI OCR)</a>
 
-5. <a href="/vuepress-blog/blog-posts/ai/ocr-training-tesseract.html" target="_blank">Huấn luyện Tesseract (training AI OCR)</a>
+54. <a href="/vuepress-blog/blog-posts/ai/ocr-gioi-thieu-tesseract.html" target="_blank">Ứng dụng bài toán thực tế & tích hợp</a>

@@ -232,7 +232,7 @@ python main.py
 
 - ✅ Ưu điểm: đơn giản, dễ dùng.
 
-- ✔️ Nhược điểm: không có thông tin vị trí, độ tin cây, không phân tích chi tiết từng từ.
+- ❌ Nhược điểm: không có thông tin vị trí, độ tin cây, không phân tích chi tiết từng từ.
 
 #### ❷ Output dạng TSV (Tab-Separated Values)
 
@@ -277,4 +277,4 @@ python main.py
 
 - ✅ Ưu điểm: có bounding box, confidence score → rất hữu ích để hậu xử lý (lọc theo độ tin cậy, highlight vùng OCR).
 
-- ✔️ Nhược điểm: dữ liệu phức tạp hơn, tốc độ chậm hơn và cần code thêm để phân tích hay get text.
+- ❌ Nhược điểm: dữ liệu phức tạp hơn, tốc độ chậm hơn và cần code thêm để phân tích hay get text.
