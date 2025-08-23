@@ -246,9 +246,9 @@ Bài viết này giới thiệu cách áp dụng cache để lưu kết quả OC
 
 ### 4️⃣ Triển khai cache hiểu quả trong project?
 
-- Nên tạo riêng /cache_manager.py để quản lý cache vì những lý do sau:
+- Nên tạo riêng `cache_manager.py` để quản lý cache vì những lý do sau:
 
-  - ✔️ Single Responsibility: Phân tán, cache_manager.py sẽ chỉ tập trung vào cache. OCR sẽ tập trung file khác (ví dụ: ocr_worker.py).
+  - ✔️ Single Responsibility: Phân tán, `cache_manager.py` sẽ chỉ tập trung vào cache. OCR sẽ tập trung file khác (ví dụ: `ocr_worker.py`).
 
   - ✔️ Reusable: Có thể dùng cache cho các module khác.
 
@@ -314,10 +314,6 @@ Bài viết này giới thiệu cách áp dụng cache để lưu kết quả OC
           except Exception as e:
               print(f"[CacheManager] Lỗi khi lưu cache: {e}")
   ```
-
-#### ❸ Kết hợp Hybrid (RAM + Disk) với thư viện diskcache
-
-- Todo...
 
 ### 2️⃣ Sinh key duy nhất cho ảnh
 
@@ -414,3 +410,97 @@ def set(self, image, ocr_result: str):
   # Nếu dùng Disk cache, lưu cache vào file JSON khi tắt tool
   ocr_cache.save_cache()
   ```
+
+### 🔥 Ví dụ kết hợp Hybrid (RAM + Disk) với thư viện diskcache
+
+#### ❶ Cài diskcache
+
+- ```sh
+  pip install diskcache
+  ```
+
+#### ❷ Triển khai trong `cache_manager.py`
+
+```python
+import os
+import hashlib
+from typing import Optional
+import diskcache as dc
+
+from utils.common import get_base_dir
+from utils.logger import setup_logger
+
+logger = setup_logger()
+
+class OCRCacheManager:
+    def __init__(self, max_size: int = 10):
+        base_dir = get_base_dir()
+        cache_path = os.path.join(base_dir, "ocr_cache")
+        os.makedirs(cache_path, exist_ok=True)
+        self.cache = dc.Cache(
+            directory=cache_path,
+            size_limit=max_size * 1024 * 1024,
+            timeout=1.0
+        )
+
+
+    def _get_image_hash(self, img) -> str:
+        return hashlib.md5(img.tobytes()).hexdigest()
+
+
+    def _get_cache_key(self, img, stage) -> str:
+        img_hash = self._get_image_hash(img)
+        return f"{stage}_{img_hash}"
+
+
+    def get(self, img, stage) -> Optional[str]:
+        key = self._get_cache_key(img, stage)
+
+        try:
+            result = self.cache.get(key)
+            if result is not None:
+                return result
+            return None
+
+        except Exception as e:
+            logger.warning(f"Cache get error: {e}")
+            return None
+
+
+    def set(self, img, stage: str, ocr_result: str):
+        key = self._get_cache_key(img, stage)
+
+        try:
+            self.cache.set(key, ocr_result, expire=None)
+
+        except Exception as e:
+            logger.warning(f"Cache set error: {e}")
+
+
+    def clear(self):
+        try:
+            self.cache.clear()
+        except Exception as e:
+            logger.warning(f"Cache clear error: {e}")
+
+
+    def close(self):
+        try:
+            self.cache.close()
+        except Exception as e:
+            logger.warning(f"Cache close error: {e}")
+
+
+    def __del__(self):
+        self.close()
+```
+
+#### ❸ Giải thích
+
+- ✦ Triển khai diskcache bản chất cách dùng gần như không đổi.
+
+- ✦ Khác biệt lớn nhất chúng ta thấy được nằm ở:
+
+  - ✧ DiskCache tự quản lý eviction policy (xóa bớt entries cũ khi vượt quá size_limit hoặc cull_limit).
+
+  - ✧ DiskCache lo giùm chuyện dọn rác, lock, share dữ liệu giữa processes.

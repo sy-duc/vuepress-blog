@@ -211,11 +211,13 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 #### 👀 Khi nào nên dùng:
 
 - ➀ OCR số serial / mã hóa học sinh → chỉ cần số.
+
   ```bash
   -c tessedit_char_whitelist=0123456789
   ```
 
 - ➁ OCR biển số xe → chỉ nhận chữ in hoa và số.
+
   ```bash
   -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
   ```
@@ -383,9 +385,6 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
   - ✧ Nhất quán: Cùng điều kiện tiền xử lý cho tất cả vùng số liệu.
 
   - ✧ Tuy nhiên, trường hợp tiền xử lý các vùng cần OCR khác nhau → nên tiền xử lý xong mới ghép ảnh để tăng tính linh hoạt và giảm rủi ro lỗi OCR do nền khác nhau.
-
-#### 🚀 Ví dụ:
-- Todo...
 
 ### 4️⃣ Tối ưu I/O (Input/Output Optimization)
 
