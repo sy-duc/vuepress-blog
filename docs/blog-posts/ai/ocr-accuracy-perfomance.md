@@ -41,9 +41,9 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 - ✅ Ưu điểm:
 
-  - ✧ Giảm kích thước dữ liệu (1 kênh thay vì 3 kênh).
+  - ✦ Giảm kích thước dữ liệu (1 kênh thay vì 3 kênh).
 
-  - ✧ Tăng tốc xử lý các bước tiếp theo.
+  - ✦ Tăng tốc xử lý các bước tiếp theo.
 
 - 🚀 Cách sử dụng:
   ```python
@@ -56,11 +56,11 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 - 👀 Khi nào dùng:
 
-  - ✧ Văn bản có độ tương phản vừa phải.
+  - ✦ Văn bản có độ tương phản vừa phải.
 
-  - ✧ Muốn loại bỏ nhiễu nền.
+  - ✦ Muốn loại bỏ nhiễu nền.
 
-  - ✧ Rất quan trọng trong kỹ thuật Template Matching (sẽ đề cập phía sau).
+  - ✦ Rất quan trọng trong kỹ thuật Template Matching (sẽ đề cập phía sau).
 
 - ✅ Ưu điểm: giúp ký tự trở nên nổi bật.
 
@@ -68,13 +68,30 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 - 🚀 Cách sử dụng:
 
-  - ✧ Otsu Thresholding (tự tìm ngưỡng tối ưu):
+  ```python
+  retval, dst = cv2.threshold(src, thresh, maxval, type)
+  ```
+
+  - Trong đó:
+
+    - ✧ `src`: Ảnh đầu vào (phải là ảnh sau khi chuyển sang grayscale).
+    - ✧ `thresh`: Ngưỡng để so sánh độ sáng của pixel (0 → đen, 255 → trắng).
+    - ✧ `maxval`: Giá trị pixel sau khi qua ngưỡng (thường là 255 để thành màu trắng).
+    - ✧ `type`: Cách áp dụng ngưỡng (cv2.THRESH_BINARY, cv2.THRESH_BINARY_INV, v.v.). Có thể cộng thêm cv2.THRESH_OTSU để OpenCV tự chọn ngưỡng tối ưu.
+    - ✧ `retval`: Nếu dùng Otsu → chính là giá trị ngưỡng tối ưu mà OpenCV tìm được. Nếu không dùng Otsu → nó chính là thresh bạn truyền vào.
+    - ✧ `dst`: Ảnh kết quả đã nhị phân hóa.
+
+  - ✦ Ví dụ:
+
+    - ![Ví dụ Threshold](./images/ocr-threshold-sample.png)
+
+  - ✦ Otsu Thresholding (tự tìm ngưỡng tối ưu):
 
     ```python
     _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     ```
 
-  - ✧ Adaptive Threshold (tìm ngưỡng cho từng vùng nhỏ, tốt cho ảnh ánh sáng không đều):
+  - ✦ Adaptive Threshold (tìm ngưỡng cho từng vùng nhỏ, tốt cho ảnh ánh sáng không đều):
     ```python
     thresh = cv2.adaptiveThreshold(
       gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
