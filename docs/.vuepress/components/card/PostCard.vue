@@ -33,4 +33,8 @@ q {
 footer :hover {
   text-decoration: underline;
 }
+
+footer {
+  height: 73px;
+}
 </style>
