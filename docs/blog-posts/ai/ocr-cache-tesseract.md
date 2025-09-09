@@ -9,7 +9,7 @@ tags:
   - machine learning
   - ocr
   - tesseract
-  - cache-tesseract
+  - cache tesseract
 ---
 
 # Cải thiện hiệu năng Tesseract-OCR bằng Cache

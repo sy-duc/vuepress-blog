@@ -9,7 +9,7 @@ tags:
   - machine learning
   - ocr
   - tesseract
-  - training-ai
+  - training ocr
 ---
 
 # Huấn luyện Tesseract (training AI OCR)
@@ -473,6 +473,8 @@ tags:
 - ✔️ Sau khi chạy lệnh huấn luyện lần đầu, cần kiểm tra box file (`.box`). Có thể cần chỉnh tay box file nếu phát hiện sai lệch:
   - ➀ Kiểm tra nhãn (`char`) đã khớp chưa.
   - ➁ Đo tọa độ pixel bằng `Paint` app và chỉnh lại x0 y0 x1 y1 sao cho ô bao trọn ký tự, không cắt, không quá rộng.
+
+- ✔️ Như đã nói, training đòi hỏi thời gian huấn luyện lâu. Việc phải thêm ảnh và lặp lại training nhiều vòng để tăng độ ổn định là bình thường.
 
 <a name="4"></a>
 
