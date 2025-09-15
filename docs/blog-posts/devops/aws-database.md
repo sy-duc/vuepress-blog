@@ -23,7 +23,7 @@ tags:
 
 [4. RDS Backup](#4)
 
-[5. Giới thiệu Aurora](#45)
+[5. Giới thiệu Aurora](#5)
 
 <a name="1"></a>
 

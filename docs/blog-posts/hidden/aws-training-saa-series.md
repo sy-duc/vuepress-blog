@@ -20,3 +20,5 @@ Hy vọng tài liệu này cũng sẽ tiết kiệm thời gian trong việc l�
 5. <a href="/vuepress-blog/blog-posts/devops/aws-storage.html" target="_blank">Storage - Các dịch vụ lưu trữ (S3 & EBS)</a>
 
 6. <a href="/vuepress-blog/blog-posts/devops/aws-database.html" target="_blank">Các dịch vụ Database - Amazone RDS</a>
+
+76. <a href="/vuepress-blog/blog-posts/devops/aws-networking.html" target="_blank">Networking trong AWS</a>
