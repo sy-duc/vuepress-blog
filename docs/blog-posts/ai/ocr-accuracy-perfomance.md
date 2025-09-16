@@ -343,7 +343,7 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
   - ✦ Nếu kết hợp với OCR, ta có thể tăng độ chính xác:
 
-    - ✧ Ví dụ trường hợp giá trị đặc biệt, khó OCR (số "1" trông như chữ "l" hoặc số "7" mờ giống số "1") thì sẽ Template Matching trước, OCR sau.
+    - ✧ Ví dụ trường hợp giá trị đặc biệt, khó OCR (số "1" trông như chữ "l" hoặc số "7" mờ giống số "1") thì sẽ Template Matching trước, OCR sau, hoặc ngược lại.
 
     - ✧ Hoặc xác định chính xác vùng cần OCR bằng Template Matching trước khi chạy Tesseract.
 

@@ -31,9 +31,9 @@ Thông qua quá trình phân tích, thiết kế và triển khai giải pháp, 
 
 ### 📍 Hiện trạng
 
-- ✦ Các dây chuyền sản xuất trong nhà máy tích hợp sẵn phần mềm kiểm tra chất lượng từng sản phẩm.
+- ✦ Các dây chuyền sản xuất trong nhà máy tích hợp sẵn phần mềm phân loại sản phẩm.
 
-- ✦ Nhân viên phải định kỳ nhập tay kết quả (tổng số sản phẩm đã kiểm tra, sản phẩm đạt, sản phẩm lỗi).
+- ✦ Nhân viên phải định kỳ nhập tay kết quả (tổng số sản phẩm, sản phẩm loại 1, loại 2, loại 3).
 
 - ✦ Dựa vào dữ liệu nhập tay để tạo báo cáo theo ngày/tháng.
 
@@ -41,7 +41,7 @@ Thông qua quá trình phân tích, thiết kế và triển khai giải pháp, 
 
 - ✦ Tạo công cụ tự động thu thập dữ liệu và tạo file báo cáo (excel) để giảm sai sót do thao tác thủ công.
 
-- ✦ Chú ý không can thiệp phần mềm kiểm tra đang hoạt động.
+- ✦ Chú ý không can thiệp phần mềm phân loại đang hoạt động.
 
 <a name="2"></a>
 
@@ -120,7 +120,9 @@ Thông qua quá trình phân tích, thiết kế và triển khai giải pháp, 
 
   - ✧ Chỉ chấp nhận các kết quả đọc được. Kết quả None thì bỏ qua
 
-  - ✧ Có thêm cơ chế check, ví dụ: `Tổng số sản phẩm đã kiểm tra = Sản phẩm đạt + Sản phẩm lỗi`.
+  - ✧ Có thêm cơ chế check, ví dụ:
+
+    `Tổng số sản phẩm = Sản phẩm loại 1 + Sản phẩm loại 2 + Sản phẩm loại 3`
 
 ### 4️⃣ Phân tích dữ liệu
 
