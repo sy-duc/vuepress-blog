@@ -13,6 +13,8 @@ tags:
 
 Bài viết tổng hợp những tình huống thường gặp khi làm việc với Git, từ commit nhầm, push sai, muốn revert, stash thay đổi tạm thời, đến reset hoặc revert lịch sử, v.v.
 
+[1. Kết nối tài khoản Git & Đưa source lên Git](#1)
+
 [2. Quy ước đặt tên branch](#2)
 
 [3. Xem lại lịch sử thay đổi ngắn gọn](#3)
@@ -39,7 +41,7 @@ Bài viết tổng hợp những tình huống thường gặp khi làm việc v
 
 <a name="1"></a>
 
-## 📌 1. Đưa source lên Git
+## 📌 1. Kết nối tài khoản Git & Đưa source lên Git
 
 ### 1️⃣ Chuẩn bị kết nối Git với tài khoản cá nhân: chỉ dùng 1 tài khoản Git
 
