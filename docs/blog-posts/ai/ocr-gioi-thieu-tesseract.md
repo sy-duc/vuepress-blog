@@ -192,13 +192,13 @@ python main.py
 - ➁ Build
 
   ```bash
-  pyinstaller --onefile --noconsole --name ocr_tool main.py
+  pyinstaller --onefile --windowed --name ocr_tool main.py
   ```
 
   - Trong đó:
     - ✧ --onefile: tạo 1 file .exe duy nhất
     - ✧ --name ocr_tool: tên file đầu ra
-    - ✧ --noconsole: nếu muốn tool chạy ngầm và hiển thị cửa sổ terminal (thường khi phát triển sẽ bỏ option này để dễ check log)
+    - ✧ --windowed: nếu muốn tool chạy ngầm và không hiển thị cửa sổ terminal (thường khi phát triển sẽ bỏ option này để dễ check log)
 
 - Sau khi build xong, file .exe sẽ nằm trong thư mục dist/ocr_tool.exe
 
@@ -213,6 +213,7 @@ python main.py
 - Mặc định Tesseract sẽ trả về chuỗi văn bản thuần túy chỉ chứa nội dung nhận dạng được.
 
 - ● pytesseract:
+
   ```python
   from pytesseract import image_to_string
   text = image_to_string(img, lang="eng")
@@ -220,9 +221,10 @@ python main.py
   ```
 
 - ● Tesseract CLI (gọi từ Python):
+
   ```python
   import subprocess
-  
+
   subprocess.run(["tesseract", "input.png", "output"], check=True)
   # Sinh ra file output.txt
   with open("output.txt", "r", encoding="utf-8") as f:
@@ -254,6 +256,7 @@ python main.py
   | **text**      | Nội dung ký tự/từ được OCR. Nếu rỗng nghĩa là không nhận diện được                                  |
 
 - ● pytesseract:
+
   ```python
   from pytesseract import image_to_data
   data = image_to_data(img, lang="eng", output_type="dict")
@@ -261,9 +264,10 @@ python main.py
   ```
 
 - ● Tesseract CLI (gọi từ Python):
+
   ```python
   subprocess.run(["tesseract", "input.png", "output", "--psm", "6", "tsv"], check=True)
-  
+
   import pandas as pd
   df = pd.read_csv("output.tsv", sep="\t")
   print(df.head())
