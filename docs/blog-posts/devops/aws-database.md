@@ -142,15 +142,15 @@ tags:
 
   - ✧ Để khôi phục dữ liệu tại một thời điểm, RDS sẽ sử dụng bản full snapshot gần nhất trước đó, rồi chạy lại các transaction logs trong ngày cho đến thời điểm cần phục hồi.
 
-  - ✧ Với database có Multi-AZ, RDS sẽ backup trên máy chủ dự bị để hạn chế ảnh hưởng trên database chính
+  - ✧ Với database có Multi-AZ, RDS sẽ backup trên máy chủ dự bị để hạn chế ảnh hưởng trên database chính.
 
   - ✧ Với database không có Multi-AZ, RDS sẽ snapshot hàng ngày vào thời điểm do chúng ta chỉ định.
 
-    👉 Nên cấu hình khoảng thời gian này vào thời điểm ít người truy cập để tránh làm ảnh hưởng đến hiệu năng của database
+    - 👉 Nên cấu hình khoảng thời gian này vào thời điểm ít người truy cập để tránh làm ảnh hưởng đến hiệu năng của database
 
 - ● Do hạn chế của automatic backup là thời gian lưu trữ tối đa 35 ngày
 
-  - 👉 DS cung cấp tính năng Snapshot:
+  - 👉 RDS cung cấp tính năng Snapshot:
 
     - ✧ Đây là tính năng sao chụp lại toàn bộ dữ liệu trong database tại một thời điểm nhất định.
 
@@ -168,7 +168,7 @@ tags:
 
   - Tuy nhiên, chúng được thiết kế để hoạt động trên môi trường truyền thống nên chưa tận dụng hết sức mạnh của đám mây.
 
-- ● AWS tạo ra hệ cơ sở dữ liệu quan hệ Aurora được tối ưu hóa cho đám mây, cung cấp hiệu năng tương đương hệ cơ sở dữ liệu thương mại, nhưng mức giá chỉ tương được hệ cơ sở dữ liệu mã nguồn mở.
+- ● AWS tạo ra hệ cơ sở dữ liệu quan hệ Aurora được tối ưu hóa cho đám mây, cung cấp hiệu năng tương đương hệ cơ sở dữ liệu thương mại, nhưng mức giá chỉ tương đương hệ cơ sở dữ liệu mã nguồn mở.
 
 - ● Aurora tương thích với PostgreSQL và MySQL. Nếu ứng dụng chúng ta đang sử dụng Postgres hoặc MySQL thì có thể chuyển trực tiếp sang Aurora để giảm chi phí mà vẫn giúp tăng hiệu năng và gần như không cần chỉnh sửa lại ứng dụng.
 
