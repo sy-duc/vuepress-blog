@@ -231,14 +231,14 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
 ### 7️⃣ Khác
 
-- | Dấu hiệu                           | Hướng phân tích nhanh           |
-  | ---------------------------------- | ------------------------------- |
-  | “Unpredictable / variable load”    | Serverless hoặc Auto Scaling    |
-  | “High availability”                | Multi-AZ / Load Balancer        |
-  | “Disaster recovery / cross-region” | Multi-Region setup              |
-  | “Reduce cost”                      | Spot, Serverless, Schedule stop |
-  | “Secure access”                    | IAM, KMS, Private subnet        |
-  | “Scalable database”                | Aurora Serverless hoặc DynamoDB |
+- | Keyword                              | Hướng chọn                      |
+  | ------------------------------------ | ------------------------------- |
+  | **Unpredictable / variable load**    | Serverless hoặc Auto Scaling    |
+  | **High availability**                | Multi-AZ / Load Balancer        |
+  | **Disaster recovery / cross-region** | Multi-Region setup              |
+  | **Reduce cost**                      | Spot, Serverless, Schedule stop |
+  | **Secure access**                    | IAM, KMS, Private subnet        |
+  | **Scalable database**                | Aurora Serverless hoặc DynamoDB |
 
 <a name="5"></a>
 
@@ -254,17 +254,16 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
 #### Question 1:
 
-- ```
-  There was an incident in your production environment where user data stored in an S3  bucket was accidentally deleted by one of the engineers.
-  You are tasked to improve the protection of your S3 objects from both accidental  deletion and overwriting.
-
-  Which combination of the following will protect your data? (Select TWO)
-  A. Enable Multi-Factor Authentication Delete
-  B. Disallow S3 Delete using an IAM bucket policy
-  C. Enable Versioning
-  D. Provide access strictly through pre-signed URLs
-  E. Enable S3 Intelligent-Tiering
-  ```
+- > There was an incident in your production environment where user data stored in an S3 bucket was accidentally deleted by one of the engineers.
+  > You are tasked to improve the protection of your S3 objects from both accidental deletion and overwriting.
+  >
+  > Which combination of the following will protect your data? (Select TWO)
+  >
+  > A. Enable Multi-Factor Authentication Delete  
+  > B. Disallow S3 Delete using an IAM bucket policy  
+  > C. Enable Versioning  
+  > D. Provide access strictly through pre-signed URLs  
+  > E. Enable S3 Intelligent-Tiering
 
 - 🧩 Bối cảnh:
 
@@ -284,16 +283,15 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
 #### Question 2:
 
-- ```
-  Your company needs to store sensitive customer data in Amazon S3.
-  The security team requires that all objects are encrypted using keys managed by AWS.
-  Which solution should you choose?
-
-  A. SSE-S3
-  B. SSE-KMS
-  C. SSE-C
-  D. Client-side encryption
-  ```
+- > Your company needs to store sensitive customer data in Amazon S3.
+  > The security team requires that all objects are encrypted using keys managed by AWS.
+  >
+  > Which solution should you choose?
+  >
+  > A. SSE-S3  
+  > B. SSE-KMS  
+  > C. SSE-C  
+  > D. Client-side encryption
 
 - 🧩 Bối cảnh:
 
@@ -338,16 +336,17 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
 #### Question 1:
 
-- ```
-  You are working for a FinTech startup as their AWS Solutions Architect. You deployed an application on an Amazon EC2 instance with attached Instance Store volumes and an Elastic IP address. The server is only accessed from 8 AM to 6 PM and can be stopped from 6 PM to 8 AM for cost efficiency using Lambda with the script that automates this based on tags.
-  Which of the following will occur when the EC2 instance is stopped and started? (Select TWO.)
-
-  A. All data on the attached instance-store devices will be lost.
-  B. There will be no changes.
-  C. The ENI (Elastic Network Interface) is detached.
-  D. The underlying host for the instance is possibly changed.
-  E. The Elastic IP address is disassociated with the instance.
-  ```
+- > You are working for a FinTech startup as their AWS Solutions Architect.
+  > You deployed an application on an Amazon EC2 instance with attached Instance Store volumes and an Elastic IP address.
+  > The server is only accessed from 8 AM to 6 PM and can be stopped from 6 PM to 8 AM for cost efficiency using Lambda with the script that automates this based on tags.
+  >
+  > Which of the following will occur when the EC2 instance is stopped and started? (Select TWO.)
+  >
+  > A. All data on the attached instance-store devices will be lost  
+  > B. There will be no changes  
+  > C. The ENI (Elastic Network Interface) is detached  
+  > D. The underlying host for the instance is possibly changed  
+  > E. The Elastic IP address is disassociated with the instance
 
 - 🧩 Bối cảnh:
 
@@ -379,19 +378,15 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
 #### Question 1:
 
-- ```
-  An online shopping platform is hosted on an Auto Scaling group of Spot EC2 instances and uses Amazon Aurora PostgreSQL as its database. There is a requirement to optimize your database workloads in your cluster where you have to direct the write operations of the production traffic to your high-capacity instances and point the reporting queries sent by your internal staff to the low-capacity instances.
-
-  Which is the most suitable configuration for your application as well as your Aurora database cluster to achieve this requirement?
-
-  A. Do nothing since by default, Aurora will automatically direct the production traffic to your high-capacity instances and the reporting queries to your low-capacity instances.
-
-  B. In your application, use the instance endpoint of your Aurora database to handle the incoming production traffic and use the cluster endpoint to handle reporting queries.
-
-  C. Configure your application to use the reader endpoint for both production traffic and reporting queries, which will enable your Aurora database to automatically perform load-balancing among all the Aurora Replicas.
-
-  D. Create a custom endpoint in Aurora based on the specified criteria for the production traffic and another custom endpoint to handle the reporting queries.
-  ```
+- > An online shopping platform is hosted on an Auto Scaling group of Spot EC2 instances and uses Amazon Aurora PostgreSQL as its database.
+  > There is a requirement to optimize your database workloads in your cluster where you have to direct the write operations of the production traffic to your high-capacity instances and point the reporting queries sent by your internal staff to the low-capacity instances.
+  >
+  > Which is the most suitable configuration for your application as well as your Aurora database cluster to achieve this requirement?
+  >
+  > A. Do nothing since by default, Aurora will automatically direct the production traffic to your high-capacity instances and the reporting queries to your low-capacity instances.  
+  > B. In your application, use the instance endpoint of your Aurora database to handle the incoming production traffic and use the cluster endpoint to handle reporting queries.  
+  > C. Configure your application to use the reader endpoint for both production traffic and reporting queries, which will enable your Aurora database to automatically perform load-balancing among all the Aurora Replicas.  
+  > D. Create a custom endpoint in Aurora based on the specified criteria for the production traffic and another custom endpoint to handle the reporting queries.
 
 - 🧩 Bối cảnh:
 
@@ -408,24 +403,23 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 - 🧐 Phân tích đáp án:
 
   | **Option** | **Phân tích**                                                                                                                                                                                                                                                                                                                                                                                                                        | **Kết quả** |
-  | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------: |
-  | **A**      | Sai. **Aurora không tự động phân biệt** “production write” vs “reporting read” theo kiểu chọn instance dựa trên capacity. Mặc định: **writes → writer (cluster endpoint)**; **reads → reader endpoint (tự load-balance trên tất cả read replicas)**. Nó không tự phân chia theo “high-capacity vs low-capacity” trừ khi bạn cấu hình cụ thể.                                                                                         |     ❌      |
-  | **B**      | Sai / không phù hợp. **Instance endpoint** trỏ tới một instance cụ thể (có thể dùng nếu bạn muốn target 1 node duy nhất). **Cluster endpoint** là điểm đến cho writer (viết). Đổi chỗ như đề xuất (instance → production, cluster → reporting) là ngược lại so với chức năng chuẩn và sẽ phá vỡ write/read routing.                                                                                                                  |     ❌      |
-  | **C**      | Sai và cực kỳ rủi ro. **Reader endpoint** chỉ cho reads — nếu bạn gửi writes production vào reader endpoint sẽ bị lỗi (writer-only operations fail). Dù reader endpoint load-balance reads, nó không phân biệt replica “low-capacity” hay “high-capacity” theo mục đích; không đáp ứng yêu cầu.                                                                                                                                      |     ❌      |
-  | **D**      | Đúng. **Custom endpoints (Aurora)** cho phép bạn tạo **endpoint nhóm** gồm một tập con của Aurora Replicas theo tiêu chí (tags, instance role, instance class, v.v.). Bạn có thể: đặt writer là high-capacity; tạo **custom reader endpoint** nhóm các read replicas low-capacity dành cho reporting; và (nếu cần) tạo endpoint dành cho production reads that need higher-capacity replicas. Đây là cách linh hoạt và phù hợp nhất. |     ✅      |
+  | :--------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :---------: |
+  |   **A**    | Sai. **Aurora không tự động phân biệt** “production write” vs “reporting read” theo kiểu chọn instance dựa trên capacity. Mặc định: **writes → writer (cluster endpoint)**; **reads → reader endpoint (tự load-balance trên tất cả read replicas)**. Nó không tự phân chia theo “high-capacity vs low-capacity” trừ khi bạn cấu hình cụ thể.                                                                                         |     ❌      |
+  |   **B**    | Sai / không phù hợp. **Instance endpoint** trỏ tới một instance cụ thể (có thể dùng nếu bạn muốn target 1 node duy nhất). **Cluster endpoint** là điểm đến cho writer (viết). Đổi chỗ như đề xuất (instance → production, cluster → reporting) là ngược lại so với chức năng chuẩn và sẽ phá vỡ write/read routing.                                                                                                                  |     ❌      |
+  |   **C**    | Sai và cực kỳ rủi ro. **Reader endpoint** chỉ cho reads — nếu bạn gửi writes production vào reader endpoint sẽ bị lỗi (writer-only operations fail). Dù reader endpoint load-balance reads, nó không phân biệt replica “low-capacity” hay “high-capacity” theo mục đích; không đáp ứng yêu cầu.                                                                                                                                      |     ❌      |
+  |   **D**    | Đúng. **Custom endpoints (Aurora)** cho phép bạn tạo **endpoint nhóm** gồm một tập con của Aurora Replicas theo tiêu chí (tags, instance role, instance class, v.v.). Bạn có thể: đặt writer là high-capacity; tạo **custom reader endpoint** nhóm các read replicas low-capacity dành cho reporting; và (nếu cần) tạo endpoint dành cho production reads that need higher-capacity replicas. Đây là cách linh hoạt và phù hợp nhất. |     ✅      |
 
 #### Question 2:
 
-- ```
-  A Docker application, which is running on an Amazon ECS cluster behind a load balancer, is heavily using DynamoDB. You are instructed to improve the database performance by distributing the workload evenly and using the provisioned throughput efficiently.
-
-  Which of the following would you consider to implement for your DynamoDB table?
-
-  A. Reduce the number of partition keys in the DynamoDB table.
-  B. Use partition keys with high-cardinality attributes, which have a large number of distinct values for each item.
-  C. Use partition keys with low-cardinality attributes, which have a few number of distinct values for each item.
-  D. Avoid using a composite primary key, which is composed of a partition key and a sort key.
-  ```
+- > A Docker application, which is running on an Amazon ECS cluster behind a load balancer, is heavily using DynamoDB.
+  > You are instructed to improve the database performance by distributing the workload evenly and using the provisioned throughput efficiently.
+  >
+  > Which of the following would you consider to implement for your DynamoDB table?
+  >
+  > A. Reduce the number of partition keys in the DynamoDB table.  
+  > B. Use partition keys with high-cardinality attributes, which have a large number of distinct values for each item.  
+  > C. Use partition keys with low-cardinality attributes, which have a few number of distinct values for each item.  
+  > D. Avoid using a composite primary key, which is composed of a partition key and a sort key.
 
 - 🧩 Bối cảnh:
 
@@ -462,16 +456,14 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
 #### Question 1:
 
-- ```
-  A retail website has intermittent, sporadic, and unpredictable transactional workloads throughout the day that are hard to predict. The website is currently hosted on-premises and is slated to be migrated to AWS. A new relational database is needed that autoscale capacity to meet the needs of the application's peak load and scales back down when the surge of activity is over.
-
-  Which of the following option is the MOST cost-effective and suitable database setup in this scenario?
-
-  A. Launch an Amazon Aurora Provisioned DB cluster with burstable performance DB instance class types.
-  B. Launch an Amazon Redshift data warehouse cluster with Concurrency Scaling.
-  C. Launch an Amazon Aurora Serverless DB cluster then set the minimum and maximum capacity for the cluster.
-  D. Launch a DynamoDB Global table with Auto Scaling enabled.
-  ```
+- > A retail website has intermittent, sporadic, and unpredictable transactional workloads throughout the day that are hard to predict. The website is currently hosted on-premises and is slated to be migrated to AWS. A new relational database is needed that autoscale capacity to meet the needs of the application's peak load and scales back down when the surge of activity is over.
+  >
+  > Which of the following option is the MOST cost-effective and suitable database setup in this scenario?
+  >
+  > A. Launch an Amazon Aurora Provisioned DB cluster with burstable performance DB instance class types.  
+  > B. Launch an Amazon Redshift data warehouse cluster with Concurrency Scaling.  
+  > C. Launch an Amazon Aurora Serverless DB cluster then set the minimum and maximum capacity for the cluster.  
+  > D. Launch a DynamoDB Global table with Auto Scaling enabled.
 
 - 🧩 Bối cảnh:
 

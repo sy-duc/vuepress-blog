@@ -109,7 +109,7 @@ Cloud computing ra đời để giải quyết các vấn đề trên.
 
 ### 1️⃣ On-demand self service - Tự phục vụ theo yêu cầu
 
-- Người dùng (Users) có thể cung cấp tài nguyên (provision resources) và sử dụng mà không cần tương tác của con người (human interaction) từ nhà cũng cấp dịch vụ (the service provider).
+- Người dùng (Users) có thể cung cấp tài nguyên (provision resources) và sử dụng mà không cần tương tác của con người (human interaction) từ nhà cung cấp dịch vụ (the service provider).
 
 ### 2️⃣ Broad network access - Truy cập mạng rộng
 
