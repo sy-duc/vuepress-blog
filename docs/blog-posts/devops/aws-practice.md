@@ -16,7 +16,7 @@ tags:
 
 - 🎯 **Mô hình luyện đề**:
 
-  - ❶ Câu hỏi thực tế (trích từ đề mock hoặc practice exam).
+  - ❶ Luyện câu hỏi thực tế (trích từ đề mock hoặc practice exam).
 
   - ❷ Phân tích chi tiết từng lựa chọn — tại sao đúng, sai.
 
@@ -34,15 +34,11 @@ tags:
 
 [3. Phương pháp luyện đề hiệu quả](#3)
 
-[4. Mẹo nhận diện câu hỏi và đáp án](#4)
+[4. Tổng hợp KEYWORDS → PATTERN → SERVICE](#4)
 
-[5. Domain Design Secure Architectures](#5)
+[5. Checklist tình huống hay gặp trong đề thi](#5)
 
-[6. Domain Design Resilient Architectures](#6)
-
-[7. Domain Design High-Performing Architectures](#7)
-
-[8. Design Cost-Optimized Architectures](#8)
+[6. Sample tư duy trả lời câu hỏi khi luyện đề](#6)
 
 <a name="1"></a>
 
@@ -61,6 +57,8 @@ tags:
   - Làm quen format và “bẫy” thường gặp trong đề thi thật.
 
   - Tập luyện tư duy giải pháp “Architect mindset” — luôn đặt câu hỏi: Giải pháp này có bảo mật, tối ưu chi phí, và có độ sẵn sàng cao không?
+
+- ⚠️ **Note**: Bài viết chỉ sample vài câu hỏi để giúp dễ hình dung câu hỏi đề thi thực tế hơn. Hãy luyện tập để tích lũy thêm từ nhiều nguồn khác: google, youtube, udemy, v.v.
 
 <a name="2"></a>
 
@@ -109,17 +107,15 @@ tags:
 
 ## 📌 3. Phương pháp luyện đề hiệu quả
 
-Cách đọc hiểu câu hỏi dạng tình huống (scenario-based).
+### 1️⃣ Nguồn đề luyện thi
 
-Loại trừ đáp án sai (elimination method).
+- Để luyện các đề sát thực tế nhất, từng xuất hiện trong bộ đề AWS SAA cũ, mình khuyên mọi người nên mua các khóa luyện đề có phần phân tích câu trả lời chi tiết.
 
-Ghi chú, tổng hợp “key takeaway” sau mỗi nhóm câu.
+- Ví dụ mình đã luyện bộ đề tại [cloudexam.pro](https://cloudexam.pro/course/practice-exams-aws-certified-solutions-architect-associate) (không seeding, được bạn bè giới thiệu).
 
-Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide.
+### 2️⃣ Hiểu mục tiêu câu hỏi
 
-### 1️⃣ Hiểu mục tiêu câu hỏi
-
-- Phần lớn câu hỏi AWS SAA đều thuộc loại scenario-based (dạng tình huống), do đó:
+- Phần lớn câu hỏi AWS SAA đều thuộc loại scenario-based (dạng tình huống). Ví dụ thay vì hỏi bạn “dịch vụ này làm gì?”, thì sẽ hỏi “trong tình huống này, chọn giải pháp nào tốt nhất?”, do đó:
 
   - ❶ Đọc kỹ đề ít nhất 2 lần để nắm rõ bối cảnh.
 
@@ -135,7 +131,7 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
   - ❸ Xác định vấn đề chính mà AWS đang test: bảo mật, sẵn sàng, hiệu năng, hay chi phí.
 
-### 2️⃣ Sử dụng phương pháp loại trừ
+### 3️⃣ Sử dụng phương pháp loại trừ
 
 - Phần lớn câu hỏi sẽ có 4–5 lựa chọn, trong đó:
 
@@ -153,7 +149,7 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
   - ❸ Chọn đáp án phù hợp với use case cụ thể.
 
-### 3️⃣ Quản lý thời gian làm bài
+### 4️⃣ Quản lý thời gian làm bài
 
 - ✦ Tổng thời gian: 130 phút / ~65 câu → 2 phút/câu.
 
@@ -165,11 +161,33 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
 - ✦ Với những câu dạng tính toán chi phí, đừng sa đà vào con số — tập trung vào loại pricing model nào phù hợp nhất.
 
+### 5️⃣ Tạo cho mình chiến lược ghi chép phù hợp khi luyện đề
+
+- Các chiến lược ghi chép cụ thể có thể áp dụng:
+
+  - ❶ Tạo bản đồ 40 service AWS chia theo nhóm + use case chính.
+
+  - ❷ Tạo bảng “keywords → pattern → service” (cực hữu ích khi làm đề).
+
+  - ❸ Tạo checklist các tình huống hay gặp trong đề thi SAA (mỗi tình huống ~1 dòng, để ôn nhanh).
+
 <a name="4"></a>
 
-## 📌 4. Mẹo nhận diện câu hỏi và đáp án
+## 📌 4. Tổng hợp KEYWORDS → PATTERN → SERVICE
 
-- Bảng tổng hợp key thường gặp, chia theo chủ đề AWS và hướng tư duy khi gặp key đó:
+- 🚀 Chiến lược sử dụng:
+
+  - ❶ Đọc đề, gạch chân keyword (ví dụ: “least effort”, “multi-region”, “securely store credentials”).
+
+  - ❷ Tra trong bảng để xác định pattern đúng.
+
+  - ❸ Chọn dịch vụ tương ứng, loại bỏ các option không cùng hướng.
+
+- 📊 Bảng tổng hợp KEYWORDS → PATTERN → SERVICE (phiên bản dành cho ôn SAA-C03):
+
+- | Keyword                    | Pattern                              | Service                                            |
+  | -------------------------- | ------------------------------------ | -------------------------------------------------- |
+  | **High availability (HA)** | Triển khai trên nhiều AZ hoặc Region | Multi-AZ RDS, ALB + Auto Scaling, Aurora Global DB |
 
 ### 1️⃣ Compute & EC2
 
@@ -184,24 +202,28 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
 ### 2️⃣ Storage & Database
 
-- | Keyword                                   | Ý nghĩa            | Hướng chọn                           |
-  | ----------------------------------------- | ------------------ | ------------------------------------ |
-  | **Durable / Persistent**                  | Cần lưu lâu dài    | Chọn EBS, S3, EFS, Aurora            |
-  | **Temporary / Cache / Scratch data**      | Dữ liệu tạm        | Chọn Instance Store, ElastiCache     |
-  | **Unpredictable / Intermittent workload** | Tải khó đoán       | Aurora Serverless                    |
-  | **Read-heavy workload**                   | Nhiều truy vấn đọc | Read Replica, Aurora Reader Endpoint |
-  | **Data warehouse / Analytics**            | Phân tích dữ liệu  | Redshift                             |
-  | **Key-Value / NoSQL**                     | Không quan hệ      | DynamoDB                             |
+- | Keyword                                   | Ý nghĩa                        | Hướng chọn                              |
+  | ----------------------------------------- | ------------------------------ | --------------------------------------- |
+  | **Durable / Persistent**                  | Cần lưu lâu dài                | Chọn EBS, S3, EFS, Aurora               |
+  | **Temporary / Cache / Scratch data**      | Dữ liệu tạm                    | Chọn Instance Store, ElastiCache        |
+  | **Unpredictable / Intermittent workload** | Tải khó đoán                   | Aurora Serverless                       |
+  | **Read-heavy workload**                   | Nhiều truy vấn đọc             | Read Replica, Aurora Reader Endpoint    |
+  | **Data warehouse / Analytics**            | Phân tích dữ liệu              | Redshift                                |
+  | **Key-Value / NoSQL**                     | Không quan hệ                  | DynamoDB                                |
+  | **Workload constant & predictable**       | Data không đổi và dự đoán được | Provisioned mode: specify RCUs and WCUs |
 
 ### 3️⃣ Networking & Security
 
-- | Keyword                           | Ý nghĩa              | Hướng chọn                      |
-  | --------------------------------- | -------------------- | ------------------------------- |
-  | **Private subnet**                | Không internet       | Database, backend               |
-  | **Public subnet**                 | Có internet          | Load Balancer, NAT Gateway      |
-  | **Least privilege**               | Nguyên tắc tối thiểu | IAM Role / Policy hạn chế quyền |
-  | **Secure / Encrypt**              | Bảo mật              | Sử dụng KMS, HTTPS, TLS         |
-  | **VPC Peering / Transit Gateway** | Kết nối VPC          | Tuỳ số lượng và quy mô          |
+- | Keyword                           | Ý nghĩa                                     | Hướng chọn                      |
+  | --------------------------------- | ------------------------------------------- | ------------------------------- |
+  | **Private subnet**                | Không internet                              | Database, backend               |
+  | **Public subnet**                 | Có internet                                 | Load Balancer, NAT Gateway      |
+  | **Least privilege**               | Nguyên tắc tối thiểu                        | IAM Role / Policy hạn chế quyền |
+  | **Secure / Encrypt**              | Bảo mật                                     | Sử dụng KMS, HTTPS, TLS         |
+  | **VPC Peering / Transit Gateway** | Kết nối VPC                                 | Tuỳ số lượng và quy mô          |
+  | **AWS WAF**                       | Chống tấn công L7 (Web app: SQLi, XSS, Bot) |                                 |
+  | **AWS Shield**                    | Chống DDoS (L3/L4)                          |                                 |
+  | **Amazon Inspector**              | Quét lỗ hổng trên EC2, ECR (không chặn)     |                                 |
 
 ### 4️⃣ High Availability & Fault Tolerance
 
@@ -231,28 +253,68 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
 
 ### 7️⃣ Khác
 
-- | Keyword                              | Hướng chọn                      |
-  | ------------------------------------ | ------------------------------- |
-  | **Unpredictable / variable load**    | Serverless hoặc Auto Scaling    |
-  | **High availability**                | Multi-AZ / Load Balancer        |
-  | **Disaster recovery / cross-region** | Multi-Region setup              |
-  | **Reduce cost**                      | Spot, Serverless, Schedule stop |
-  | **Secure access**                    | IAM, KMS, Private subnet        |
-  | **Scalable database**                | Aurora Serverless hoặc DynamoDB |
+- | Keyword                                                                                                                            | Hướng chọn                                           |
+  | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+  | **Unpredictable / variable load**                                                                                                  | Serverless hoặc Auto Scaling                         |
+  | **High availability**                                                                                                              | Multi-AZ / Load Balancer                             |
+  | **Disaster recovery / cross-region**                                                                                               | Multi-Region setup                                   |
+  | **Reduce cost**                                                                                                                    | Spot, Serverless, Schedule stop                      |
+  | **Secure access**                                                                                                                  | IAM, KMS, Private subnet                             |
+  | **Scalable database**                                                                                                              | Aurora Serverless hoặc DynamoDB                      |
+  | **Confidential or sensitive files / Authorized users only / Secure access for remote employees / On-premises Windows File Server** | FSx for Windows File Server + Active Directory + VPN |
 
 <a name="5"></a>
 
-## 📌 5. Domain Design Secure Architectures
+## 📌 5. Checklist tình huống hay gặp trong đề thi
+
+| #      | Tình huống / Keyword trong đề                                                      | Service / Giải pháp chính               | Ghi chú                                                                                                                                                           |
+| ------ | ---------------------------------------------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1**  | API Gateway access control limited IP                                              | **Create a resource policy**            | Resource Policy là một cách không mất tiền để định nghĩa quyền kiểm soát truy cập API Gateway theo IP                                                             |
+| **2**  | Active Directory + AWS Organizations                                               | **IAM Identity Center**                 | Liên kết người dùng Active Directory để cho phép truy cập account trong Organization                                                                              |
+| **3**  | Distribution rights content around the world                                       | **Route53 Geolocation Routing Policy**  | Cho phép định tuyến traffic dựa trên vị trí địa lý của user                                                                                                       |
+| **4**  | Traffic (to S3, DynamoDB) from the application must not travel across the internet | **Gateway Endpoint**                    | Gateway Endpoint cho S3 là dịch vụ miễn phí, cho phép kết nối đến S3 với traffic đi trực tiếp trong đường truyền nội bộ của AWS, không qua internet               |
+| **5**  | Improve the performance of the static website                                      | **CloudFront**                          | CloudFront là CDN service, cho phép cache các loại data như content tĩnh ở điểm cung cấp dịch vụ gần với người dùng nhất (edge locations), từ đó giúp giảm độ trễ |
+|        |                                                                                    | **S3 Transfer Acceleration**            | S3 Transfer Acceleration là một tính năng của S3 cho phép upload bằng cách route traffic đến edge location, từ đó đi qua mạng nội bộ của AWS, giúp giảm độ trễ    |
+| **6**  | Workflow                                                                           | **Step Functions**                      | Step Functions là serverless service giúp điều phối & tự động hoá, cho phép build các luồng công việc (workflow) phức tạp                                         |
+| **7**  | Image processing jobs                                                              | **Lambda, ECS Fargate, AWS Batch**      | Chạy job mà tốn ít effort, không phải quản lý toàn bộ cơ sở hạ tầng                                                                                               |
+| **8**  | EC2 instances run 100% CPU                                                         | **Auto Scaling Group**                  | Tự động scale khi bị bottleneck (nút thắt cổ chai) ở EC2 Processing Tier                                                                                          |
+| **9**  | SQS queue fills up                                                                 | **ApproximateNumberOfMessages**         | Trigger scale nhiều EC2 khi số lượng message đang có trong queue nhiều mà không xử lý hết                                                                         |
+| **10** | Migrate lift-and-shift or server                                                   | **Application Migration Service**       | Thực hiện migrate server từ on-premise lên AWS thông qua hình thức lift-and-shift (di chuyển nguyên trạng)                                                        |
+| **11** | Application stateless need to scale                                                | **Auto Scaling Group & Spot Instances** | Spot Fleet giúp tiết kiệm, dù có thể bị thu hồi nhưng application stateless và có khả năng chịu lỗi cao nên không ảnh hưởng.                                      |
+
+<a name="6"></a>
+
+## 📌 6. Sample tư duy trả lời câu hỏi khi luyện đề
+
+- Dưới đây là ví dụ vài câu hỏi theo Domain kèm chiến lược phân tích trả lời cụ thể để bạn làm quen tư duy luyện đề hiểu quả.
+  - ⚠️ Để tôn trọng bản quyền tác giả thì các câu hỏi trong bộ Practice Exams mình đã từng luyện sẽ không đề cập tại đây.
+
+### 1️⃣ Domain Design Secure Architectures
 
 - 🎯 Mục tiêu: Đảm bảo ứng dụng an toàn, cách ly và kiểm soát truy cập.
 
-### 1️⃣ IAM & Access Control
-
-### 2️⃣ Network Security
-
-### 3️⃣ Data Protection
-
 #### Question 1:
+
+- > Which of the following is the best method to quickly and temporarily deny access from the specified IP addresses?  
+  > A. Configure the firewall in the operating system of the EC2 instances to deny access from the IP address block.  
+  > B. Create a policy in IAM to deny access from the IP Address block.  
+  > C. Add a rule in the Security Group of the EC2 instances to deny access from the IP Address block.  
+  > D. Modify the Network Access Control List associated with all public subnets in the VPC to deny access from the IP Address block.
+
+- 🧩 Bối cảnh:
+
+  - Hệ thống đang chạy trên EC2 instance trong VPC, và có yêu cầu chặn tạm thời nhanh các IP cụ thể → chặn IP không mong muốn truy cập vào hệ thống một cách nhanh, gọn và ít gây ảnh hưởng.
+
+- 🧐 Phân tích đáp án:
+
+  | Option | Phân tích                                                                                                                                                                                                                    | Kết quả |
+  | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+  | **A**  | Có thể làm được (vd: iptables trong Linux, Windows Firewall), **nhưng không “quick” và không “temporary-friendly” ở quy mô nhiều instance**. Phải SSH vào từng máy, không quản lý tập trung. Không phải best practice AWS.   | ⚠️      |
+  | **B**  | **Sai logic.** IAM policy chỉ điều khiển **API calls đến AWS services**, không áp dụng cho network traffic đến EC2 (HTTP, SSH, v.v.). Không thể chặn IP truy cập vào instance qua IAM.                                       | ❌      |
+  | **C**  | **Sai kỹ thuật.** Security Group trong AWS chỉ có **allow rules (whitelist)**, **không có deny rules**. Bạn chỉ có thể loại bỏ rule “allow” chứ không “deny” IP cụ thể.                                                      | ❌      |
+  | **D**  | ✅ **Đây là cách đúng nhất.** NACL hỗ trợ **explicit deny rule** và áp dụng ở **mức subnet**, nên bạn có thể chặn nhanh 1 dải IP trên toàn subnet (public-facing layer). Phù hợp cho yêu cầu “quickly and temporarily deny”. | ✅      |
+
+#### Question 2:
 
 - > There was an incident in your production environment where user data stored in an S3 bucket was accidentally deleted by one of the engineers.
   > You are tasked to improve the protection of your S3 objects from both accidental deletion and overwriting.
@@ -281,7 +343,7 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
   | **D. Pre-signed URL only**                 | Chỉ là cách kiểm soát truy cập tạm thời (URL có expiration). Không bảo vệ dữ liệu đã lưu.                                  | ❌ Không liên quan.                                          |
   | **E. S3 Intelligent-Tiering**              | Là lớp lưu trữ tự động tối ưu chi phí dựa trên tần suất truy cập.                                                          | ❌ Không liên quan tới bảo vệ dữ liệu.                       |
 
-#### Question 2:
+#### Question 3:
 
 - > Your company needs to store sensitive customer data in Amazon S3.
   > The security team requires that all objects are encrypted using keys managed by AWS.
@@ -310,29 +372,45 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
   | **C. SSE-C**                  | Customer-provided keys, khách hàng phải tự gửi key khi upload.       | ❌ Không phải AWS quản lý key.                                                                                                   |
   | **D. Client-side encryption** | Mã hóa trước khi upload, AWS không biết key.                         | ❌ Không phù hợp với yêu cầu.                                                                                                    |
 
-### 4️⃣ Secure Application Integration
+#### Question 4:
 
-<a name="6"></a>
+- > A company needs to provide its employees with secure access to confidential and sensitive files.  
+  > The company wants to ensure that the files can be accessed only by authorized users. The files must be downloaded securely to the employees’ devices.  
+  > The files are stored in an on-premises Windows file server. However, due to an increase in remote usage, the file server is running out of capacity.
+  >
+  > Which solution will meet these requirements?
+  >
+  > A.Migrate the file server to an Amazon EC2 instance in a public subnet. Configure the security group to limit inbound traffic to the employees’ IP addresses.  
+  > B.Migrate the files to an Amazon FSx for Windows File Server file system. Integrate the Amazon FSx file system with the on-premises Active Directory (AD). Configure AWS Client VPN.  
+  > C.Migrate the files to Amazon S3, and create a private VPC endpoint. Create a signed URL to allow download.  
+  > D.Migrate the files to Amazon S3, and create a public VPC endpoint. Allow employees to sign on with AWS IAM Identity Center (AWS Single Sign-On).
 
-## 📌 6. Domain Design Resilient Architectures
+- 🧩 Bối cảnh:
+
+  - Công ty đang có Windows file server on-premises, chứa tài liệu nhạy cảm, bảo mật cao, phục vụ nhân viên nội bộ.
+
+  - Chỉ người được ủy quyền (authorized users) mới truy cập được.
+
+  - File phải được download an toàn về máy nhân viên.
+
+  - Nhưng số người làm việc từ xa (remote users) tăng mạnh → File server cũ quá tải (out of capacity).
+
+- 🧐 Phân tích đáp án:
+
+  | **Option** | **Phân tích**                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Kết quả** |
+  | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------: |
+  | **A.**     | Không an toàn/không thực tế: Security Group là dựa trên IP — khó quản lý khi nhân viên remote có IP động; public subnet tăng bề mặt tấn công; không có tích hợp với AD để đảm bảo chỉ **authorized users** được truy cập.                                                                                                                                                                                                                          |     ❌      |
+  | **B**      | ✅ Phù hợp nhất: **FSx for Windows** cung cấp SMB native, tích hợp với Active Directory để dùng authentication/authorization sẵn có (chỉ người dùng AD được phép). **AWS Client VPN** cung cấp kết nối TLS/IPsec an toàn từ thiết bị nhân viên đến VPC, cho phép mount share như trên mạng nội bộ — file được truyền/download qua kết nối mã hoá và chỉ người được ủy quyền mới truy cập. Thiết kế phù hợp cho lift-and-shift file server Windows. |     ✅      |
+  | **C**      | S3 + signed URL có thể cho download an toàn theo từng link, nhưng **signed URL là "possession-based"** (ai có URL là có thể download) và không tích hợp trực tiếp với AD user auth; private VPC endpoint chỉ dành cho nguồn truy cập từ trong VPC — không giải quyết trực tiếp remote users trừ khi có application/proxy trung gian. Không đảm bảo quy mô quản lý truy cập người dùng AD.                                                          |     ⚠️      |
+  | **D**      | Sai/không hợp lý: "Public VPC endpoint" không đúng khái niệm; dùng IAM Identity Center để cấp quyền truy cập S3 có thể làm được nhưng thường cần thêm ứng dụng/portal để phục vụ download file (S3 không là file share SMB native), và triển khai này thường đòi hỏi thay đổi client workflow. So với FSx + VPN, giải pháp này phức tạp hơn và không trực tiếp cung cấp SMB experience.                                                            |     ❌      |
+
+### 2️⃣ Domain Design Resilient Architectures
 
 - 🎯 Mục tiêu: Đảm bảo hệ thống chịu lỗi, tự phục hồi và tính sẵn sàng cao.
 
-### 1️⃣ High Availability
-
-### 2️⃣ Fault Tolerance & Disaster Recovery
-
-### 3️⃣ Decoupling Components
-
-### 4️⃣ Data Durability
-
-<a name="7"></a>
-
-## 📌 7. Domain Design High-Performing Architectures
+### 3️⃣ Domain Design High-Performing Architectures
 
 - 🎯 Mục tiêu: Tối ưu hiệu năng và tính mở rộng (scalability).
-
-### 1️⃣ Compute Optimization
 
 #### Question 1:
 
@@ -372,11 +450,7 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
   | **D**      | Khi start lại, instance có thể được gán sang **một host vật lý khác** trong cùng AZ. Đây là hành vi bình thường khi stop/start.                                                                          | ✅          |
   | **E**      | Elastic IP vẫn được giữ lại và **gắn lại với instance khi start lại**. Chỉ bị mất khi **terminate** hoặc **release** thủ công.                                                                           | ❌          |
 
-### 2️⃣ Storage Optimization
-
-### 3️⃣ Database Optimization
-
-#### Question 1:
+#### Question 2:
 
 - > An online shopping platform is hosted on an Auto Scaling group of Spot EC2 instances and uses Amazon Aurora PostgreSQL as its database.
   > There is a requirement to optimize your database workloads in your cluster where you have to direct the write operations of the production traffic to your high-capacity instances and point the reporting queries sent by your internal staff to the low-capacity instances.
@@ -409,7 +483,7 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
   |   **C**    | Sai và cực kỳ rủi ro. **Reader endpoint** chỉ cho reads — nếu bạn gửi writes production vào reader endpoint sẽ bị lỗi (writer-only operations fail). Dù reader endpoint load-balance reads, nó không phân biệt replica “low-capacity” hay “high-capacity” theo mục đích; không đáp ứng yêu cầu.                                                                                                                                      |     ❌      |
   |   **D**    | Đúng. **Custom endpoints (Aurora)** cho phép bạn tạo **endpoint nhóm** gồm một tập con của Aurora Replicas theo tiêu chí (tags, instance role, instance class, v.v.). Bạn có thể: đặt writer là high-capacity; tạo **custom reader endpoint** nhóm các read replicas low-capacity dành cho reporting; và (nếu cần) tạo endpoint dành cho production reads that need higher-capacity replicas. Đây là cách linh hoạt và phù hợp nhất. |     ✅      |
 
-#### Question 2:
+#### Question 3:
 
 - > A Docker application, which is running on an Amazon ECS cluster behind a load balancer, is heavily using DynamoDB.
   > You are instructed to improve the database performance by distributing the workload evenly and using the provisioned throughput efficiently.
@@ -440,19 +514,9 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
   |   **C**    | Low-cardinality (ít giá trị khác nhau, ví dụ `status = "active"/"inactive"`) khiến nhiều item chia sẻ cùng một partition key → dễ gây **bottleneck**.                                                                                      |     ❌      |
   |   **D**    | Sai. Composite key thường **giúp tối ưu truy cập và phân phối dữ liệu** (vì cùng partition key có thể sắp xếp bằng sort key). Tránh dùng composite key không giúp phân phối tốt hơn — thậm chí có thể làm giảm tính linh hoạt trong query. |     ❌      |
 
-### 4️⃣ Network Performance
-
-<a name="8"></a>
-
-## 📌 8. Domain Design Cost-Optimized Architectures
+### 4️⃣ Domain Design Cost-Optimized Architectures
 
 - 🎯 Mục tiêu: Giảm chi phí nhưng vẫn đảm bảo hiệu năng và độ tin cậy.
-
-### 1️⃣ Compute Cost Optimization
-
-### 2️⃣ Storage Cost Optimization
-
-### 3️⃣ Database & Network Cost Optimization
 
 #### Question 1:
 
@@ -487,5 +551,3 @@ Liên hệ tài liệu chính thức: AWS Documentation, Whitepapers, Exam Guide
   |   **B**    | Redshift là **data warehouse** cho analytics/batch queries, không phải hệ quản trị quan hệ OLTP transactional cho website bán lẻ. Concurrency Scaling giúp xử lý tải truy vấn phân tích, nhưng không phù hợp cho transactional workloads và không phải là lựa chọn cost-effective cho OLTP.                                                                                                                         |     ❌      |
   |   **C**    | **Đúng phù hợp.** Aurora Serverless (đặc biệt Aurora Serverless v2) autoscale capacity theo workload, tự tăng khi peak và giảm khi không cần nữa. Hỗ trợ transactional relational workloads, giữ tính tương thích với MySQL/PostgreSQL, và thường là giải pháp tiết kiệm chi phí cho **intermittent & unpredictable** traffic. Bạn có cấu hình min/max ACU và scaling policies.                                     |     ✅      |
   |   **D**    | DynamoDB là NoSQL, cực kỳ scale tốt và cost-efficient cho nhiều transactional usecases, nhưng **câu hỏi yêu cầu “a new relational database”** — nghĩa là cần RDBMS. Chuyển sang DynamoDB đòi hỏi redesign schema/queries; do đó không phải lựa chọn trực tiếp phù hợp với yêu cầu.                                                                                                                                  |     ❌      |
-
-### 4️⃣ Monitoring & Governance

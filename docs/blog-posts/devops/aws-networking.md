@@ -38,15 +38,16 @@ tags:
 <a name="1"></a>
 
 ## 📌 1. Tổng quan về Amazone VPC
+
 - ✦ VPC là công cụ cho phép chúng ta tạo ra các vùng mạng riêng ảo của mình bên trong hạ tầng chia sẻ của AWS.
 
 - ✦ VPC giúp bạn kiểm soát toàn bộ môi trường mạng, giống như có một trung tâm dữ liệu riêng trên AWS.
 
 - ✦ Mỗi VPC là hoàn toàn độc lập, các tài nguyên bên trong cùng VPC mới có thể nói chuyện với nhau.
 
-    - Các tài nguyên bên ngoài muốn truy cập thì phải cần cấp phép.
+  - Các tài nguyên bên ngoài muốn truy cập thì phải cần cấp phép.
 
-    ![Tổng quan VPC](./images/aws-VPC.png)
+  ![Tổng quan VPC](./images/aws-VPC.png)
 
 - ✦ Có thể kết hợp các VPC với nhau để tạo thành mô hình Network Topology cho những hệ thống phức tạp.
 
@@ -62,36 +63,38 @@ tags:
 
 - **Note:**
 
-    - CIDR (Classless Inter-Domain Routing) là một phương pháp phân chia địa chỉ IP     thành các mạng con, cấu trúc như sau:
+  - CIDR (Classless Inter-Domain Routing) là một phương pháp phân chia địa chỉ IP thành các mạng con, cấu trúc như sau:
 
-      ```nginx
-      IP_ADDRESS / SUBNET_MASK
-      # Ví dụ
-      # 10.0.0.0/16
-      # 192.168.1.0/24
-      ```
+    ```nginx
+    IP_ADDRESS / SUBNET_MASK
+    # Ví dụ
+    # 10.0.0.0/16
+    # 192.168.1.0/24
+    ```
 
-      Trong đó:
+    Trong đó:
 
-      - ✦ IP_ADDRESS là địa chỉ mạng.
-      - ✦ SUBNET_MASK (độ dài tiền tố - Prefix Length) là số bit dùng để xác định  phần mạng.
+    - ✦ IP_ADDRESS là địa chỉ mạng.
+    - ✦ SUBNET_MASK (độ dài tiền tố - Prefix Length) là số bit dùng để xác định phần mạng.
 
-      Ví dụ: 10.0.0.0/16
+    Ví dụ: 10.0.0.0/16
 
-      - ✦ Độ dài subnet mask: 16 bit → Phần network chiếm 16 bit, phần host chiếm  16 bit còn lại.
-      - ✦ Số lượng IP có thể sử dụng:
-        - ✧ Công thức: 2^(32-16) = 2^16 = 65,536 địa chỉ IP.
-        - ✧ Dải IP từ 10.0.0.0 đến 10.0.255.255.
+    - ✦ Độ dài subnet mask: 16 bit → Phần network chiếm 16 bit, phần host chiếm 16 bit còn lại.
+    - ✦ Số lượng IP có thể sử dụng:
+      - ✧ Công thức: 2^(32-16) = 2^16 = 65,536 địa chỉ IP.
+      - ✧ Dải IP từ 10.0.0.0 đến 10.0.255.255.
 
 #### 📦 Subnet
 
 - ✦ Là tập hợp các địa chỉ IP trong VPC được chia thành các mạng nhỏ hơn (được hiểu là mạng con ảo).
 
 - ✦ Có hai loại subnet:
+
   - ❶ Public Subnet: Kết nối trực tiếp với Internet thông qua Internet Gateway.
   - ❷ Private Subnet: Không kết nối trực tiếp với Internet, chỉ dùng để chạy các dịch vụ nội bộ.
 
   🚀 Ví dụ:
+
   - ❶ Public Subnet: Chứa EC2 chạy website.
   - ❷ Private Subnet: Chứa database (RDS), chỉ có thể truy cập từ EC2 trong public subnet.
 
@@ -114,7 +117,8 @@ tags:
 - ✦ Là một lớp tường lửa hoạt động ở tầng subnet, kiểm soát luồng traffic vào/ra subnet ở mức subnet.
 
 - ✦ Hoạt động theo nguyên tắc stateless (cần có định nghĩa riêng các rules cho cả lưu lượng inbound và outbound).
-    - ✧ Tức là khi một gói tin được cho phép vào subnet, nó không tự động được phép ra ngoài trừ khi có quy tắc tương ứng.
+
+  - ✧ Tức là khi một gói tin được cho phép vào subnet, nó không tự động được phép ra ngoài trừ khi có quy tắc tương ứng.
 
 - ✦ Mỗi rule trong NACL được đánh một số thứ tự từ 1 đến 32766:
   - ✧ AWS đánh giá các quy tắc theo thứ tự tăng dần.
@@ -126,7 +130,8 @@ tags:
 - ✦ Là loại tường lửa kiểm soát luồng traffic vào/ra EC2 ở mức instance.
 
 - ✦ Hoạt động theo nguyên tắc stateful (nếu có inbound rule, thì outbound tự động mở).
-    - ✧ Tức là nếu bạn cho phép một kết nối inbound (vào) trên một cổng cụ thể, thì các phản hồi tương ứng với kết nối đó sẽ tự động được phép ra ngoài (outbound).
+
+  - ✧ Tức là nếu bạn cho phép một kết nối inbound (vào) trên một cổng cụ thể, thì các phản hồi tương ứng với kết nối đó sẽ tự động được phép ra ngoài (outbound).
 
 - ✦ Mặc dù stateful, Security Group vẫn cho phép bạn có thể kiểm soát chi tiết lưu lượng ra bằng cách tạo các quy tắc outbound.
 
@@ -137,7 +142,7 @@ tags:
 |     Cấp độ bảo mật     |                          Subnet (áp dụng cho tất cả các instance) - hoạt động ở mức subnet                          |                      Instance (áp dụng cho từng instance) - hoạt động ở mức máy ảo                       |
 | Stateful hay Stateless |                               Stateless (quy tắc inbound và outbound phải riêng biệt)                               |                            Stateful (inbound được tự động cho phép outbound)                             |
 |          Rule          | Có cả ALLOW và DENY rules. Các rules đánh số thứ tự, ưu tiên theo số rule và dừng lại ngay khi có 1 rule ALLOW/DENY | Chỉ có ALLOW rules. Các rules không có thứ tự ưu tiên, đánh giá tất cả và cho qua nếu có 1 rule cho phép |
-|        Mặc định        |                      Mặc định cho phép tất cả (default NACL) hoặc từ chối tất cả (custom NACL)                      |                             Từ chối tất cả inbound, cho phép tất cả outbound
+|        Mặc định        |                      Mặc định cho phép tất cả (default NACL) hoặc từ chối tất cả (custom NACL)                      |                             Từ chối tất cả inbound, cho phép tất cả outbound                             |
 
 #### 🚪 NAT Gateway
 
@@ -172,12 +177,14 @@ Giả sử bạn muốn triển khai một ứng dụng web trên AWS với yêu
 - VPC này sẽ có hai loại subnet:
 
   - ❶ Public Subnet chứa web server, có thể truy cập Internet.
+
     - CIDR: 10.0.1.0/24 (256 IP)
 
   - ❷ Private Subnet chứa database, không trực tiếp kết nối Internet.
     - CIDR: 10.0.2.0/24 (256 IP)
 
 #### 3️⃣ Thêm Internet Gateway (IGW)
+
 - Gắn một Internet Gateway vào VPC.
 
 - Điều này cho phép các instance trong Public Subnet có thể giao tiếp với Internet.
@@ -201,7 +208,9 @@ Giả sử bạn muốn triển khai một ứng dụng web trên AWS với yêu
 #### 6️⃣ Security Group (SG) & NACL
 
 - ✦ Security Group (SG) của Web Server (EC2)
+
   - ➀ Inbound Rule:
+
     - ✧ Cho phép HTTP/HTTPS từ 0.0.0.0/0 (mọi nơi).
     - ✧ Cho phép SSH chỉ từ IP của Admin.
 
@@ -209,7 +218,9 @@ Giả sử bạn muốn triển khai một ứng dụng web trên AWS với yêu
     - ✧ Mở toàn bộ (0.0.0.0/0), vì SG là stateful.
 
 - ✦ Security Group (SG) của Database (RDS)
+
   - ➀ Inbound Rule:
+
     - ✧ Chỉ chấp nhận kết nối từ Web Server (10.0.1.0/24).
 
   - ➁ Outbound Rule:
@@ -236,11 +247,12 @@ Giả sử bạn muốn triển khai một ứng dụng web trên AWS với yêu
   - ➄ Có 1 NAT Gateway, cấu hình route table tới NAT Gateway.
 
   - ➅ Thiết kế Security Group cho 4 nhóm đối tượng:
+
     - ✧ Application Load Balancer: expose port HTTPS 443.
 
     - ✧ App Server cho phép port 80 từ ALB, 22 từ Bastion server.
 
-    - ✧ Database Server sử dụng MySQL sử dụng port 3306. Elasstic Search sử dụng  port 9200.
+    - ✧ Database Server sử dụng MySQL sử dụng port 3306. Elasstic Search sử dụng port 9200.
 
     - ✧ Bastion Server: SSH port 22 từ IP công ty.
 
@@ -249,6 +261,7 @@ Giả sử bạn muốn triển khai một ứng dụng web trên AWS với yêu
 ### 🔹 Phân tích yêu cầu
 
 #### 1️⃣ VPC và CIDR Block
+
 - VPC CIDR: 10.0.0.0/16
 
   - 👉 Điều này có nghĩa là chúng ta có 65.536 địa chỉ IP (2^16), đủ để chia subnet thoải mái.
@@ -260,12 +273,12 @@ Giả sử bạn muốn triển khai một ứng dụng web trên AWS với yêu
 - ✦ Mỗi loại subnet trải rộng trên ít nhất 2 AZs để đảm bảo High Availability.
 
 - ✦ Chia subnet như sau:
-  |      Subnet      |     CIDR     | Availability Zone |
+  | Subnet | CIDR | Availability Zone |
   | :--------------: | :----------: | :---------------: |
-  | Public Subnet 1  | 10.0.0.0/22  |        AZ1        |
-  | Public Subnet 2  | 10.0.4.0/22  |        AZ2        |
-  | Private Subnet 1 | 10.0.8.0/22  |        AZ1        |
-  | Private Subnet 2 | 10.0.12.0/22 |        AZ2        |
+  | Public Subnet 1 | 10.0.0.0/22 | AZ1 |
+  | Public Subnet 2 | 10.0.4.0/22 | AZ2 |
+  | Private Subnet 1 | 10.0.8.0/22 | AZ1 |
+  | Private Subnet 2 | 10.0.12.0/22 | AZ2 |
 
 📝 Giải thích cách chia subnet:
 
@@ -292,16 +305,19 @@ Giả sử bạn muốn triển khai một ứng dụng web trên AWS với yêu
 Có 4 nhóm cần thiết kế Security Group:
 
 - ➀ **Application Load Balancer (ALB)**: nhận request từ người dùng và phân phối đến App Server.
+
   - ✦ Mở cổng 443 (HTTPS) cho tất cả (0.0.0.0/0) vì ALB phải nhận request từ client trên Internet.
   - ✦ ALB chỉ forward request tới App Server qua HTTP (port 80).
 
 - ➁ **App Server (EC2 instances chạy ứng dụng web)**: chạy backend của ứng dụng web.
+
   - ✦ Có thể dùng ECS thay vì EC2 nếu muốn chạy backend theo mô hình containerized.
   - ✦ Chỉ nhận request từ ALB (port 80).
   - ✦ Không mở HTTP (80) hoặc SSH (22) trực tiếp cho Internet để tránh bị tấn công.
   - ✦ Cần SSH (22) nhưng chỉ từ Bastion Server, không mở public.
 
 - ➂ **Database Server (RDS chạy MySQL, Elasticsearch)**: lưu trữ dữ liệu ứng dụng.
+
   - ✦ Database không bao giờ mở public, chỉ nhận kết nối từ App Server.
   - ✦ MySQL sử dụng port 3306, Elasticsearch sử dụng port 9200.
   - ✦ Cho phép admin kết nối MySQL từ Bastion để quản trị Database.
@@ -329,6 +345,7 @@ Có 4 nhóm cần thiết kế Security Group:
 ### 🔹 Triển khai trên AWS Console
 
 - 🔥 Thứ tự tạo resources:
+
   ```
   VPC → Subnets → IGW → NAT → Route Tables → VPC Endpoint → Security Groups
   ```
@@ -412,7 +429,7 @@ Có 4 nhóm cần thiết kế Security Group:
 
 ## 📌 6. Direct Connect
 
-- ✦ Sử dụng Site-to-site VPN giúp giảm thiểu rủi ro về mặt bảo mật nhưng có những hạn chế về bằng thông và độ ổn định đường truyền.
+- ✦ Sử dụng Site-to-site VPN giúp giảm thiểu rủi ro về mặt bảo mật nhưng có những hạn chế về băng thông và độ ổn định đường truyền.
 
   - 👉 Dịch vụ Direct connect có thể thiêt lập một đường truyền ổn định với tốc độ cao từ data center lên AWS Region.
 
