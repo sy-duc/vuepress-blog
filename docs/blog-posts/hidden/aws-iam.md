@@ -1,18 +1,12 @@
 ---
 title: AWS IAM
-summary: "AWS IAM (Identity and Access Management) là dịch vụ giúp kiểm soát ai được truy cập vào tài nguyên AWS và họ được phép làm gì."
-date: "2025-07-26"
-image: "/vuepress-blog/images/posts/aws-iam.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
-  - iam
 ---
 
 # AWS IAM (Identity and Access Management)
+
+![AWS IAM](./images/aws-iam.png)
+
+AWS IAM (Identity and Access Management) là dịch vụ giúp kiểm soát ai được truy cập vào tài nguyên AWS và họ được phép làm gì.
 
 [1. Giới thiệu AWS IAM](#1)
 

@@ -1,20 +1,10 @@
 ---
 title: Mô hình Serverless trong AWS
-summary: "Mô hình Serverless trong AWS cho phép chạy ứng dụng và dịch vụ mà không cần quản lý máy chủ, giúp nhà phát triển tập trung vào logic nghiệp vụ thay vì hạ tầng."
-date: "2025-10-15"
-image: "/vuepress-blog/images/posts/aws-serverless.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
-  - serverless
-  - lambda
-  - api gateway
 ---
 
 # Mô hình thực thi chạy ứng dụng và dịch vụ không máy chủ (Serverless)
+
+Mô hình Serverless trong AWS cho phép chạy ứng dụng và dịch vụ mà không cần quản lý máy chủ, giúp nhà phát triển tập trung vào logic nghiệp vụ thay vì hạ tầng.
 
 [1. Tổng quan Serverless](#1)
 

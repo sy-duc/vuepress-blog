@@ -1,17 +1,12 @@
 ---
 title: Cloud Computing (Điện toán đám mây) là gì?
-summary: "Cloud Computing đang trở thành nền tảng cốt lõi trong hạ tầng công nghệ hiện đại. Bài viết này sẽ giúp bạn hiểu rõ lợi ích mà công nghệ này mang lại trong thời đại số."
-date: "2025-06-07"
-image: "/vuepress-blog/images/posts/cloud-computing.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
 ---
 
 # Giới thiệu về Cloud Computing (Điện toán đám mây)
+
+![Cloud Computing](./images/cloud-computing.png)
+
+Cloud Computing đang trở thành nền tảng cốt lõi trong hạ tầng công nghệ hiện đại. Bài viết này sẽ giúp bạn hiểu rõ lợi ích mà công nghệ này mang lại trong thời đại số.
 
 [1. Cloud Computing là gì?](#1)
 

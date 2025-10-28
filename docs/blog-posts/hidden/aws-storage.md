@@ -1,20 +1,12 @@
 ---
 title: Dịch vụ lưu trữ - S3 & EBS
-summary: "Lưu trữ là một thành phần cốt lõi giúp hệ thống hoạt động linh hoạt và mở rộng dễ dàng. Bài viết này giới thiệu hai dịch vụ lưu trữ phổ biến nhất là Amazon S3 và Amazon EBS."
-date: "2025-08-01"
-image: "/vuepress-blog/images/posts/aws-storage.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
-  - storage
-  - ebs
-  - s3
 ---
 
 # Storage - Các dịch vụ lưu trữ (S3 & EBS)
+
+![Storage](./images/aws-storage.png)
+
+Lưu trữ là một thành phần cốt lõi giúp hệ thống hoạt động linh hoạt và mở rộng dễ dàng. Bài viết này giới thiệu hai dịch vụ lưu trữ phổ biến nhất là Amazon S3 và Amazon EBS.
 
 [1. Tổng quan các dịch vụ lưu trữ Storage](#1)
 

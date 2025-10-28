@@ -1,19 +1,10 @@
 ---
 title: Networking trong AWS
-summary: "AWS cung cấp một loạt các dịch vụ mạng để giúp bạn xây dựng và quản lý mạng trên đám mây, đảm bảo kết nối, bảo mật, và khả năng mở rộng."
-date: "2025-09-09"
-image: "/vuepress-blog/images/posts/aws-networking.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
-  - networking
-  - vpc
 ---
 
 # Networking trong AWS
+
+![Monitoring](./images/aws-networking.png)
 
 - ✦ AWS cung cấp một loạt các dịch vụ mạng để giúp bạn xây dựng và quản lý mạng trên đám mây, đảm bảo kết nối, bảo mật, và khả năng mở rộng.
 

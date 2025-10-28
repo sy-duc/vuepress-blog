@@ -1,14 +1,5 @@
 ---
 title: Giới thiệu Amazon Web Services (AWS)
-summary: "Amazon Web Services (AWS) là nền tảng điện toán đám mây hàng đầu thế giới, cung cấp hơn 200 dịch vụ từ lưu trữ, tính toán, đến machine learning và bảo mật."
-date: "2025-07-22"
-image: "/vuepress-blog/images/posts/amazone-web-services.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
 ---
 
 # Giới thiệu về Amazon Web Services (AWS)

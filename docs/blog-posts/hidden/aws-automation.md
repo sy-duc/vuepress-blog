@@ -1,21 +1,10 @@
 ---
 title: Tự động hóa trong AWS
-summary: "Tự động hóa trong AWS là một trong những chủ đề quan trọng giúp tối ưu hoá vận hành, giảm thiểu lỗi thủ công, tiết kiệm chi phí và tăng tốc độ triển khai hệ thống."
-date: "2025-10-14"
-image: "/vuepress-blog/images/posts/aws-automation.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
-  - automation
-  - cloudformation
-  - elastic beanstalk
-  - systems manager
 ---
 
 # Tự động hóa trong AWS
+
+Tự động hóa trong AWS là một trong những chủ đề quan trọng giúp tối ưu hoá vận hành, giảm thiểu lỗi thủ công, tiết kiệm chi phí và tăng tốc độ triển khai hệ thống.
 
 [1. Tổng quan Tự động hóa trong AWS](#1)
 

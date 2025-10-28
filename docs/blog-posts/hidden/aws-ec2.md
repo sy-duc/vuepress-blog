@@ -1,18 +1,11 @@
 ---
 title: Dịch vụ điện toán - AWS EC2
-summary: "EC2 cho phép người dùng dễ dàng khởi tạo và quản lý các máy chủ ảo (instances) với nhiều cấu hình phần cứng và hệ điều hành khác nhau."
-date: "2025-07-29"
-image: "/vuepress-blog/images/posts/aws-ec2.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
-  - ec2
 ---
 
 # Các dịch vụ điện toán (Compute) & AWS EC2 - Máy chủ ảo
+
+![AWS EC2](./images/aws-ec2.png)
+EC2 cho phép người dùng dễ dàng khởi tạo và quản lý các máy chủ ảo (instances) với nhiều cấu hình phần cứng và hệ điều hành khác nhau.
 
 [1. Compute - Dịch vụ điện toán](#1)
 
@@ -56,7 +49,7 @@ tags:
 
 <a name="2"></a>
 
-## 📌 2. Giới thiệu Amazon EC
+## 📌 2. Giới thiệu Amazon EC2
 
 - Amazon EC2 (Elastic Compute Cloud) là một trong những dịch vụ điện toán phổ biến nhất của AWS.
 
@@ -74,8 +67,6 @@ tags:
     - Vi xử lý, loại CPU, RAM, dung lượng lưu trữ, và điều chỉnh cấu hình mạng, v.v.
 
   - ➃ Hỗ trợ đa dạng loại giá (Pricing Models), tùy vào đặc tính của ứng dụng để chọn.
-
-![AWS IAM](./images/aws-gioi-thieu-ec2.png)
 
 ⚠️ Lưu ý:
 

@@ -1,19 +1,11 @@
 ---
 title: Các dịch vụ Database - Amazone RDS
-summary: "AWS cung cấp hệ sinh thái dịch vụ cơ sở dữ liệu đa dạng, đáp ứng hầu hết các nhu cầu từ quan hệ đến NoSQL, in-memory hay phân tích dữ liệu."
-date: "2025-08-07"
-image: "/vuepress-blog/images/posts/aws-database.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
-  - database
-  - rds
 ---
 
 # Các dịch vụ Database - Amazone RDS
+
+![Database](./images/aws-database-main.png)
+AWS cung cấp hệ sinh thái dịch vụ cơ sở dữ liệu đa dạng, đáp ứng hầu hết các nhu cầu từ quan hệ đến NoSQL, in-memory hay phân tích dữ liệu.
 
 [1. Tổng quan về các dịch vụ Database](#1)
 

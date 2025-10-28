@@ -1,20 +1,10 @@
 ---
 title: Theo dõi hoạt động các tài nguyên trong AWS
-summary: "Monitoring trong AWS giúp doanh nghiệp theo dõi hiệu năng, tài nguyên và hoạt động người dùng một cách toàn diện."
-date: "2025-09-16"
-image: "/vuepress-blog/images/posts/aws-monitoring.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
-  - monitoring
-  - cloudwatch
-  - cloudtrail
 ---
 
 # Dịch vụ theo dõi hoạt động (Monitoring) các tài nguyên trong AWS
+
+![Monitoring](./images/aws-monitoring.png)
 
 Monitoring trong AWS giúp doanh nghiệp theo dõi hiệu năng, tài nguyên và hoạt động người dùng một cách toàn diện.
 

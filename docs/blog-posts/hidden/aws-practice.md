@@ -1,18 +1,10 @@
 ---
 title: Luyện đề AWS SAA
-summary: "Đây là giai đoạn kiểm tra kiến thức, củng cố tư duy thiết kế hệ thống trên AWS và làm quen dần với phong cách câu hỏi thực tế có trong kỳ thi AWS SAA."
-date: "2025-10-21"
-image: "/vuepress-blog/images/posts/aws-practice.png"
-category: "DEVOPS"
-tags:
-  - aws
-  - aws-saa
-  - cloud-computing
-  - training-aws
-  - practice
 ---
 
-# Luyện đề AWS SAA
+# Chiến lược luyện đề AWS SAA
+
+Đây là giai đoạn kiểm tra kiến thức, củng cố tư duy thiết kế hệ thống trên AWS và làm quen dần với phong cách câu hỏi thực tế có trong kỳ thi AWS SAA.
 
 - 🎯 **Mô hình luyện đề**:
 
