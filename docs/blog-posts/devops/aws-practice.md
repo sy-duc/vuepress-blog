@@ -74,7 +74,21 @@ tags:
 
 - **Số câu hỏi**: Khoảng 65 câu hỏi (bao gồm 50 tính điểm + 15 câu không được chấm điểm).
 
+- **Hình thức**: Thi trên máy tính tại Test center hoặc thi online tại nhà (qua webcam & micro).
+
+- **Quy định thi**:
+
+  - ✧ Có timer đếm ngược góc màn hình.
+  - ✧ Có thể xem lại và đổi đáp án trước khi nộp.
+  - ✧ Không cho mở web, tài liệu, hay ghi chép ngoài (vì bị giám sát webcam nếu thi online).
+
 - **Đánh giá kết quả**: Hình thức là Pass/Fail (điểm số Pass: 720/1000 điểm tương ứng 36/50 câu tính điểm).
+
+- **Thời gian có kết quả**: Có trên màn hình ngay sau khi thi xong.
+
+  - ✧ Bảng điểm chi tiết cần tối đa 5 ngày làm việc để xử lý và xác minh kết quả.
+  - ✧ Khi có bảng điểm chi tiết thì bạn sẽ nhận được mail từ AWS để xem hoặc tải.
+  - ✧ Chứng chỉ thường có trong vòng 24–48 giờ sau khi kết quả được xác minh (nếu Pass).
 
 - **Thời hạn chứng chỉ**: 3 năm (hãy cập nhật hoặc thi lại khi hết hạn).
 
@@ -111,7 +125,7 @@ tags:
 
 - Để luyện các đề sát thực tế nhất, từng xuất hiện trong bộ đề AWS SAA cũ, mình khuyên mọi người nên mua các khóa luyện đề có phần phân tích câu trả lời chi tiết.
 
-- Ví dụ mình đã luyện bộ đề tại [cloudexam.pro](https://cloudexam.pro/course/practice-exams-aws-certified-solutions-architect-associate) (không seeding, được bạn bè giới thiệu).
+- Có thể tham khảo bộ đề luyện thi tại [cloudexam.pro](https://cloudexam.pro/course/practice-exams-aws-certified-solutions-architect-associate).
 
 ### 2️⃣ Hiểu mục tiêu câu hỏi
 
@@ -183,85 +197,56 @@ tags:
 
   - ❸ Chọn dịch vụ tương ứng, loại bỏ các option không cùng hướng.
 
-- 📊 Bảng tổng hợp KEYWORDS → PATTERN → SERVICE (phiên bản dành cho ôn SAA-C03):
+- 📊 Bảng tổng hợp KEYWORDS → PATTERN → SERVICE (phiên bản dành cho SAA-C03):
 
-- | Keyword                    | Pattern                              | Service                                            |
-  | -------------------------- | ------------------------------------ | -------------------------------------------------- |
-  | **High availability (HA)** | Triển khai trên nhiều AZ hoặc Region | Multi-AZ RDS, ALB + Auto Scaling, Aurora Global DB |
-
-### 1️⃣ Compute & EC2
-
-- | Keyword                              | Ý nghĩa                             | Hướng chọn                                       |
-  | ------------------------------------ | ----------------------------------- | ------------------------------------------------ |
-  | **Spot Instance**                    | Giá rẻ, không ổn định               | Dùng cho batch, job ngắn, có thể gián đoạn       |
-  | **On-Demand**                        | Linh hoạt, trả theo giờ             | Dùng cho workload không ổn định                  |
-  | **Reserved Instance / Savings Plan** | Tiết kiệm chi phí, workload ổn định | Dùng cho ứng dụng chạy 24/7                      |
-  | **Auto Scaling**                     | Tự mở rộng                          | Gắn với ELB, target tracking, scaling policy     |
-  | **User Data**                        | Script khởi tạo EC2                 | Dành cho cấu hình ban đầu, không bảo trì dài hạn |
-  | **Instance Store**                   | Storage tạm                         | Mất dữ liệu khi stop/terminate                   |
-
-### 2️⃣ Storage & Database
-
-- | Keyword                                   | Ý nghĩa                        | Hướng chọn                              |
-  | ----------------------------------------- | ------------------------------ | --------------------------------------- |
-  | **Durable / Persistent**                  | Cần lưu lâu dài                | Chọn EBS, S3, EFS, Aurora               |
-  | **Temporary / Cache / Scratch data**      | Dữ liệu tạm                    | Chọn Instance Store, ElastiCache        |
-  | **Unpredictable / Intermittent workload** | Tải khó đoán                   | Aurora Serverless                       |
-  | **Read-heavy workload**                   | Nhiều truy vấn đọc             | Read Replica, Aurora Reader Endpoint    |
-  | **Data warehouse / Analytics**            | Phân tích dữ liệu              | Redshift                                |
-  | **Key-Value / NoSQL**                     | Không quan hệ                  | DynamoDB                                |
-  | **Workload constant & predictable**       | Data không đổi và dự đoán được | Provisioned mode: specify RCUs and WCUs |
-
-### 3️⃣ Networking & Security
-
-- | Keyword                           | Ý nghĩa                                     | Hướng chọn                      |
-  | --------------------------------- | ------------------------------------------- | ------------------------------- |
-  | **Private subnet**                | Không internet                              | Database, backend               |
-  | **Public subnet**                 | Có internet                                 | Load Balancer, NAT Gateway      |
-  | **Least privilege**               | Nguyên tắc tối thiểu                        | IAM Role / Policy hạn chế quyền |
-  | **Secure / Encrypt**              | Bảo mật                                     | Sử dụng KMS, HTTPS, TLS         |
-  | **VPC Peering / Transit Gateway** | Kết nối VPC                                 | Tuỳ số lượng và quy mô          |
-  | **AWS WAF**                       | Chống tấn công L7 (Web app: SQLi, XSS, Bot) |                                 |
-  | **AWS Shield**                    | Chống DDoS (L3/L4)                          |                                 |
-  | **Amazon Inspector**              | Quét lỗ hổng trên EC2, ECR (không chặn)     |                                 |
-
-### 4️⃣ High Availability & Fault Tolerance
-
-- | Keyword                         | Ý nghĩa             | Hướng chọn                       |
-  | ------------------------------- | ------------------- | -------------------------------- |
-  | **Multi-AZ**                    | Dự phòng (HA)       | Database như RDS, Aurora         |
-  | **Multi-Region**                | Phòng thảm họa (DR) | Khi cần redundancy toàn cầu      |
-  | **Auto-healing / Self-healing** | Tự khôi phục        | Chọn ASG, ELB, ECS health checks |
-  | **Decouple**                    | Giảm phụ thuộc      | Dùng SQS, SNS, EventBridge       |
-
-### 5️⃣ Cost Optimization
-
-- | Keyword                  | Ý nghĩa                 | Hướng chọn                                |
-  | ------------------------ | ----------------------- | ----------------------------------------- |
-  | **Cost-efficient**       | Tiết kiệm chi phí       | Spot, Serverless, S3 IA                   |
-  | **Predictable workload** | Ổn định                 | Reserved Instance                         |
-  | **Idle resources**       | Không dùng thường xuyên | Schedule stop/start hoặc Lambda scheduler |
-
-### 6️⃣ Monitoring & Operations
-
-- | Keyword                               | Ý nghĩa           | Hướng chọn                        |
-  | ------------------------------------- | ----------------- | --------------------------------- |
-  | **Monitor / Metrics / Alarms**        | Giám sát          | CloudWatch                        |
-  | **Audit / Track API / User Activity** | Ghi vết hành động | CloudTrail                        |
-  | **Centralized Logs**                  | Gom log           | CloudWatch Logs hoặc S3 + Athena  |
-  | **Automation / Run Script**           | Tự động hóa       | Systems Manager (SSM) hoặc Lambda |
-
-### 7️⃣ Khác
-
-- | Keyword                                                                                                                            | Hướng chọn                                           |
-  | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-  | **Unpredictable / variable load**                                                                                                  | Serverless hoặc Auto Scaling                         |
-  | **High availability**                                                                                                              | Multi-AZ / Load Balancer                             |
-  | **Disaster recovery / cross-region**                                                                                               | Multi-Region setup                                   |
-  | **Reduce cost**                                                                                                                    | Spot, Serverless, Schedule stop                      |
-  | **Secure access**                                                                                                                  | IAM, KMS, Private subnet                             |
-  | **Scalable database**                                                                                                              | Aurora Serverless hoặc DynamoDB                      |
-  | **Confidential or sensitive files / Authorized users only / Secure access for remote employees / On-premises Windows File Server** | FSx for Windows File Server + Active Directory + VPN |
+- | Keyword                                         | Pattern                                     | Service/Solution                                                       |
+  | ----------------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------- |
+  | **High availability (HA)**                      | Triển khai trên nhiều AZ hoặc Region        | Multi-AZ RDS, ALB + Auto Scaling, Aurora Global DB                     |
+  | **Disaster Recovery (DR)**                      | Phục hồi dữ liệu nhanh khi region chính lỗi | S3 Cross-Region Replication, Aurora Global DB, Route 53 Failover       |
+  | **Scalable / Auto Scaling**                     | Tự động tăng/giảm tài nguyên                | EC2 Auto Scaling, Lambda, Aurora Auto Scaling                          |
+  | **Cost-effective / Least cost**                 | Giảm chi phí, không ảnh hưởng hiệu năng     | Savings Plans, Spot Instances, S3 Lifecycle, DynamoDB provisioned mode |
+  | **Least operational effort**                    | Dùng managed service, không cần bảo trì     | RDS, Aurora, Secrets Manager, Lambda, CloudWatch                       |
+  | **Low latency (global users)**                  | Phân phối nội dung gần người dùng           | CloudFront, Global Accelerator, Route 53 latency routing               |
+  | **Securely store credentials / Rotate secrets** | Lưu và xoay vòng password tự động           | AWS Secrets Manager                                                    |
+  | **Encrypt data at rest / in transit**           | Mã hóa dữ liệu lưu trữ hoặc truyền          | KMS, SSL/TLS, EBS/S3 encryption                                        |
+  | **Audit / Track configuration changes**         | Theo dõi ai làm gì, khi nào                 | CloudTrail, AWS Config                                                 |
+  | **Monitor metrics / Send alerts**               | Giám sát hiệu năng, cảnh báo                | CloudWatch metrics & alarms                                            |
+  | **Serverless / No infrastructure**              | Chạy ứng dụng không quản lý máy chủ         | Lambda, API Gateway, DynamoDB, S3                                      |
+  | **Event-driven / decouple application**         | Ứng dụng xử lý sự kiện, tách các thành phần | SQS, SNS, EventBridge, Step Functions                                  |
+  | **Application load balancing**                  | Chia tải giữa nhiều EC2 hoặc container      | Application Load Balancer (ALB)                                        |
+  | **Network isolation / private subnet**          | Hạn chế truy cập, bảo mật mạng nội bộ       | VPC, Security Groups, NACL, Private Subnet                             |
+  | **On-premises connection**                      | Kết nối hệ thống nội bộ với AWS             | VPN, Direct Connect                                                    |
+  | **Authentication / Authorization**              | Xác thực & phân quyền người dùng            | IAM, Cognito, Lambda@Edge (auth logic)                                 |
+  | **Global replication / multi-region read**      | Dữ liệu đồng bộ giữa các Region             | Aurora Global Database, DynamoDB Global Table                          |
+  | **Data lake / analytics**                       | Lưu trữ dữ liệu lớn, phân tích              | S3 + Glue + Athena + QuickSight                                        |
+  | **Caching / Reduce DB load**                    | Tăng tốc truy vấn                           | ElastiCache (Redis/Memcached), CloudFront                              |
+  | **Temporary access / assume role**              | Quyền truy cập tạm thời, chia sẻ account    | STS AssumeRole, IAM Roles                                              |
+  | **Shared file storage for EC2**                 | Nhiều EC2 truy cập chung file               | EFS, FSx, S3 File Gateway                                              |
+  | **Hybrid storage (on-premises + cloud)**        | Kết nối lưu trữ cục bộ và S3                | AWS Storage Gateway                                                    |
+  | **Web protection (SQL Injection, XSS)**         | Lọc request nguy hiểm                       | AWS WAF, Shield                                                        |
+  | **Data backup / restore**                       | Sao lưu dữ liệu tự động                     | AWS Backup, S3 Versioning, RDS Snapshot                                |
+  | **Access control / least privilege**            | Chỉ cấp quyền tối thiểu cần thiết           | IAM Policies, SCP (Service Control Policy)                             |
+  | **Compliance / governance**                     | Kiểm soát tuân thủ, audit                   | AWS Config, CloudTrail, Organizations                                  |
+  | **Image / video processing at upload**          | Xử lý khi có file mới                       | S3 Event + Lambda                                                      |
+  | **Batch job / scheduled tasks**                 | Chạy theo lịch hoặc khối lượng lớn          | EventBridge Scheduler, Batch, Lambda                                   |
+  | **Application modernization**                   | Chuyển từ EC2 sang serverless/container     | ECS, Fargate, Lambda                                                   |
+  | **SQL database scaling issue**                  | Giảm tải RDS hoặc MySQL                     | Aurora, Read Replica, ElastiCache                                      |
+  | **NoSQL / flexible schema**                     | Cần tốc độ cao, không cần schema cố định    | DynamoDB                                                               |
+  | **Static website hosting**                      | Website tĩnh, chi phí thấp, toàn cầu        | S3 + CloudFront                                                        |
+  | **Cross-account sharing (snapshot, KMS)**       | Chia sẻ tài nguyên giữa tài khoản           | Add account to KMS policy + Share snapshot                             |
+  | **Centralized logging**                         | Gom log nhiều app/service                   | CloudWatch Logs, Kinesis Firehose, S3                                  |
+  | **Network load / latency optimization**         | Điều phối kết nối người dùng                | Route 53 routing policies, Global Accelerator                          |
+  | **Migrate database to AWS**                     | Di chuyển dữ liệu                           | AWS DMS (Database Migration Service)                                   |
+  | **Data synchronization (on-prem ↔ S3)**         | Đồng bộ dữ liệu 2 chiều                     | AWS DataSync                                                           |
+  | **Large messages (>256KB)**                     | Gửi tin nhắn lớn hơn giới hạn SQS           | SQS Extended Client + S3                                               |
+  | **Schema change / ETL process**                 | Trích xuất, chuyển đổi, nạp dữ liệu         | Glue, Glue Studio, EMR                                                 |
+  | **Business intelligence (BI)**                  | Dashboard, báo cáo                          | QuickSight                                                             |
+  | **Cross-region backup / replication**           | Dự phòng giữa region                        | S3 CRR, Aurora Global Database                                         |
+  | **Reduce DB cost for read-heavy app**           | Cache dữ liệu, giảm load                    | ElastiCache, Aurora Read Replica                                       |
+  | **Version control / rollback**                  | Quản lý phiên bản, khôi phục                | S3 Versioning, CloudFormation Stack                                    |
+  | **Infrastructure as code (IaC)**                | Quản lý hạ tầng tự động                     | CloudFormation, CDK                                                    |
+  | **Continuous deployment / CI/CD**               | Tự động build & deploy                      | CodePipeline, CodeBuild, CodeDeploy                                    |
+  | **Log retention / archival**                    | Lưu log lâu dài, chi phí thấp               | S3 Glacier, CloudWatch Logs retention                                  |
 
 <a name="5"></a>
 
@@ -320,6 +305,27 @@ tags:
 | **45** | No data is lost & exactly-once processing                                                                    | **Amazon SQS FIFO**                                    | SQS đảm bảo data không bị mất, SQS FIFO đảm bảo được việc chỉ xử lý message đúng 1 lần duy nhất (exactly-once processing)                                                                                                                         |
 | **46** | Migrate hundreds of TB or PB of data to AWS                                                                  | **AWS Snowball**                                       | Với lượng data hàng trăm TB hay hàng PB thì việc migrate hầu như sẽ thực hiện qua Snowball Edge                                                                                                                                                   |
 | **47** | DDoS attack on the website                                                                                   | **AWS WAF by rate-based rules**                        | WAF có thể hạn chế tấn công DDoS thông qua Rate-based rule                                                                                                                                                                                        |
+|        |                                                                                                              | **AWS Shield Advanced**                                | AWS Shield Advanced cung cấp khả năng phát hiện và giảm thiểu tấn công DDoS nâng cao với điểm nổi bật là có proactive engagement - AWS chủ động liên hệ và hỗ trợ khách hàng khi phát hiện tấn công                                               |
+| **48** | Data transfer between regions                                                                                | **S3 Cross-Region Replication (CRR)**                  | S3 Cross-Region Replication (CRR) giúp truyền data giữa các region                                                                                                                                                                                |
+| **49** | Database failovers                                                                                           | **Amazon RDS Proxy**                                   | RDS Proxy giúp giảm thời gian failover cho RDS hoặc Aurora                                                                                                                                                                                        |
+| **50** | Single-digit latency                                                                                         | **Direct Connect**                                     | Độ trễ hàng mili giây (single-digit latency) kết nối đến môi trường on-premise thì nghĩ đến Direct Connect                                                                                                                                        |
+| **51** | Auto Scaling Group cần scale tự động                                                                         | **target tracking scaling**                            | Target tracking scaling là cơ chế tự động scale EC2 dựa trên ngưỡng metric do mình định nghĩa (Vd: CPU 40%). Khi traffic tăng đột biến, sẽ tự động scale out ngay lập tức và scale in khi traffic giảm                                            |
+| **52** | Third-party SaaS + private connectivity                                                                      | **AWS PrivateLink**                                    | AWS PrivateLink là dịch vụ cho phép tạo private endpoint trong VPC của mình để truy cập các AWS services hoặc third-party services nằm trên AWS mà không cần đi qua internet                                                                      |
+| **53** | Networking inspection                                                                                        | **AWS Gateway Load Balancer**                          | Gateway Load Balancer là service chuyên dụng cho việc kiểm tra traffic (traffic inspection)                                                                                                                                                       |
+| **54** | Cost breakdown by application                                                                                | **Cost allocation tags + Cost Explorer**               | Cost allocation tags cho phép quản lý và phân chia chi phí theo tag, và Cost Explorer cung cấp dashboard trực quan với khả năng tạo report, cập nhật thường xuyên tự động - tất cả đều hoàn toàn miễn phí                                         |
+| **55** | Automatic key rotation                                                                                       | **AWS Managed KMS keys (SSE-KMS)**                     | Chỉ KMS mới có automatic rotation, tiết kiệm hơn so với customer managed keys (vì không mất phí lưu trữ & quản lý key)                                                                                                                            |
+| **56** | Long-running workloads                                                                                       | **Reserved Instances/Savings Plans**                   | Cam kết sử dụng dài hạn (3 năm) + thanh toán trả trước toàn bộ (All Upfront) sẽ mang lại mức chiết khấu cao nhất, tối ưu chi phí tốt nhất                                                                                                         |
+| **57** | Share data between multiple instances                                                                        | **Amazon Elastic File System (EFS)**                   | EFS là file system được thiết kế chuyên để share data giữa nhiều EC2 instances đồng thời                                                                                                                                                          |
+| **58** | Cost optimizations across EC2/Auto Scaling group/EBS                                                         | **Configure AWS Compute Optimizer**                    | AWS Compute Optimizer là dịch vụ được thiết kế chuyên biệt để phân tích và đưa ra các khuyến cáo về việc tối ưu chi phí cho EC2, Auto Scaling groups và EBS volumes                                                                               |
+| **59** | Multi-protocol + NFS and SMB                                                                                 | **FSx for NetApp ONTAP**                               | FSx for NetApp ONTAP là dịch vụ duy nhất trong các lựa chọn có thể hỗ trợ đồng thời cả NFS và SMB protocols trên cùng một file system                                                                                                             |
+| **60** | Session state + high availability                                                                            | **ElastiCache Redis**                                  | Cache lưu độc lập bên trong ElastiCache, tách biệt khỏi web server, do đó nếu web server gặp sự cố thì cũng không ảnh hưởng. Có cơ chế replication data → đảm bảo không mất dữ liệu                                                               |
+| **61** | 24 hours recovery point objective(RPO)/recovery time objective (RTO)                                         | **snapshots**                                          | Sử dụng Snapshot là đủ, không cần continuous replication như DMS hay Read Replica                                                                                                                                                                 |
+| **62** | Regulatory compliance + prevent deletion/modification                                                        | **S3 Object Lock Compliance Mode**                     | S3 Object Lock là tính năng cho phép khóa file, bảo vệ file trong S3 khỏi bị xóa hoặc sửa đổi trong một khoảng thời gian nhất định. Compliance Mode sẽ không cho phép ai có thể bypass, kể cả root user - chuyên dùng để đảm bảo tuân thủ         |
+| **63** | Review permissions + over-privileged                                                                         | **S3 Object Lock IAM Access Analyzer**                 | IAM Access Analyzer được thiết kế chuyên biệt để phân tích permissions và phát hiện unused permissions (quyền được cấp mà không dùng) hoặc over-privileged access (quyền cấp thừa)                                                                |
+| **64** | Prevent sharing same hardware                                                                                | **Spread Placement Group**                             | Spread Placement Group được thiết kế chính xác cho mục đích đặt vị trí EC2 đảm bảo mỗi instance chạy trên phần cứng vật lý riêng biệt (separate underlying hardware)                                                                              |
+| **65** | pub/sub pattern                                                                                              | **Amazon SNS**                                         | SNS là service phù hợp đáp ứng cho pub/sub pattern - một publisher có thể gửi message đến nhiều subscribers                                                                                                                                       |
+| **66** | Accessed once or twice per year + immediately available                                                      | **Glacier Instant Retrieval**                          | Glacier Instant Retrieval phù hợp cho yêu cầu truy cập ít trong năm đầu (năm 1, 2 lần) với độ trễ thấp nhất (immediately available) và chi phí tiết kiệm hơn Standard-IA                                                                          |
+| **67** | Millions of small files                                                                                      | **Group the files into large objects**                 | Group các file nhỏ thành file to giúp giảm chi phí request cho S3 (hàng triệu files nhỏ = hàng triệu request)                                                                                                                                     |
 
 <a name="6"></a>
 

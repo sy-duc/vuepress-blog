@@ -24,4 +24,12 @@ Hy vọng tài liệu này cũng sẽ tiết kiệm thời gian trong việc l�
 
 7. <a href="/vuepress-blog/blog-posts/devops/aws-networking.html" target="_blank">Networking trong AWS</a>
 
-8. <a href="/vuepress-blog/blog-posts/devops/aws-monitoring.html" target="_blank">Theo dõi hoạt động các tài nguyên trong AWS</a>
+8. <a href="/vuepress-blog/blog-posts/devops/aws-route53.html" target="_blank">Quản lý tên miền DNS Route 53</a>
+
+9. <a href="/vuepress-blog/blog-posts/devops/aws-monitoring.html" target="_blank">Theo dõi hoạt động các tài nguyên trong AWS</a>
+
+10. <a href="/vuepress-blog/blog-posts/devops/aws-serverless.html" target="_blank">Mô hình không máy chủ trong AWS</a>
+
+11. <a href="/vuepress-blog/blog-posts/devops/aws-automation.html" target="_blank">Tự động hóa trong AWS</a>
+
+12. <a href="/vuepress-blog/blog-posts/devops/aws-practice.html" target="_blank">Chiến lược luyện đề AWS SAA</a>
