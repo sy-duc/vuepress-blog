@@ -1,17 +1,10 @@
 ---
 title: OCR là gì? So sánh các phương pháp OCR
-summary: "OCR (Optical Character Recognition) là công nghệ giúp máy tính nhận dạng và trích xuất văn bản từ hình ảnh hoặc tài liệu scan."
-date: "2025-07-26"
-image: "/vuepress-blog/images/posts/ocr.png"
-category: "AI / Machine Learning"
-tags:
-  - ai
-  - machine learning
-  - ocr
-  - tesseract
 ---
 
 # Giới thiệu OCR
+
+![Giới thiệu OCR](./images/ocr.png)
 
 [1. OCR là gì?](#1)
 
@@ -28,7 +21,7 @@ tags:
   - Đọc dữ liệu từ ảnh sản phẩm
   - Tự động hoá quy trình kiểm tra, nhập liệu
 
-![Giới thiệu OCR](./images/ocr-tong-quan.png)
+![Ví dụ ứng dụng OCR](./images/ocr-tong-quan.png)
 
 <a name="2"></a>
 

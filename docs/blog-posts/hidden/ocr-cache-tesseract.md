@@ -1,15 +1,5 @@
 ---
 title: Cải thiện hiệu năng Tesseract-OCR bằng Cache
-summary: "Nếu bạn nhận thấy Tesseract tốn nhiều thời gian để nhận diện cùng một dữ liệu lặp đi lặp lại, thì cache chính là giải pháp. Bài viết này giới thiệu cách áp dụng cache để lưu kết quả OCR."
-date: "2025-08-17"
-image: "/vuepress-blog/images/posts/ocr-tesseract.png"
-category: "AI / Machine Learning"
-tags:
-  - ai
-  - machine learning
-  - ocr
-  - tesseract
-  - cache tesseract
 ---
 
 # Cải thiện hiệu năng Tesseract-OCR bằng Cache

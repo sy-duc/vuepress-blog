@@ -1,18 +1,10 @@
 ---
 title: Template Matching - Giải pháp hỗ trợ nhận diện ký tự khó OCR
-summary: "Template Matching là một phương pháp so khớp hình ảnh đơn giản nhưng hiệu quả, thường được sử dụng như giải pháp bổ trợ cho OCR trong các trường hợp khó nhận diện chính xác."
-date: "2025-08-22"
-image: "/vuepress-blog/images/posts/ocr-template-matching.png"
-category: "AI / Machine Learning"
-tags:
-  - ai
-  - machine learning
-  - ocr
-  - tesseract
-  - template matching
 ---
 
 # Template Matching - Giải pháp hỗ trợ nhận diện ký tự khó OCR
+
+![Giới thiệu OCR](./images/ocr-template-matching.png)
 
 - Template Matching là một phương pháp so khớp hình ảnh đơn giản nhưng hiệu quả, thường được sử dụng như giải pháp bổ trợ cho OCR trong các trường hợp ký tự nhỏ, mờ hoặc khó đọc mà Tesseract chưa nhận diện chính xác.
 
@@ -100,13 +92,13 @@ tags:
 
 - 👀 Khi nào dùng:
 
-    - ✧ Khi ảnh và template có độ tương phản cao.
+  - ✧ Khi ảnh và template có độ tương phản cao.
 
-    - ✧ Khi bạn muốn phát hiện sự giống nhau tuyệt đối về pixel.
+  - ✧ Khi bạn muốn phát hiện sự giống nhau tuyệt đối về pixel.
 
-    - ✧ Template nhỏ: Hiệu quả với template kích thước nhỏ như của bạn (8x16).
+  - ✧ Template nhỏ: Hiệu quả với template kích thước nhỏ như của bạn (8x16).
 
-    - ✧ Khi cần phân biệt rõ ràng: Phân biệt số 6 vs 8, 0 vs O.
+  - ✧ Khi cần phân biệt rõ ràng: Phân biệt số 6 vs 8, 0 vs O.
 
 - ✅ Ưu điểm: Đơn giản, nhanh.
 
@@ -120,9 +112,9 @@ tags:
 
 - 👀 Khi nào dùng:
 
-    - ✧ Khi ảnh và template có cường độ pixel tương quan tuyến tính.
+  - ✧ Khi ảnh và template có cường độ pixel tương quan tuyến tính.
 
-    - ✧ Template lớn hơn: Khi template có nhiều detail.
+  - ✧ Template lớn hơn: Khi template có nhiều detail.
 
 - ✅ Ưu điểm: Ổn hơn so với SQDIFF khi ánh sáng thay đổi một chút.
 
@@ -136,9 +128,9 @@ tags:
 
 - 👀 Khi nào dùng:
 
-    - ✧ Khi ảnh đầu vào có độ sáng hoặc độ tương phản thay đổi.
+  - ✧ Khi ảnh đầu vào có độ sáng hoặc độ tương phản thay đổi.
 
-    - ✧ Phù hợp với OCR trong môi trường sản xuất, nơi ánh sáng có thể thay đổi theo ca.
+  - ✧ Phù hợp với OCR trong môi trường sản xuất, nơi ánh sáng có thể thay đổi theo ca.
 
 - ✅ Ưu điểm: Ổn định hơn SQDIFF và CCORR.
 
@@ -147,27 +139,31 @@ tags:
 ## 📌 3. Quy trình triển khai Template Matching
 
 ### ❶ Chuẩn bị dữ liệu
+
 - ✦ Ảnh gốc (input image): Là ảnh chứa vùng giá trị cần nhận diện.
 
 - ✦ Template: Tập hợp ảnh mẫu của từng giá trị (Ví dụ: 0–9, A–Z, v.v.)
 
 - ✦ Tiền xử lý:
-    - ✧ Chuyển sang ảnh grayscale để giảm nhiễu màu.
-    - ✧ Áp dụng thresholding hoặc adaptive thresholding để tách nền – ký tự.
-    - ✧ Cân nhắc resize ảnh về cùng kích thước với template.
+  - ✧ Chuyển sang ảnh grayscale để giảm nhiễu màu.
+  - ✧ Áp dụng thresholding hoặc adaptive thresholding để tách nền – ký tự.
+  - ✧ Cân nhắc resize ảnh về cùng kích thước với template.
 
 ### ❷ Chạy thuật toán so khớp
+
 - ✦ Sử dụng hàm `cv2.matchTemplate(image, template, method)` với một trong các phương pháp so khớp:
   - ✧ `cv2.TM_SQDIFF` hoặc `cv2.TM_SQDIFF_NORMED`
   - ✧ `cv2.TM_CCOEFF` hoặc `cv2.TM_CCOEFF_NORMED`
   - ✧ `cv2.TM_CCORR` hoặc `cv2.TM_CCORR_NORMED`
 
 ### ❸ Tìm vị trí và kết quả khớp
+
 - ✦ Dùng `cv2.minMaxLoc()` để lấy giá trị min/max (tùy phương pháp).
 
 - ✦ So sánh với một ngưỡng tin cậy (threshold) để quyết định ký tự có được nhận diện hay không.
 
 ### ❹ Hậu xử lý kết quả
+
 - ✦ Nếu có nhiều vị trí trùng khớp, chọn vị trí có giá trị tốt nhất (min hoặc max).
 
 - ✦ Nếu kết quả nằm dưới ngưỡng tin cậy → có thể gán nhãn “không xác định” để tránh sai sót.
@@ -175,4 +171,5 @@ tags:
 <a name="4"></a>
 
 ## 📌 4. Ví dụ code minh họa (Python + OpenCV)
+
 - TODO...

@@ -1,12 +1,5 @@
 ---
 title: Store Procedure, Function, Cursor và Triggers trong PL/SQL
-summary: "PL/SQL cung cấp các công cụ giúp xử lý logic nghiệp vụ trực tiếp tại tầng dữ liệu, trong đó Stored Procedure, Function, Cursor và Trigger — đóng vai trò cốt lõi."
-date: "2025-06-13"
-image: "/vuepress-blog/images/posts/plsql.png"
-category: "BACK-END"
-tags:
-  - oracle
-  - training-plsql
 ---
 
 # Store Procedure, Function, Cursor và Triggers

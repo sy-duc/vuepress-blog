@@ -1,18 +1,10 @@
 ---
 title: Huấn luyện Tesseract (training AI OCR)
-summary: "Tesseract OCR mạnh mẽ nhưng thường gặp khó khăn với font chữ đặc thù hoặc dữ liệu thực tế. Việc training lại với bộ dữ liệu riêng giúp tăng độ chính xác, giảm lỗi nhầm lẫn và tùy biến."
-date: "2025-08-18"
-image: "/vuepress-blog/images/posts/ocr-training-tesseract.png"
-category: "AI / Machine Learning"
-tags:
-  - ai
-  - machine learning
-  - ocr
-  - tesseract
-  - training ocr
 ---
 
 # Huấn luyện Tesseract (training AI OCR)
+
+![Huấn luyện Tesseract](./images/ocr-training-tesseract.png)
 
 - Mặc dù Tesseract OCR đã được huấn luyện sẵn với nhiều ngôn ngữ và chữ số, nhưng trong thực tế (ví dụ: màn hình máy đo, thiết bị công nghiệp, bảng hiển thị số, font chữ đặc thù, dữ liệu mờ/nhỏ) thì kết quả nhận dạng thường chưa chính xác.
 
@@ -432,12 +424,15 @@ tags:
   - ✧ Nếu không xoá sạch `data/svc/`, Tesseract sẽ cố tiếp tục từ checkpoint cũ (mà có thể không còn hợp lệ), dẫn đến lỗi.
 
 ### 👀 Box file (`.box`) và LSTM training file (`.lstmf`):
-  - Sau khi chạy lệnh huấn luyện, các file tự động sinh ra từ `image.tif` + `image.gt.txt` là file `.box` và `.lstm`.
+
+- Sau khi chạy lệnh huấn luyện, các file tự động sinh ra từ `image.tif` + `image.gt.txt` là file `.box` và `.lstm`.
 
 #### ❶ Box file (`.box`) - dữ liệu nhãn (label file) đi kèm với ảnh `.tif`
+
 - ✦ Mỗi dòng chứa ký tự, bounding box (tọa độ), và số trang.
 
 - ✦ Cấu trúc:
+
   ```
   <char> <x0> <y0> <x1> <y1> <page>
   ```
@@ -450,10 +445,12 @@ tags:
     - ✧ `page`: số trang trong ảnh gốc (đa phần là 0, trừ khi file `.tif` có nhiều trang).
 
 - ✦ Ví dụ:
+
   ```
   1  10 12 28 40 0
   2  35 12 53 40 0
   ```
+
   - Nghĩa là: ký tự 1 nằm trong khung (10,12) → (28,40) trên trang 0.
 
 - ✦ Ý nghĩa: chỉ ra ký tự nào nằm ở đâu trong ảnh, để Tesseract học cách map pixel → ký tự.
@@ -468,9 +465,11 @@ tags:
   - ➂ Map unicharset - tập hợp tất cả ký tự mà model biết và có thể OCR
 
 ### 💡 Kinh nghiệm:
+
 - ✔️ Trường hợp lỗi ngay từ khi vừa chạy lệnh huấn luyện, nguyên nhân có thể đến từ việc file `.gt.txt` chưa khớp với ảnh file `.tif`.
 
 - ✔️ Sau khi chạy lệnh huấn luyện lần đầu, cần kiểm tra box file (`.box`). Có thể cần chỉnh tay box file nếu phát hiện sai lệch:
+
   - ➀ Kiểm tra nhãn (`char`) đã khớp chưa.
   - ➁ Đo tọa độ pixel bằng `Paint` app và chỉnh lại x0 y0 x1 y1 sao cho ô bao trọn ký tự, không cắt, không quá rộng.
 

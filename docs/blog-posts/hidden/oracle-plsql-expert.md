@@ -1,12 +1,5 @@
 ---
 title: Vấn đề khi sử dụng PL/SQL thực tế
-summary: "Tối ưu hiệu suất và vấn đề bảo mật trong PL/SQL luôn là các chủ đề quan trọng khi sử dụng PL/SQL trong thực tế."
-date: "2025-06-15"
-image: "/vuepress-blog/images/posts/plsql.png"
-category: "BACK-END"
-tags:
-  - oracle
-  - training-plsql
 ---
 
 # Vấn đề khi sử dụng PL/SQL thực tế (Expert)

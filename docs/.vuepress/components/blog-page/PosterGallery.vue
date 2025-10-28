@@ -10,10 +10,7 @@
           v-for="(poster, index) in posters"
           :key="index"
         >
-          <component
-            is="RouterLink"
-            :to="poster.to"
-          >
+          <component is="RouterLink" :to="poster.to">
             <img :src="poster.image" :alt="poster.title" class="poster-image" />
           </component>
         </div>
@@ -44,12 +41,12 @@ const posters = [
   {
     image: "/vuepress-blog/images/posters/ocr-training-series.png",
     title: "OCR Training Series",
-    to: "/blog-posts/hidden/ocr-tesseract-series.html",
+    to: "/blog-posts/ai/ocr-tesseract-series.html",
   },
   {
     image: "/vuepress-blog/images/posters/plsql-training-series.png",
     title: "PL/SQL Training Series",
-    to: "/blog-posts/hidden/plsql-training-series.html",
+    to: "/blog-posts/back-end/plsql-training-series.html",
   },
 ];
 

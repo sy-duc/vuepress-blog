@@ -1,12 +1,5 @@
 ---
 title: PL/SQL nâng cao
-summary: "Tiếp cận và khai thác sức mạnh thực sự của PL/SQL trong các hệ thống cơ sở dữ liệu phức tạp và hiệu năng cao."
-date: "2025-06-14"
-image: "/vuepress-blog/images/posts/plsql.png"
-category: "BACK-END"
-tags:
-  - oracle
-  - training-plsql
 ---
 
 # PL/SQL nâng cao

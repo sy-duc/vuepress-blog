@@ -1,14 +1,5 @@
 ---
 title: Ứng dụng OCR vào bài toán thực tế
-summary: "Bài viết này trình bày cách áp dụng OCR vào một bài toán thực tế trong sản xuất. Hy vọng mọi người có thể tận dụng được trong các kịch bản tại từng bài toán OCR khác nhau."
-date: "2025-09-04"
-image: "/vuepress-blog/images/posts/ocr-tesseract.png"
-category: "AI / Machine Learning"
-tags:
-  - ai
-  - machine learning
-  - ocr
-  - tesseract
 ---
 
 # Ứng dụng & tích hợp OCR vào bài toán thực tế

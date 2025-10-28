@@ -1,14 +1,5 @@
 ---
 title: Độ chính xác & Performance OCR với Tesseract
-summary: "Tesseract là một OCR engine mạnh mẽ nhưng kết quả phụ thuộc rất nhiều vào chất lượng ảnh đầu vào và cách cấu hình. Bài viết này tổng hợp các kỹ thuật tối ưu thực tế."
-date: "2025-07-28"
-image: "/vuepress-blog/images/posts/ocr-tesseract.png"
-category: "AI / Machine Learning"
-tags:
-  - ai
-  - machine learning
-  - ocr
-  - tesseract
 ---
 
 # Độ chính xác & Performance OCR với Tesseract
@@ -158,6 +149,7 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 - 🎯 Mục đích: thêm/bớt viền trắng xung quanh vùng cần đọc giá trị.
 
 - 👀 Khi nào dùng:
+
   - ✧ Vùng cần đọc giá trị hẹp → khó crop, hoặc crop dễ bị nhiễu bởi vùng khác.
 
   - ✧ Vùng cần đọc giá trị có thể bị xê dịch tọa độ, không cố định.
@@ -167,22 +159,27 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
   - ✧ Giúp Tesseract nhận diện tốt hơn khi xung quanh giá trị có các viền trắng đều, vừa đủ (không quá lớn cũng không quá nhỏ).
 
 - 🚀 Cách sử dụng:
+
   - ➀ Để khắc phục tình trạng vùng giá trị có thể bị xê dịch tọa độ → crop rộng vùng OCR:
 
     ![Ví dụ Crop](./images/ocr-vi-du-crop.png)
-  
+
   - ➁ Loại bỏ noise sau khi crop vùng OCR:
+
     - ✦ Do việc nới rộng vùng OCR dẫn đến vùng này có thể chứa các vùng ký tự khác không mong muốn gây nhiễu (gọi là noise).
+
       - Các border, hay các ký tự highlight trong ví dụ dưới đây được coi là noise:
-        
+
         ![Ví dụ Noise](./images/ocr-vi-du-noise.png)
 
       - → Cần xử lý loại bỏ noise để tăng độ chính xác khi OCR
 
     - ✦ Phương pháp loại bỏ noise:
+
       - ✧ Xác định vùng chứa giá trị chính (main content), loại bỏ các vùng còn lại.
 
       - ✧ Tùy trạng thái hiện tại mà cần chọn chiến lược xác định vùng chứa main content phù hợp, ví dụ như:
+
         - Phân tích mật độ nội dung: quét từng dòng pixel, vùng nội dung chính có thể là vùng có tỷ lệ pixel có `nội dung / tổng pixel` trên dòng lớn nhất.
 
         - Phân tích tỷ lệ threshold: thường vùng giá trị chính sẽ có font chữ đậm. Vùng có threshold bé (ký tự mờ) có thể là noise.
@@ -190,12 +187,15 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
         - Nhóm các vùng liên tiếp: tìm các nhóm dòng liên tiếp có nội dung → Loại bỏ nhóm quá nhỏ (< 3-5 dòng).
 
       - ✧ Với ví dụ trên, chiến lược hợp lý nhất là:
+
         - **Phase 1 - Vertical filtering (chiều dọc)**
+
           - Lấy vùng liên tiếp có nội dung trên dòng và gần trung tâm nhất (theo chiều dọc) → Xác định trước Y-range chứa main content.
 
             ![Vertical filtering](./images/ocr-main-vertical-filtering.png)
 
         - **Phase 2 - Horizontal filtering (chiều ngang)**
+
           - Scan các vùng có nội dung trong Y-range đã filtered tại Phase 1.
 
           - Nhóm các X-range liên tiếp có nội dung (có tolerance - dung sai tránh khoảng cách nhỏ giữa 2 ký tự):
@@ -207,12 +207,13 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
             ![Horizontal filtering](./images/ocr-main-horizontal-filtering-2.png)
 
       - ✧ Ngoại lệ:
+
         - Nhiều vùng cách đều tâm: Cần có quy tắc ưu tiên chọn vùng (nhiều chữ hơn/bên trái/phải/trên/dưới, v.v.) tùy theo trường hợp của bạn.
 
         - Vùng noise nhỏ ở chính giữa: Có 1 chấm đen nhỏ (noise) ngay ở tâm ảnh, và text thật ở xa hơn → Lọc bỏ vùng quá nhỏ trước khi so sánh khoảng cách.
 
         - Không tìm thấy nội dung: Ảnh toàn trắng hoặc chất lượng quá tệ, không detect được text nào → Trả về toàn bộ ảnh gốc, tránh crash chương trình.
-      
+
   - ➂ Padding/trim các khoảng trắng để đưa giá trị cần OCR vào trung tâm ảnh
 
     ![Padding/trim crop OCR](./images/ocr-padding-trim.png)
@@ -379,7 +380,7 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 - Dữ liệu OCR thực tế thường khác xa tập huấn luyện mặc định của Tesseract (font lạ, ký tự đặc biệt, chữ viết tay, ảnh mờ).
 
-- 💡 Khi sử dụng các kỹ thuật nâng cao độ chính xác khi OCR phía trên mà không hiểu quả, giải pháp là [Huấn luyện Tesseract](https://sy-duc.github.io/vuepress-blog/blog-posts/ai/ocr-training-tesseract.html) (training AI OCR) với bộ dữ liệu ảnh–label của riêng bạn.
+- 💡 Khi sử dụng các kỹ thuật nâng cao độ chính xác khi OCR phía trên mà không hiểu quả, giải pháp là [Huấn luyện Tesseract](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/ocr-training-tesseract.html) (training AI OCR) với bộ dữ liệu ảnh–label của riêng bạn.
 
 ### 6️⃣ Kỹ thuật Hybrid OCR
 
@@ -401,7 +402,7 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 #### ❷ Kết hợp Template Matching & OCR
 
-- [Template Matching](https://sy-duc.github.io/vuepress-blog/blog-posts/ai/ocr-template-matching.html) là kỹ thuật trong OpenCV dùng để tìm vị trí của một mẫu (template) trong một ảnh lớn bằng cách so khớp pixel.
+- [Template Matching](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/ocr-template-matching.html) là kỹ thuật trong OpenCV dùng để tìm vị trí của một mẫu (template) trong một ảnh lớn bằng cách so khớp pixel.
 
   - ✦ Template Matching không phải OCR, nó chỉ cho biết vị trí và kích thước vùng khớp, không “đọc” được nội dung chữ.
 
@@ -517,7 +518,7 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
 
 #### 🔥 Chú ý:
 
-- Trong bài viết về [Ứng dụng bài toán thực tế](https://sy-duc.github.io/vuepress-blog/blog-posts/ai/ocr-template-matching.html) sẽ đề cập chi tiết hơn.
+- Trong bài viết về [Ứng dụng bài toán thực tế](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/ocr-template-matching.html) sẽ đề cập chi tiết hơn.
 
 ### 6️⃣ Cache kết quả (Result Caching)
 
@@ -548,7 +549,7 @@ Bài viết này tổng hợp các yếu tố quan trọng ảnh hưởng đến
       cache[img_hash] = text
   ```
 
-#### 🔗 Chi tiết cách triển khai Cache xem [tại đây](https://sy-duc.github.io/vuepress-blog/blog-posts/ai/ocr-cache-tesseract.html).
+#### 🔗 Chi tiết cách triển khai Cache xem [tại đây](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/ocr-cache-tesseract.html).
 
 ### 🔥 Tóm tắt
 

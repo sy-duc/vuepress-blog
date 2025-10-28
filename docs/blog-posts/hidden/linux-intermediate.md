@@ -1,15 +1,10 @@
 ---
 title: Linux - Intermediate
-summary: "Nếu đã đã tìm hiểu cơ bản về Linux, thì phần này sẽ tập trung tìm hiểu về cách quản trị Người dùng & Quyền hạn và Quản lý Mạng trong Linux."
-date: "2025-06-10"
-image: "/vuepress-blog/images/skills/linux.png"
-category: "DEVOPS"
-tags:
-  - linux
-  - training-linux
 ---
 
 # Intermediate
+
+Nếu đã đã tìm hiểu cơ bản về Linux, thì phần này sẽ tập trung tìm hiểu về cách quản trị Người dùng & Quyền hạn và Quản lý Mạng trong Linux.
 
 [1. Quản trị Người Dùng & Quyền Hạn](#1)
 

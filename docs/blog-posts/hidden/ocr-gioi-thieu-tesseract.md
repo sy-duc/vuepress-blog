@@ -1,14 +1,5 @@
 ---
 title: OCR với Tesseract
-summary: "Bài viết này giúp bạn hiểu cách Tesseract xử lý hình ảnh, nhận dạng văn bản, và các yếu tố ảnh hưởng đến độ chính xác như chất lượng ảnh, font chữ, bố cục."
-date: "2025-07-28"
-image: "/vuepress-blog/images/posts/ocr-tesseract.png"
-category: "AI / Machine Learning"
-tags:
-  - ai
-  - machine learning
-  - ocr
-  - tesseract
 ---
 
 # OCR với Tesseract
@@ -23,7 +14,7 @@ tags:
 
 ## 📌 1. Giới thiệu Tesseract
 
-- ● Tesseract là một [OCR engine](https://sy-duc.github.io/vuepress-blog/blog-posts/ai/ocr-tong-quan.html) mã nguồn mở do Hewlett-Packard phát triển từ những năm 1980 và hiện được Google duy trì.
+- ● Tesseract là một [OCR engine](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/ocr-tong-quan.html) mã nguồn mở do Hewlett-Packard phát triển từ những năm 1980 và hiện được Google duy trì.
 
 - ● Nó hỗ trợ hơn 100 ngôn ngữ, bao gồm cả tiếng Việt, và có thể huấn luyện thêm để nhận dạng phông chữ hoặc ký tự đặc thù (sẽ giới thiệu ở cấc bài viết sau).
 
