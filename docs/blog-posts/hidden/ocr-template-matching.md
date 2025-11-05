@@ -72,7 +72,7 @@ title: Template Matching - Giải pháp hỗ trợ nhận diện ký tự khó O
 
 - ✦ Giả sử:
 
-  - ✧ Ảnh gốc: hình chụp từ máy test.
+  - ✧ Ảnh gốc: hình chụp chứa vùng cần đọc giá trị.
   - ✧ Template: ảnh số 5 (cắt ra từ ảnh thật).
 
 - ✦ Bước thực hiện:
@@ -96,9 +96,9 @@ title: Template Matching - Giải pháp hỗ trợ nhận diện ký tự khó O
 
   - ✧ Khi bạn muốn phát hiện sự giống nhau tuyệt đối về pixel.
 
-  - ✧ Template nhỏ: Hiệu quả với template kích thước nhỏ như của bạn (8x16).
+  - ✧ Template nhỏ: Hiệu quả với template kích thước nhỏ (ví dụ 8x16).
 
-  - ✧ Khi cần phân biệt rõ ràng: Phân biệt số 6 vs 8, 0 vs O.
+  - ✧ Khi cần phân biệt rõ ràng: Phân biệt số gần giống nhau như 6 vs 8, 0 vs O, v.v.
 
 - ✅ Ưu điểm: Đơn giản, nhanh.
 
@@ -142,12 +142,15 @@ title: Template Matching - Giải pháp hỗ trợ nhận diện ký tự khó O
 
 - ✦ Ảnh gốc (input image): Là ảnh chứa vùng giá trị cần nhận diện.
 
-- ✦ Template: Tập hợp ảnh mẫu của từng giá trị (Ví dụ: 0–9, A–Z, v.v.)
+- ✦ Tiền xử lý ảnh gốc:
 
-- ✦ Tiền xử lý:
   - ✧ Chuyển sang ảnh grayscale để giảm nhiễu màu.
   - ✧ Áp dụng thresholding hoặc adaptive thresholding để tách nền – ký tự.
   - ✧ Cân nhắc resize ảnh về cùng kích thước với template.
+
+- ✦ Template:
+  - ✧ Tập hợp ảnh mẫu của từng giá trị (Ví dụ: 0–9, A–Z, v.v.)
+  - ✧ Thường chúng ta sẽ tạo một hàm tạm chứa logic lưu ảnh gốc sau tiền xử lý. Sau đó OCR các ảnh riêng biệt chỉ chứa ký tự từ 0-9 để thu về các ảnh sau khi tiền xử lý làm ảnh mẫu luôn. Mục đích để ảnh mẫu giống với ảnh gốc nhất.
 
 ### ❷ Chạy thuật toán so khớp
 
@@ -158,9 +161,10 @@ title: Template Matching - Giải pháp hỗ trợ nhận diện ký tự khó O
 
 ### ❸ Tìm vị trí và kết quả khớp
 
-- ✦ Dùng `cv2.minMaxLoc()` để lấy giá trị min/max (tùy phương pháp).
+- ✦ Dùng `cv2.minMaxLoc()` để lấy giá trị min/max khớp (tùy phương pháp).
 
 - ✦ So sánh với một ngưỡng tin cậy (threshold) để quyết định ký tự có được nhận diện hay không.
+  - Ví dụ khớp trên 95% thì mới đủ tin tưởng.
 
 ### ❹ Hậu xử lý kết quả
 
@@ -172,4 +176,196 @@ title: Template Matching - Giải pháp hỗ trợ nhận diện ký tự khó O
 
 ## 📌 4. Ví dụ code minh họa (Python + OpenCV)
 
-- TODO...
+### 1️⃣ Tạo lớp riêng chuyên xử lý các logic cho Template Maching
+
+- Ví dụ chúng ta tạo file `template_matching_worker.py` trong folder `core`.
+
+### 2️⃣ Tạo hàm lấy đường dẫn đến folder chứa ảnh mẫu (template)
+
+- ```python
+  # template_matching_worker.py
+
+  def get_template_folder():
+      if hasattr(sys, '_MEIPASS'):
+          # When running as a bundled executable (e.g., PyInstaller)
+          return os.path.join(sys._MEIPASS, "data", "templates")
+      else:
+          # When running as a script (e.g., python main.py)
+          return os.path.join("data", "templates")
+  ```
+
+- ✦ Như ví dụ trên thì ta đang đặt các ảnh mẫu trong folder `data/templates`.
+
+- ✦ Các ảnh mẫu sẽ chứa 1 ký tự, gồm các ảnh từ ký tự số 0-9.
+  - Trường hợp 1 số có nhiều kiểu hình dáng khác nhau thì tạo nhiều hơn 1 ảnh tương ứng cho số đó.
+
+### 3️⃣ Tạo hàm load template images
+
+- Chúng ta sẽ load và lưu các ảnh template dưới dạng:
+
+  - ✧ `key`: tên ảnh, mục đích làm giá trị nhận diện khi sử dụng Template Matching.
+  - ✧ `value`: numpy array chứa dữ liệu ảnh grayscale, mục đích để sử dụng làm giá trị matching.
+
+- ```python
+  # template_matching_worker.py
+
+  def load_templates():
+      template_dir = get_template_folder()
+      templates = {}
+
+      # Check if the template directory exists
+      if not os.path.exists(template_dir):
+          return templates
+
+      # Load templates
+      for fname in os.listdir(template_dir):
+          # Only access load PNG files for template matching
+          if fname.endswith('.png'):
+              # Use the first part of the filename as the label (Ex:'1-a.png' → '1')
+              label = os.path.splitext(fname)[0].split("-")[0]
+              # Load the image in grayscale
+              img = cv2.imread(os.path.join(template_dir, fname), cv2. IMREAD_GRAYSCALE)
+
+              if img is not None:
+                  templates[label] = img
+
+      return templates
+  ```
+
+### 4️⃣ Tạo hàm matching ảnh chứa vùng OCR với ảnh mẫu
+
+- ✦ Ảnh gốc truyền vào là ảnh đã qua tiền xử lý và chỉ chứa vùng cần đọc giá trị.
+
+- ✦ Templates truyền vào chính là giá trị trả về của hàm `load_templates`.
+
+- Các bước matching:
+
+  - ❶ Copy và chuyển ảnh gốc thành dạng nền đen, chữ trắng.
+
+    - Thông thường khi tiền xử lý ảnh gốc sẽ chuyển về nền trắng chữ đen. Việc chuyển lại ảnh về nền đen chữ trắng giúp các hàm matching xử lý đơn giản hơn.
+
+  - ❷ Tính số pixel trắng mỗi cột trên ảnh gốc (mỗi cột là 1 pixel theo trục dọc).
+
+    - ✧ Các vùng chứa ký tự sẽ là vùng chứa liên tiếp các cột có pixel trắng.
+
+    - ✧ Cột không có pixel trắng được hiểu là khoảng ngăn cách giữa các ký tự.
+
+  - ❸ Duyệt từng vùng chứa ký tự và resize về kích thước chuẩn template (ảnh mẫu).
+
+    - Việc resize về kích thước chuẩn template (ảnh mẫu) để tránh những exception xảy ra khi mmatching do kích thước template > ảnh gốc.
+
+  - ❹ Matching từng vùng chứa ký tự với ảnh mẫu, tìm ảnh khớp nhất để xác định giá trị.
+
+  - ❺ Nối từng giá trị đã xác định được tại mỗi vùng thành chuỗi 1 giá trị cuối cùng.
+
+```python
+def match_template(ocr_img, templates, threshold=0.9):
+    # Check if templates exist for the given stage
+    if not templates:
+        return None
+
+    # Copy ảnh gốc
+    input_img = ocr_img.copy()
+    # Chuyển ảnh gốc thành dạng nền đen, chữ trắng
+    inv_img = 255 - input_img
+    # Tính số pixel trắng mỗi cột (trắng = chữ)
+    hist = np.sum(inv_img // 255, axis=0)
+
+    # Tìm các vùng chứa ký tự
+    chars_bounds = []
+    in_char = False
+    start_x = 0
+    for x, val in enumerate(hist):
+        if val > 0 and not in_char:
+            in_char = True
+            start_x = x
+        elif val == 0 and in_char:
+            end_x = x
+            if end_x - start_x >= 8: # Giả sử vùng được xem chứa ký tự rộng tối thiểu 8px
+                in_char = False
+                chars_bounds.append((start_x - 1, end_x + 1)) # Padding rộng vùng chứa ký tự
+    if in_char:  # Trường hợp ký tự cuối cùng dính sát mép
+        chars_bounds.append((start_x, len(hist)-1))
+
+    # Xử lý từng ký tự
+    result_digits = []
+    for (start_x, end_x) in chars_bounds:
+        char_img = ocr_img[:, start_x:end_x]
+
+        # Resize ký tự về kích thước chuẩn template
+        first_template = next(iter(templates.values()))
+        char_resized = normalize_to_template(char_img, first_template)
+
+        # Match template từng số, chọn score nhỏ nhất (khớp nhất)
+        best_match = None
+        best_score = -1
+        for label, tmpl in templates_img.items():
+            res = cv2.matchTemplate(char_resized, tmpl, cv2.TM_SQDIFF_NORMED)
+            min_val, _, _, _ = cv2.minMaxLoc(res)
+            score = 1 - min_val
+
+            if score > best_score and score >= threshold:
+                best_score = score
+                best_match = label
+        if best_match is not None:
+            result_digits.append(best_match)
+
+    return "".join(result_digits)
+
+
+def normalize_to_template(ocr_img, template_img):
+    h_t, w_t = template_img.shape[:2]
+    h_i, w_i = ocr_img.shape[:2]
+
+    # Copy để không sửa ảnh gốc
+    img = ocr_img.copy()
+
+    # Xử lý chiều cao (H)
+    if h_i > h_t:
+        # Cắt bớt 2 bên, ưu tiên giữ phần giữa
+        cut_total = h_i - h_t
+        cut_top = cut_total // 2
+        cut_bottom = cut_total - cut_top
+        img = img[cut_top:h_t-cut_bottom, :]
+    elif h_i < h_t:
+        # Pad trắng trên dưới
+        pad_total = h_t - h_i
+        pad_top = pad_total // 2
+        pad_bottom = pad_total - pad_top
+        img = cv2.copyMakeBorder(img, pad_top, pad_bottom, 0, 0,
+                                  borderType=cv2.BORDER_CONSTANT,
+                                  value=255)
+
+    # Xử lý chiều rộng (W)
+    h_i, w_i = img.shape[:2] # Cập nhật lại kích thước sau khi xử lý height
+    if w_i > w_t:
+        # Cắt bớt 2 bên, ưu tiên giữ phần giữa
+        cut_total = w_i - w_t
+        cut_left = cut_total // 2
+        cut_right = cut_total - cut_left
+        img = img[:, cut_left:w_i-cut_right]
+    elif w_i < w_t:
+        # Pad trắng 2 bên
+        pad_total = w_t - w_i
+        pad_left = pad_total // 2
+        pad_right = pad_total - pad_left
+        img = cv2.copyMakeBorder(img, 0, 0, pad_left, pad_right,
+                                 borderType=cv2.BORDER_CONSTANT,
+                                 value=255)
+
+    return img
+```
+
+### 5️⃣ Gọi và sử dụng Template Matching
+
+- Tùy bối cảnh bài toán mà chúng ta sẽ gọi Template Matching trước khi OCR hoặc sau OCR để tăng độ chính xác:
+
+  - ❶ Gọi hàm load template images một lần ngay khi khởi động ứng dụng, tránh việc load lại images mỗi lần OCR, cải thiện đáng kể performance.
+
+  - ❷ Giả sử chúng ta sẽ gọi Template Matching trước, nếu không có giá trị trả về thì gọi OCR sau:
+    ```python
+    # Preprocess image (convert to grayscale, thresholding, etc.)
+    processed = preprocess_crop_image()
+    # Call Template Matching
+    result = match_template(pre_processed, templates)
+    ```
