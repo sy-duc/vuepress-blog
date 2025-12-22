@@ -67,7 +67,7 @@ title: Thực hành triển khai sản phẩm AI riêng
        │
        ▼
 ┌─────────────────────┐
-│ LLM API             │
+│   LLM API           │
 └──────┬──────────────┘
        │
        ▼
@@ -140,8 +140,8 @@ title: Thực hành triển khai sản phẩm AI riêng
   │   └── embed_chunks.py     # Embedding chunks + Vector Database
   ├── retrieval/
   │   └── search.py           # Retrieval / Search
-  ├── api/
-  │   └── app.py              # FastAPI (build prompt & call LLM)
+  ├── services/
+  │   └── llm_service.py      # Build prompt & call LLM
   ├── ui/
   │   └── streamlit_app.py    # Tạo UI bằng Streamlit
   ├── data/
@@ -154,3 +154,194 @@ title: Thực hành triển khai sản phẩm AI riêng
 <a name="4"></a>
 
 ## 📌 4. Triển khai chi tiết
+
+Source demo tham khảo tại: [Chatbot Demo](https://github.com/sy-duc/chatbot-demo)
+
+### 1️⃣ Tạo ingest script đọc Markdown VuePress → chia chunk
+
+#### ❶ Copy thư mục `docs/` của VuePress sang `data/raw/`
+
+- Thư mục docs/ trên VuePress sẽ chứa các file bài viết (dạng markdown) làm dữ liệu thô.
+
+#### ❷ Đọc Markdown
+
+- Cài thư viện cần thiết:
+
+- ```
+  pip install markdown-it-py beautifulsoup4 pyyaml
+  ```
+
+- Thực hiện quét qua toàn bộ thư mục con trong data/raw/ để trả về các raw markdown.
+
+#### ❸ Tách theo heading
+
+- Các file Markdown thường có:
+
+- ```markdown
+  # Title
+
+  ## Section
+
+  ### Sub section
+  ```
+
+  - 👉 Đây là các heading, hay chúng ta có thể xem nó như là ranh giới ngữ nghĩa.
+
+- Việc của chúng ta là tách các ranh giới này thành từng section, tạo mỗi chunk gắn với từng heading.
+
+#### ❹ Gộp / chia chunk theo độ dài
+
+- Một section có thể dài 1-2 trang A4, hoặc 3000+ tokens.
+
+  - 👉 Cần gộp các đoạn nhỏ thành 1 chunk vừa đủ, hoặc tách các sections dài thành nhiều chunks.
+
+### 2️⃣ Embedding chunks + Vector Database
+
+- Embedding model đối với người mới có 2 lựa chọn:
+
+  - ✦ **Option A – OpenAI Embedding** (dễ nhất)
+
+    - ✧ Chất lượng cao
+    - ✧ Không cần GPU
+    - ✧ Trả tiền theo token
+
+  - ✦ **Option B – Local model** (open-source)
+    - ✧ Sentence-transformers
+    - ✧ Chạy local
+    - ✧ Miễn phí
+    - ✧ Cần RAM
+
+- 👉 Ta sẽ dùng Option B trước để hiểu bản chất.
+
+#### ❶ Cài đặt môi trường
+
+- ```
+  pip install sentence-transformers faiss-cpu
+  ```
+
+#### ❷ Embed chunks
+
+- Dùng model `sentence-transformers/all-MiniLM-L6-v2` đã được train sẵn để Embed chunks.
+
+#### ❸ Vector Database
+
+- Những Vector DB phổ biến như:
+
+  | Vector DB |   Khi nào dùng   |
+  | :-------: | :--------------: |
+  |   FAISS   | Local, thực hành |
+  |  Chroma   |    Dev nhanh     |
+  |  Qdrant   |    Production    |
+  | Pinecone  |     Managed      |
+  | Weaviate  |      Cloud       |
+
+- 👉 Trong bài thực hành này sẽ chọn FAISS để đơn giản, phù hợp local.
+
+### 3️⃣ Retrieval / Search
+
+- Tại đây có nhiệm vụ nhận câu hỏi và tiến hành search FAISS để trả về các chunk gần nhất (top-k) trong không gian vector.
+
+  - **Lưu ý**: Retrieval Layer chỉ trả về dữ liệu thô, chưa prompt hay qua LLM.
+
+- Thường sẽ lấy 5 chunk gần nhất với câu hỏi trong không gian vector:
+
+  | top_k |       Vấn đề        |
+  | :---: | :-----------------: |
+  |   1   |  Dễ thiếu ngữ cảnh  |
+  |  3-5  |    Phổ biến nhất    |
+  | > 10  | Dễ loãng, tốn token |
+
+### 4️⃣ Prompt Assembly
+
+- ❌ LLM sẽ không biết:
+
+  - ✧ VuePress của bạn là gì.
+  - ✧ FAISS tìm được gì.
+  - ✧ Bạn muốn “không bịa” (luật).
+
+- 👉 **Prompt Assembly** = ghép “luật + ngữ cảnh + câu hỏi” thành 1 input duy nhất cho LLM.
+
+- Prompt Assembly gồm 4 phần:
+
+  |        Phần        |         Mục đích         |                Note                |
+  | :----------------: | :----------------------: | :--------------------------------: |
+  | System Instruction |        Luật chơi         | Guardrails mềm, không suy đoán/bịa |
+  |      Context       | Kiến thức được phép dùng |                                    |
+  |      Question      |    Câu hỏi người dùng    |                                    |
+  | Output Constraint  |   Ép format / hành vi    |  Ví dụ: trả lời ngắn gọn, rõ ràng  |
+
+- Prompt hoàn chỉnh:
+- ```
+  SYSTEM:
+  Bạn là trợ lý AI cho blog VuePress.
+  CHỈ được trả lời dựa trên thông tin trong CONTEXT bên dưới.
+  Nếu không có thông tin, hãy nói: "Thông tin này chưa có trong tài liệu."
+
+  CONTEXT:
+  [1] ...
+  [2] ...
+
+  QUESTION:
+  {{question}}
+
+  Yêu cầu:
+  - Trả lời ngắn gọn
+  - Trích dẫn nguồn
+  ```
+
+### 5️⃣ LLM Inference
+
+- **LLM Inference** = gửi prompt đã build cho mô hình LLM và nhận câu trả lời.
+
+  - Đây cũng là bước tốn tiền khi dùng LLM (call API).
+
+#### 🧐 Chọn LLM:
+
+- |   Hướng   |            Ví dụ             |
+  | :-------: | :--------------------------: |
+  | Cloud API | OpenAI, Azure OpenAI, Gemini |
+  | Self-host |     Llama, Mistral, Qwen     |
+  |  Hybrid   |   Local search + cloud LLM   |
+
+- 👉 Với bài toán thực hành hiện tại thì Cloud API là hợp lý nhất.
+
+#### ⚠️ Cách kiểm soát chi phí:
+
+- Cách kiểm soát chi phí:
+
+- | Vị trí |                  Kiểm soát                   |
+  | :----: | :------------------------------------------: |
+  | Chunk  |                   Nhỏ, gọn                   |
+  | Prompt |                   Ngắn gọn                   |
+  | Output |             Giới hạn max_tokens              |
+  |        | Giới hạn temperature giảm lan man → ít token |
+  |   UI   |           Streaming + stop khi đủ            |
+
+### 6️⃣ Tạo UI
+
+- Để nhanh và đơn giản, chúng ta sẽ tạo UI bằng Streamlit:
+
+  - ✧ Viết UI 100% bằng Python
+  - ✧ Có sẵn: input box, chat UI, streaming token.
+  - ✧ Phổ biến trong AI demo & PoC
+
+- ⚠️ Do chưa có thời gian sử dụng nhiều Streamlit nên source demo chỉ sử dụng ở mức cơ bản.
+
+- ⚙️ Để cài đặt Streamlit:
+
+- ```
+  pip install streamlit
+  ```
+
+### 7️⃣ Lưu chat history
+
+- Chú ý:
+
+  - ✧ Đừng gửi toàn bộ lịch sử chat (tốn tiền, loãng)
+  - ✧ Đừng gửi history không liên quan
+  - ✧ Phải giới hạn độ dài history
+
+- Chiến lược
+
+  - ✧ Chỉ giữ 3-5 turn history gần nhất
+  - ✧ Không embed history
