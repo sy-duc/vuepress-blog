@@ -164,7 +164,7 @@ PyTorch là framework Deep Learning, cung cấp:
 
 - ✧ Tensor (dữ liệu)
 
-- ✧ Autograd (tự tính gradient)
+- ✧ Autograd (tự tính gradient - cho biết muốn loss giảm thì mỗi tham số nên tăng hay giảm, và giảm/tăng bao nhiêu)
 
 - ✧ Neural Network (layer, model)
 
@@ -179,6 +179,8 @@ PyTorch không phải AI, nó là tool để xây AI.
   |   Loss    |    Validation    |
   | Backward  |  Phân tích lỗi   |
   | Optimizer | Fix bug tự động  |
+
+- Chi tiết về PyTorch tham khảo [tại đây](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/ai-pytorch.html).
 
 <a name="5"></a>
 

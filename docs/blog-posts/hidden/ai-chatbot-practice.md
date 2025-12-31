@@ -1,5 +1,5 @@
 ---
-title: Thực hành triển khai sản phẩm AI riêng
+title: Thực hành triển khai Chatbot riêng
 ---
 
 # Xây dựng AI Knowledge Assistant (tài liệu nội bộ) cho Website
@@ -162,6 +162,8 @@ Source demo tham khảo tại: [Chatbot Demo](https://github.com/sy-duc/chatbot-
 #### ❶ Copy thư mục `docs/` của VuePress sang `data/raw/`
 
 - Thư mục docs/ trên VuePress sẽ chứa các file bài viết (dạng markdown) làm dữ liệu thô.
+
+- Không chỉ docs/ trên VuePress, có thể đưa bất cứ tài liệu nào miễn sao có xử lý để hệ thống đọc được.
 
 #### ❷ Đọc Markdown
 
@@ -345,3 +347,13 @@ Source demo tham khảo tại: [Chatbot Demo](https://github.com/sy-duc/chatbot-
 
   - ✧ Chỉ giữ 3-5 turn history gần nhất
   - ✧ Không embed history
+
+### ⚠️ Note
+
+- Một số triển khai quan trọng khác cần lưu ý như:
+
+  - ✧ Rate limit - giới hạn request ngắn Spam chat (ví dụ 10 requests / phút hoặc 100 requests / ngày / IP).
+
+  - ✧ Giới hạn token - cắt prompt quá dài.
+
+  - ✧ Quota theo user / session (ví dụ: gán 20 câu hỏi / ngày hoặc 100k token / tháng / user).
