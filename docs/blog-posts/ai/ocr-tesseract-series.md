@@ -3,7 +3,7 @@ title: OCR Tesseract Series
 summary: "OCR (Optical Character Recognition) là công nghệ giúp máy tính nhận dạng và trích xuất văn bản từ hình ảnh hoặc tài liệu scan."
 date: "2025-07-26"
 image: "/vuepress-blog/images/posts/ocr-tesseract.png"
-category: "AI / Machine Learning"
+category: "AI"
 tags:
   - ai
   - machine learning

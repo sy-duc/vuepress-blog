@@ -3,7 +3,7 @@ title: Tìm hiểu AI cơ bản
 summary: "Lộ trình tự học AI từng bước, có thứ tự rõ ràng, không lan man, và tối ưu cho người đã có nền tảng lập trình nhưng chưa học AI bao giờ."
 date: "2025-12-18"
 image: "/vuepress-blog/images/posts/ai.png"
-category: "AI / Machine Learning"
+category: "AI"
 tags:
   - ai
   - machine learning
