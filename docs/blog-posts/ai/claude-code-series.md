@@ -11,7 +11,7 @@ tags:
 
 # Lập trình với Claude Code
 
-**AI không thay thế lập trình viên. AI thay thế lập trình viên không dùng AI.**
+AI không thể thay thế chúng ta. Lập trình viên biết dùng AI mới là người sẽ thay thế chúng ta.
 
 [1. Các giai đoạn khi lập trình với AI](#1)
 
@@ -19,42 +19,40 @@ tags:
 
 [3. Khóa học Claude Code đến từ cha đẻ Anthropic](#3)
 
-[4. Giới thiệu khóa học "Claude Code in Action"](#4)
+[4. Giới thiệu các khóa học quan trọng cho DEV](#4)
 
 <a name="1"></a>
 
 ## 📌 1. Các giai đoạn khi lập trình với AI
 
-### 1️⃣ AI chỉ tham gia gợi ý cú pháp
+- 1️⃣ AI chỉ tham gia gợi ý cú pháp
 
-### 2️⃣ Tích hợp AI Agent trong IDE (Copilot, Cursor, Claude)
-- Agent sẽ xin phép từng bước một.
-- Chúng ta bảo gì, xác nhận gì thì AI mới làm cái đó.
+- 2️⃣ Tích hợp AI Agent trong IDE (Copilot, Cursor, Claude)
+  - Agent sẽ xin phép từng bước một.
+  - Chúng ta bảo gì, xác nhận gì thì AI mới làm cái đó.
 
-### 3️⃣ Cấp toàn quyền và tin tưởng hoàn toàn cho AI Agent
-- Chấp nhận rủi ro để đổi lấy tốc độ.
+- 3️⃣ Cấp toàn quyền và tin tưởng hoàn toàn cho AI Agent
+  - Chấp nhận rủi ro để đổi lấy tốc độ.
 
-### 4️⃣ Không còn đọc code nữa, mà chỉ xem các thay đổi từ code của AI
-- AI trở thành 1 senior
+- 4️⃣ Không còn đọc code nữa, mà chỉ xem các thay đổi từ code của AI
+  - AI trở thành 1 senior
 
-### 5️⃣ Sử dụng AI trong terminal thay vì IDE
+- 5️⃣ Sử dụng AI trong terminal thay vì IDE
 
-### 6️⃣ Sử dụng multi-agent
+- 6️⃣ Sử dụng multi-agent
+  - Là việc mở nhiều tab terminal, mỗi terminal là 1 Claude Code instance
+  - Yêu cầu bạn phải giàu, và giỏi vì rất khó quản lý, điều phối
 
-- Là việc mở nhiều tab terminal, mỗi terminal là 1 Claude Code instance
-- Yêu cầu bạn phải giàu, và giỏi vì rất khó quản lý, điều phối
-
-### 7️⃣ Push nâng thêm nhiều instances
-
-- Không quản lý agent thủ công nữa mà build hệ thống quản lý.
-- Mỗi agent lúc này như một thành viên trong công ty, còn chúng ta là Product Manager.
+- 7️⃣ Push nâng thêm nhiều instances
+  - Không quản lý agent thủ công nữa mà build hệ thống quản lý.
+  - Mỗi agent lúc này như một thành viên trong công ty, còn chúng ta là Product Manager.
 
 <a name="2"></a>
 
 ## 📌 2. Điểm khác biệt của Claude Code
 
 - Claude Code không giống ChatGPT:
-  - ChatGPT hiểu đơn ginả là việc hỏi => trả lời => copy kết quả.
+  - ChatGPT hiểu đơn giản là việc hỏi => trả lời => copy kết quả.
   - Claude Code là 1 coding agent. Không chỉ chat mà nó hành động.
 
 - Claude thực ra là một hệ sinh thái và Claude Code chỉ là một interface chuyên cho developer.
@@ -66,22 +64,15 @@ tags:
 
 - ✅ Miễn phí, nắm bắt nhanh, có chứng chỉ.
 
-- Anthropic có các khóa học nổi bật:
+- Anthropic có nhiều khóa học đa dạng. Ví dụ:
   - Claude Code in Action – học cách dùng Claude Code trong workflow dev
   - Building with Claude API – xây app với Claude
   - Introduction to Model Context Protocol (MCP)
   - Claude 101 – cơ bản về Claude
   - AI Fluency: Framework & Foundations
 
-- Ví dụ khóa **Claude Code in Action** dạy:
-  - Cách Claude Code đọc file và chỉnh sửa code
-  - Chạy command từ AI
-  - Quản lý context (Claude.md, /init, …)
-  - Viết custom commands và hooks
-  - Tích hợp GitHub / workflow tự động.
-
 - Chứng chỉ:
-  ![Claude Code Certificate](./images/claude-code-certificate.png)
+  - ![Claude Code Certificate](./images/claude-code-certificate.png)
 
   - Là chứng chỉ sau khi hoàn thành khóa học và bài đánh giá. Không giống kiểu AWS SAA (thi có giám sát).
 
@@ -96,3 +87,6 @@ tags:
 
 - 2️⃣ [Introduction to Model Context Protocol (MCP)](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/model-context-protocol.html)
   - Hướng dẫn xây dựng MCP client và server để mở rộng khả năng cho các ứng dụng AI tích hợp Claude.
+
+- 3️⃣ [Introduction to Agent Skills](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/agent-skills.html)
+  - Skills là các thư mục chứa hướng dẫn mà Claude Code có thể khám phá và sử dụng để xử lý các nhiệm vụ lặp lại chính xác hơn.

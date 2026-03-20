@@ -1,8 +1,8 @@
 ---
-title: Khóa học Model Context Protocol (MCP)
+title: Giới thiệu về Model Context Protocol (MCP)
 ---
 
-# Khóa học Model Context Protocol (MCP)
+# Giới thiệu về Model Context Protocol (MCP)
 
 Hướng dẫn xây dựng MCP client và server để mở rộng khả năng cho các ứng dụng AI tích hợp Claude.
 
@@ -47,15 +47,19 @@ MCP Client  ←→  MCP Server
 
 ### Vấn đề MCP giải quyết:
 
-Cách tiếp cận truyền thống yêu cầu developer phải **tự viết thủ công** toàn bộ tool schemas và hàm xử lý cho từng service (ví dụ: GitHub API). Với các dịch vụ phức tạp có nhiều tính năng, điều này tạo ra gánh nặng bảo trì lớn.
+- Giả sử bạn đang xây dựng một giao diện trò chuyện cho phép người dùng hỏi Claude về dữ liệu GitHub của họ. Một người dùng có thể hỏi "Hiện có bao nhiêu yêu cầu kéo (pull request) đang mở trên tất cả các kho lưu trữ của tôi?". Để xử lý điều này, Claude cần các công cụ để truy cập API của GitHub.
+
+- Cách tiếp cận truyền thống yêu cầu developer phải **tự viết thủ công** toàn bộ tool schemas và hàm xử lý cho từng service (ví dụ: GitHub API). Với các dịch vụ phức tạp có nhiều tính năng, điều này tạo ra gánh nặng bảo trì lớn.
 
 ### Giải pháp MCP:
 
-MCP **chuyển dịch** trách nhiệm định nghĩa và thực thi tool từ server của developer sang một **MCP server chuyên dụng**. MCP server đóng vai trò là giao diện với dịch vụ bên ngoài, đóng gói các chức năng thành công cụ có sẵn.
+- MCP **chuyển dịch** trách nhiệm định nghĩa và thực thi tool từ server của developer sang một **MCP server chuyên dụng**. MCP server đóng vai trò là giao diện với dịch vụ bên ngoài, đóng gói các chức năng thành công cụ có sẵn.
 
 ### Lợi ích chính:
 - Loại bỏ nhu cầu developer phải tự viết và duy trì tool schemas
+
 - Người khác (thường là nhà cung cấp dịch vụ) tạo và đóng gói tools trong MCP server
+
 - MCP và tool use **bổ sung cho nhau**, không phải thay thế nhau — MCP tập trung vào **ai là người tạo ra tools**
 
 ### Câu hỏi thường gặp:
@@ -75,7 +79,7 @@ MCP **chuyển dịch** trách nhiệm định nghĩa và thực thi tool từ s
 **MCP Client** = giao diện giao tiếp giữa server của bạn và MCP server, cung cấp quyền truy cập vào các tools của server.
 
 ### Transport agnostic:
-Client và server có thể giao tiếp qua nhiều giao thức: `stdin/stdout`, HTTP, WebSockets, v.v. Cấu hình phổ biến nhất: cả hai cùng máy, dùng `stdin/stdout`.
+Client và server có thể giao tiếp qua nhiều giao thức: `stdin/stdout`, HTTP, WebSockets, v.v. Cấu hình phổ biến nhất: chạy cả máy khách và máy chủ MCP trên cùng một máy, dùng `stdin/stdout` (đầu vào/đầu ra tiêu chuẩn).
 
 ### Các loại message chính:
 
@@ -87,24 +91,32 @@ Client và server có thể giao tiếp qua nhiều giao thức: `stdin/stdout`,
 ### Luồng hoạt động điển hình:
 
 ```
-User query
+Người dùng gửi câu hỏi của họ đến máy chủ của bạn
     ↓
-Server hỏi MCP Client lấy danh sách tools
+Máy chủ của bạn cần biết những công cụ nào có sẵn để gửi cho Claude
     ↓
-MCP Client gửi list tools request → MCP Server
+Máy chủ của bạn yêu cầu MCP Client cung cấp các công cụ có sẵn
     ↓
-Server nhận tool list → gửi query + tools cho Claude
+MCP Client gửi một yêu cầu `ListToolsRequest` đến máy chủ MCP Server và nhận lại `ListToolsResult`
     ↓
-Claude yêu cầu thực thi tool
+Máy chủ của bạn gửi yêu cầu của người dùng cùng với các công cụ có sẵn đến Claude
     ↓
-Server yêu cầu MCP Client chạy tool
+Claude quyết định cần phải gọi một công cụ để trả lời câu hỏi
     ↓
-MCP Client gửi call tool request → MCP Server
+Máy chủ của bạn yêu cầu MCP Client chạy công cụ mà Claude đã chỉ định
     ↓
-MCP Server thực thi tool (ví dụ: gọi GitHub API)
+MCP Client gửi yêu cầu `CallToolRequest` đến MCP Server, MCP Server sẽ thực hiện call API GitHub
     ↓
-Kết quả truyền ngược về chuỗi → Claude → User
+GitHub phản hồi bằng dữ liệu kho lưu trữ, dữ liệu này sẽ được truyền ngược trở lại thông qua MCP Server `CallToolResult`
+    ↓
+Máy chủ của bạn gửi kết quả công cụ trở lại cho Claude
+    ↓
+Claude đưa ra câu trả lời cuối cùng dựa trên dữ liệu trong kho lưu trữ
+    ↓
+Máy chủ của bạn chuyển phản hồi của Claude trở lại cho người dùng
 ```
+
+![Luồng hoạt động MCP](./images/claude-code-mcp-flow.png)
 
 > **Vai trò MCP Client**: Đóng vai trò trung gian — không tự thực thi tools mà chỉ điều phối giao tiếp giữa server của bạn và MCP server thực sự chạy tools.
 
