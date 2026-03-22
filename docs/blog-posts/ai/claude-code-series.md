@@ -90,3 +90,6 @@ AI không thể thay thế chúng ta. Lập trình viên biết dùng AI mới l
 
 - 3️⃣ [Introduction to Agent Skills](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/agent-skills.html)
   - Skills là các thư mục chứa hướng dẫn mà Claude Code có thể khám phá và sử dụng để xử lý các nhiệm vụ lặp lại chính xác hơn.
+
+- 4️⃣ [Quản lý AI coding bền vững với OpenSpec](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/open-spec.html)
+  - Thoát khỏi vòng lặp "AI viết sai → sửa → sai lại" một lần và mãi mãi
