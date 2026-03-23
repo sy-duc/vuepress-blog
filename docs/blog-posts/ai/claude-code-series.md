@@ -1,95 +1,280 @@
 ---
-title: Lập trình với Claude Code
-summary: "AI không thay thế lập trình viên. AI thay thế lập trình viên không dùng AI."
+title: "Claude Code — Học gì để dùng thật tốt trong thời đại AI Agent?"
+summary: "Danh sách nội dung cần học để sử dụng Claude Code hiệu quả — từ cơ bản đến nâng cao, hướng đến phát triển AI Agent."
 date: "2026-03-15"
-image: "/vuepress-blog/images/posts/claude-code.png"
+image: "/vuepress-blog/images/posts/claude-code-seres.png"
 category: "AI"
 tags:
   - ai
   - claude code
+  - ai agent
 ---
 
-# Lập trình với Claude Code
+# Claude Code — Học gì để dùng thật tốt trong thời đại AI Agent?
 
-AI không thể thay thế chúng ta. Lập trình viên biết dùng AI mới là người sẽ thay thế chúng ta.
+- 🎯 Bài viết này dành cho developer muốn sử dụng Claude Code hiệu quả — không chỉ "gõ prompt rồi nhận code", mà thật sự kiểm soát được AI agent trong quy trình phát triển phần mềm.
+- Bài viết cover: bối cảnh AI Agent, Claude Code khác gì các công cụ khác, và **danh sách nội dung cần học** có thứ tự ưu tiên rõ ràng.
+- Phù hợp với: developer đã biết code, muốn bắt đầu hoặc nâng cấp cách làm việc với AI coding agent.
 
-[1. Các giai đoạn khi lập trình với AI](#1)
+## Mục lục
 
-[2. Điểm khác biệt cốt lõi của Claude Code](#2)
+[1. Tại sao lại là AI Agent — và tại sao là bây giờ?](#1)
 
-[3. Khóa học Claude Code đến từ cha đẻ Anthropic](#3)
+[2. Claude Code — Nó khác gì và tại sao mình chọn nó?](#2)
 
-[4. Giới thiệu các khóa học quan trọng cho DEV](#4)
+[3. Thoát khỏi vòng lặp Vibe Coding](#3)
+
+[4. Danh sách nội dung cần học để dùng Claude Code hiệu quả](#4)
+
+[5. Khóa học miễn phí từ Anthropic](#5)
+
+---
 
 <a name="1"></a>
 
-## 📌 1. Các giai đoạn khi lập trình với AI
+## 📌 1. Tại sao lại là AI Agent — và tại sao là bây giờ?
 
-- 1️⃣ AI chỉ tham gia gợi ý cú pháp
+- Xu hướng phát triển phần mềm đang dịch chuyển từ **"AI hỗ trợ gợi ý code"** sang **"AI agent tự lập kế hoạch và thực thi"**.
+  - Trước đây: autocomplete, gợi ý snippet → developer vẫn phải làm mọi thứ.
+  - Bây giờ: AI agent đọc codebase, chạy test, sửa lỗi, tạo PR — developer chuyển sang vai trò **điều phối**.
 
-- 2️⃣ Tích hợp AI Agent trong IDE (Copilot, Cursor, Claude)
-  - Agent sẽ xin phép từng bước một.
-  - Chúng ta bảo gì, xác nhận gì thì AI mới làm cái đó.
+- 💡 Một vài con số đáng chú ý:
+  - Gartner ghi nhận lượng tìm kiếm về multi-agent system tăng **1.445%** chỉ trong 1 năm (Q1/2024 → Q2/2025).
+  - ~40% phần mềm doanh nghiệp dự kiến được xây dựng bằng natural language prompts vào 2026.
+  - AI agent được nhúng vào 80% ứng dụng enterprise workplace.
 
-- 3️⃣ Cấp toàn quyền và tin tưởng hoàn toàn cho AI Agent
-  - Chấp nhận rủi ro để đổi lấy tốc độ.
+- ⚠️ Điều này không có nghĩa developer hết việc. Ngược lại — vai trò thay đổi:
+  - Từ "người viết code" → "người điều phối agent viết code".
+  - Kỹ năng mới cần học: cách prompt hiệu quả, cách review AI output, cách thiết kế workflow cho agent.
+  - Developer nào đầu tư sớm vào structured workflow với AI agent sẽ có lợi thế năng suất vượt trội.
 
-- 4️⃣ Không còn đọc code nữa, mà chỉ xem các thay đổi từ code của AI
-  - AI trở thành 1 senior
-
-- 5️⃣ Sử dụng AI trong terminal thay vì IDE
-
-- 6️⃣ Sử dụng multi-agent
-  - Là việc mở nhiều tab terminal, mỗi terminal là 1 Claude Code instance
-  - Yêu cầu bạn phải giàu, và giỏi vì rất khó quản lý, điều phối
-
-- 7️⃣ Push nâng thêm nhiều instances
-  - Không quản lý agent thủ công nữa mà build hệ thống quản lý.
-  - Mỗi agent lúc này như một thành viên trong công ty, còn chúng ta là Product Manager.
+---
 
 <a name="2"></a>
 
-## 📌 2. Điểm khác biệt của Claude Code
+## 📌 2. Claude Code — Nó khác gì và tại sao mình chọn nó?
 
-- Claude Code không giống ChatGPT:
-  - ChatGPT hiểu đơn giản là việc hỏi => trả lời => copy kết quả.
-  - Claude Code là 1 coding agent. Không chỉ chat mà nó hành động.
+### Claude Code làm được gì?
 
-- Claude thực ra là một hệ sinh thái và Claude Code chỉ là một interface chuyên cho developer.
-  - Claude có thể gồm: Claude Chat, Claude Code, Claude API, v.v.
+- Claude Code là **AI coding agent chạy trên terminal** (CLI-native), không phải extension hay IDE fork.
+- Nó không chỉ gợi ý code — nó **tự thực thi**:
+  - Đọc và phân tích codebase.
+  - Tạo, sửa, xóa file.
+  - Chạy command, test, build.
+  - Spawn nhiều sub-agent song song (lên đến 10 agent cùng lúc).
+  - Tương tác với các công cụ bên ngoài qua MCP (Model Context Protocol).
+
+### So sánh nhanh với các công cụ phổ biến
+
+| Tiêu chí           | Claude Code                                          | Cursor                           | GitHub Copilot                  | Windsurf             |
+| ------------------ | ---------------------------------------------------- | -------------------------------- | ------------------------------- | -------------------- |
+| **Giao diện**      | Terminal (CLI)                                       | IDE (VS Code fork)               | VS Code extension               | IDE (VS Code fork)   |
+| **Agent tự chủ**   | ✅ Mạnh — tự chạy command, sửa file, spawn sub-agent | Có agent mode, chủ yếu trong IDE | Agent mode đang phát triển      | "Cascade" flow-based |
+| **MCP**            | ✅ First-class, 200+ server                          | Hỗ trợ                           | Hạn chế                         | Hỗ trợ               |
+| **Project memory** | CLAUDE.md — đọc mỗi phiên                            | .cursorrules                     | .github/copilot-instructions.md | Cascade memory       |
+| **Context window** | 200K (hỗ trợ đến 1M)                                 | Tùy model                        | Tùy model                       | Tùy model            |
+| **Giá**            | ~$17-100+/tháng (API-based)                          | ~$16/tháng                       | ~$10-39/tháng                   | Có free tier         |
+
+### Tại sao mình chọn Claude Code?
+
+- ⚠️ **Claude Code chỉ là một lựa chọn** — không phải lựa chọn duy nhất. Cursor, Copilot, Windsurf đều là công cụ tốt trong context riêng của chúng.
+
+- Nhưng với cá nhân mình, sau khi dùng qua Copilot và tìm hiểu các công cụ khác, Claude Code hiện tại **ổn nhất** vì:
+  - **Agentic thật sự**: không chỉ gợi ý — nó tự chạy, tự sửa, tự test. Mình giao task, nó làm.
+  - **CLI-native**: không cần mở IDE nặng. Phù hợp với workflow terminal-first.
+  - **CLAUDE.md**: cơ chế "project memory" đơn giản nhưng mạnh — agent hiểu context dự án ngay từ đầu mỗi session.
+  - **MCP ecosystem**: kết nối được với Slack, Jira, Google Drive, database... mở rộng khả năng agent vượt xa việc "chỉ viết code".
+  - **Hướng đến AI Agent**: Claude Code được thiết kế từ đầu cho workflow agentic, không phải "thêm agent mode sau" như một số tool khác.
+
+- 💡 Nếu bạn là người thích làm việc trong IDE với UI trực quan → Cursor có thể phù hợp hơn. Không có công cụ nào "tốt nhất cho tất cả" — chỉ có công cụ phù hợp nhất với workflow của bạn.
+
+---
 
 <a name="3"></a>
 
-## 📌 3. Khóa học Claude Code đến từ cha đẻ Anthropic
+## 📌 3. Thoát khỏi vòng lặp Vibe Coding
 
-- ✅ Miễn phí, nắm bắt nhanh, có chứng chỉ.
+### Vibe Coding là gì — và tại sao nó là bẫy?
 
-- Anthropic có nhiều khóa học đa dạng. Ví dụ:
-  - Claude Code in Action – học cách dùng Claude Code trong workflow dev
-  - Building with Claude API – xây app với Claude
-  - Introduction to Model Context Protocol (MCP)
-  - Claude 101 – cơ bản về Claude
-  - AI Fluency: Framework & Foundations
+- Vòng lặp "Vibe Coding" là cách dùng AI mà nhiều người mắc phải khi mới bắt đầu:
 
-- Chứng chỉ:
-  - ![Claude Code Certificate](./images/claude-code-certificate.png)
+  ```
+  Prompt AI → Nhận code → Chạy thử → Gặp lỗi → Prompt lại → Lặp lại...
+  ```
 
-  - Là chứng chỉ sau khi hoàn thành khóa học và bài đánh giá. Không giống kiểu AWS SAA (thi có giám sát).
+- ❌ Vấn đề: vòng lặp này **tốn token, tốn thời gian, và code chất lượng kém**. AI không hiểu rõ bạn muốn gì, bạn cũng không kiểm soát được AI đang làm gì.
 
-- Link chính thức để học và lấy certificate Claude [tại đây](https://anthropic.skilljar.com/?utm_source=chatgpt.com).
+- 💡 Developer giỏi không phải người prompt hay nhất — mà là người **thiết kế workflow** để AI không cần đoán.
+
+### Ba trụ cột để thoát vòng lặp Vibe Coding
+
+- ```
+  ┌─────────────────────────────────────────────────┐
+  │           Workflow AI Coding hiệu quả           │
+  ├─────────────────┬───────────────┬───────────────┤
+  │ 1️⃣ Đồng thuận   │ 2️⃣ Quy trình │  3️⃣ Bộ nhớ    │
+  │  trước khi code │  chất lượng   │  dài hạn      │
+  │                 │  cao          │               │
+  │  OpenSpec       │  Superpowers  │  Beads        │
+  │  CLAUDE.md      │  TDD / YAGNI  │  CLAUDE.md    │
+  │  Plan Mode      │  Agent Skills │  Git-native   │
+  └─────────────────┴───────────────┴───────────────┘
+  ```
+
+**1️⃣ Đồng thuận trước khi code — "Spec first, code second"**
+
+- Thay vì prompt thẳng → dùng **OpenSpec** để tạo spec trước.
+  - Phase 1 — Propose: bạn mô tả yêu cầu, AI tạo proposal + checklist.
+  - Phase 2 — Apply: AI implement theo checklist đã thống nhất.
+  - Phase 3 — Archive: lưu lại kết quả để tham khảo.
+- Kết hợp với **Plan Mode** của Claude Code — yêu cầu agent lập kế hoạch trước, bạn review xong mới cho thực thi.
+- ✅ Kết quả: AI hiểu rõ bạn muốn gì, code đúng hướng ngay từ lần đầu.
+
+**2️⃣ Áp đặt quy trình chất lượng cao**
+
+- **Superpowers** — framework dạy AI agent tuân thủ kỷ luật engineering:
+  - Phải hiểu requirement trước khi code.
+  - Chia nhỏ task, viết test trước (TDD), tuân thủ YAGNI và DRY.
+  - Không nhảy thẳng vào code khi chưa có plan.
+- Kết hợp với **Agent Skills** (CLAUDE.md) để định nghĩa các quy tắc riêng cho dự án.
+- ✅ Kết quả: AI không "tự do sáng tạo" mà làm việc trong khung kỷ luật bạn thiết lập.
+
+**3️⃣ Duy trì bộ nhớ cho dự án dài ngày**
+
+- AI agent có context window hữu hạn. Session mới = bắt đầu lại từ đầu.
+- **Beads** (by Steve Yegge) giải quyết vấn đề này:
+  - Lưu task graph có dependency vào Git.
+  - "Memory decay" thông minh — tóm tắt task cũ để tiết kiệm context.
+  - Agent pick up đúng chỗ cần làm tiếp, không cần brief lại.
+- Kết hợp với **CLAUDE.md** — file hướng dẫn project được đọc mỗi session.
+- ✅ Kết quả: agent duy trì sự liên tục xuyên suốt dự án, không mất context.
+
+---
 
 <a name="4"></a>
 
-## 📌 4. Giới thiệu các khóa học quan trọng cho DEV
+## 📌 4. Danh sách nội dung cần học để dùng Claude Code hiệu quả
 
-- 1️⃣ [Claude Code in Action](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/claude-code-in-action.html)
-  - Hướng dẫn thực hành chi tiết cách sử dụng Claude Code để tăng tốc quy trình phát triển.
+### Learning map — Từ cơ bản đến nâng cao
 
-- 2️⃣ [Introduction to Model Context Protocol (MCP)](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/model-context-protocol.html)
-  - Hướng dẫn xây dựng MCP client và server để mở rộng khả năng cho các ứng dụng AI tích hợp Claude.
+- ```
+  Level 1: Nền tảng (bắt buộc)
+  ├── Claude Code Basics
+  ├── CLAUDE.md & Project Memory
+  └── Prompt Engineering cho Agent
 
-- 3️⃣ [Introduction to Agent Skills](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/agent-skills.html)
-  - Skills là các thư mục chứa hướng dẫn mà Claude Code có thể khám phá và sử dụng để xử lý các nhiệm vụ lặp lại chính xác hơn.
+  Level 2: Workflow (khuyến khích)
+  ├── Plan Mode & Spec-driven Development (OpenSpec)
+  ├── Agent Skills
+  └── Hooks & Custom Automation
 
-- 4️⃣ [Quản lý AI coding bền vững với OpenSpec](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/open-spec.html)
-  - Thoát khỏi vòng lặp "AI viết sai → sửa → sai lại" một lần và mãi mãi
+  Level 3: Mở rộng (nâng cao)
+  ├── MCP — Model Context Protocol
+  ├── Multi-agent & Sub-agents
+  ├── Beads — Memory cho dự án dài
+  └── Superpowers — Kỷ luật engineering cho agent
+
+  Level 4: Xây dựng (cho người muốn đi xa hơn)
+  ├── Claude API & Anthropic SDK
+  ├── Xây dựng AI Agent riêng
+  └── Claude Agent SDK
+  ```
+
+### Chi tiết từng nội dung
+
+**Level 1: [Nền tảng — Phải nắm trước khi làm bất cứ gì](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/claude-code-in-action.html)**
+
+- 1️⃣ **Claude Code Basics**
+  - Cài đặt, cấu hình, các lệnh cơ bản (`/help`, `/clear`, `/compact`...).
+  - Hiểu cách Claude Code đọc codebase, chạy command, sửa file.
+
+- 2️⃣ **CLAUDE.md & Project Memory**
+  - File `CLAUDE.md` ở root project = "bản hướng dẫn" mà agent đọc mỗi khi bắt đầu session.
+  - Ghi gì vào đây: coding conventions, cấu trúc project, quy tắc riêng, context quan trọng.
+  - 💡 Đây là cách rẻ nhất và hiệu quả nhất để agent "hiểu" dự án của bạn mà không cần prompt lại mỗi lần.
+
+- 3️⃣ **Prompt Engineering cho Agent**
+  - Khác với prompt ChatGPT — prompt cho agent cần **rõ ràng, có scope, có tiêu chí done**.
+  - Nguyên tắc: nói rõ muốn gì, không muốn gì, format output mong muốn.
+  - ⚠️ Gotcha: prompt quá dài và chi tiết đôi khi phản tác dụng — agent bị overload context. Cân bằng giữa chi tiết và ngắn gọn.
+
+**Level 2: [Workflow — Cách làm việc có kỷ luật](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/open-spec.html)**
+
+- 1️⃣ **Plan Mode & Spec-driven Development (OpenSpec)**
+  - Luôn dùng Plan Mode cho task phức tạp — để agent trình bày kế hoạch trước khi thực thi.
+  - OpenSpec nâng cấp thêm: tạo spec → approve → implement → archive.
+  - ✅ Đây là cách hiệu quả nhất để thoát Vibe Coding.
+
+- 2️⃣ **[Agent Skills](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/agent-skills.html)**
+  - Tạo các "kỹ năng" tái sử dụng cho agent — ví dụ: skill viết blog, skill tạo report, skill review code.
+  - Mỗi skill là thư mục chứa `skill.md` (hướng dẫn) + template + config.
+  - Agent tự phát hiện và kích hoạt skill phù hợp dựa trên keyword.
+
+- 3️⃣ **Hooks & Custom Automation**
+  - Hooks cho phép chạy shell command tự động khi có event (trước/sau tool call, khi submit prompt...).
+  - Ví dụ: auto-lint sau mỗi lần agent sửa file, auto-run test sau mỗi commit.
+  - Giúp đảm bảo chất lượng mà không cần nhắc agent mỗi lần.
+
+**Level 3: [Mở rộng — Khi cần nhiều hơn "chỉ viết code"](https://sy-duc.github.io/vuepress-blog/blog-posts/hidden/model-context-protocol.html)**
+
+- 1️⃣ **MCP — Model Context Protocol**
+  - Giao thức cho phép agent kết nối với công cụ bên ngoài: database, Slack, Jira, Google Drive, API...
+  - Biến Claude Code từ "coding assistant" thành "general-purpose agent".
+
+- 2️⃣ **Multi-agent & Sub-agents**
+  - Claude Code có thể spawn nhiều sub-agent chạy song song — mỗi agent làm task riêng.
+  - Ví dụ: 1 agent research, 1 agent viết code, 1 agent chạy test — cùng lúc.
+  - Hiểu khi nào nên dùng sub-agent vs. làm tuần tự.
+
+- 3️⃣ **Beads — Memory cho dự án dài**
+  - Khi project kéo dài nhiều session, context bị mất dần.
+  - Beads lưu task graph vào Git, agent pick up đúng chỗ cần tiếp tục.
+  - Phù hợp với project lớn, nhiều người, kéo dài hàng tuần/tháng.
+
+- 4️⃣ **Superpowers — Kỷ luật engineering cho agent**
+  - Framework áp đặt quy trình: requirement → plan → test → implement.
+  - Kết hợp các skill composable — pha trộn theo nhu cầu.
+  - Phù hợp khi bạn muốn agent tuân thủ best practice mà không cần nhắc mỗi lần.
+
+**Level 4: Xây dựng — Cho người muốn tạo AI Agent riêng**
+
+- 1️⃣ **Claude API & Anthropic SDK**
+  - Sử dụng Claude API trực tiếp để xây dựng ứng dụng AI.
+  - Hiểu về tool use, streaming, system prompt, token management.
+
+- 2️⃣ **Xây dựng AI Agent riêng với Claude Agent SDK**
+  - Từ việc dùng Claude Code → tiến đến tạo agent custom cho workflow riêng.
+  - Đây là bước cuối cùng trong hành trình: từ **user** → **builder**.
+
+---
+
+<a name="5"></a>
+
+## 📌 5. Khóa học miễn phí từ Anthropic
+
+- ✅ Anthropic cung cấp nhiều khóa học miễn phí, có chứng chỉ:
+  - **Claude Code in Action** — thực hành Claude Code trong workflow dev.
+  - **Building with Claude API** — xây app với Claude API.
+  - **Introduction to Model Context Protocol (MCP)** — xây MCP client/server.
+  - **Claude 101** — kiến thức cơ bản về Claude.
+  - **AI Fluency: Framework & Foundations** — nền tảng về AI.
+
+- ⚠️ Lưu ý: chứng chỉ Anthropic là dạng hoàn thành khóa học + bài đánh giá, không phải kỳ thi có giám sát như AWS SAA.
+  - ![Claude Code Certificate](./images/claude-code-certificate.png)
+
+- 🔗 Link đăng ký: [Anthropic Skilljar](https://anthropic.skilljar.com/)
+
+---
+
+## Tổng kết
+
+- 💡 **Insight quan trọng nhất**: Claude Code (hay bất kỳ AI coding tool nào) chỉ mạnh khi bạn biết cách **thiết kế workflow** cho nó. Prompt hay không bằng process tốt.
+
+- Sau bài này, bạn nên:
+  - Bắt đầu từ **Level 1** — nắm CLAUDE.md và cách prompt agent.
+  - Áp dụng ngay **Plan Mode** cho mọi task phức tạp — đừng để AI tự do code.
+  - Dần dần khám phá Level 2-3 khi workflow đã ổn định.
+
+- ⚠️ Giới hạn: mình mới dùng Claude Code được vài tuần. Các nhận xét trong bài dựa trên trải nghiệm cá nhân + tài liệu chính thức, chưa phải kết luận sau thời gian dài kiểm chứng. Nếu bạn có kinh nghiệm khác — rất hoan nghênh góp ý.
+
+- Hướng phát triển phần mềm đang nghiêng mạnh về AI Agent. Đầu tư thời gian học cách làm việc hiệu quả với chúng không phải là optional — mà đang dần trở thành **core skill** của developer.
