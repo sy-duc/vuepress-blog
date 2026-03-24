@@ -64,7 +64,7 @@ tags:
 
 ### 🧐 Các mối bận tâm thực tế
 
-- ✦ AI hiện tại đã làm được gì trong ngành IT? — hỗ trợ thiết kế UI/UX, viết code, test, deploy, phân tích requirement, viết tài liệu...
+- ✦ AI hiện tại đã làm được gì trong ngành IT? — hỗ trợ thiết kế UI/UX, viết code, test, deploy, phân tích requirement, viết / dịch tài liệu...
 - ✦ Con người vẫn đang hoài nghi: AI viết code khó đọc, khó maintain, mình vẫn cứ làm tay cho chắc.
 - ✦ Con người lo sợ bị lệ thuộc: giao hết cho AI, không hiểu gì, gặp lỗi phức tạp là bó tay.
 - ✦ Con người lo sợ bị AI thay thế.
@@ -74,7 +74,7 @@ tags:
 
 <a name="2"></a>
 
-## 📌 2. Sự phát triển của AI Agent — Từ chatbot đến đồng đội
+## 📌 2. Sự phát triển của AI Agent — Từ chatbot đến teammate
 
 ### AI đã tiến hóa qua những giai đoạn nào?
 
@@ -121,16 +121,16 @@ tags:
 
 ### Agent khác gì chatbot / copilot?
 
-| Khả năng                | Chatbot | Copilot      | Agent                  |
-| ----------------------- | ------- | ------------ | ---------------------- |
-| Trả lời câu hỏi         | ✅      | ✅           | ✅                     |
-| Gợi ý code real-time    | ❌      | ✅           | ✅                     |
-| Hiểu toàn bộ codebase   | ❌      | Một phần     | ✅                     |
-| Tự tạo/sửa/xóa file     | ❌      | Hạn chế      | ✅                     |
-| Chạy command, test      | ❌      | Hạn chế      | ✅                     |
-| Lên kế hoạch nhiều bước | ❌      | ❌           | ✅                     |
-| Kết nối công cụ ngoài   | ❌      | ❌           | ✅ (MCP)               |
-| Nhớ context dự án       | ❌      | File đang mở | ✅ (CLAUDE.md, memory) |
+- | Khả năng                | Chatbot | Copilot      | Agent                  |
+  | ----------------------- | ------- | ------------ | ---------------------- |
+  | Trả lời câu hỏi         | ✅      | ✅           | ✅                     |
+  | Gợi ý code real-time    | ❌      | ✅           | ✅                     |
+  | Hiểu toàn bộ codebase   | ❌      | Một phần     | ✅                     |
+  | Tự tạo/sửa/xóa file     | ❌      | Hạn chế      | ✅                     |
+  | Chạy command, test      | ❌      | Hạn chế      | ✅                     |
+  | Lên kế hoạch nhiều bước | ❌      | ❌           | ✅                     |
+  | Kết nối công cụ ngoài   | ❌      | ❌           | ✅ (MCP)               |
+  | Nhớ context dự án       | ❌      | File đang mở | ✅ (CLAUDE.md, memory) |
 
 - 💡 **Cách nghĩ đơn giản**: Chatbot là Google thông minh hơn. Copilot là người ngồi cạnh mách code. Agent là đồng đội biết cả project, tự làm việc, bạn chỉ cần review.
 
@@ -142,7 +142,7 @@ tags:
 
 ## 📌 3. Các giai đoạn khi làm việc với AI
 
-- 1️⃣ **Autocomplete** — AI chỉ tham gia gợi ý cú pháp
+- 1️⃣ **Autocomplete** — AI chỉ tham gia gợi ý code
 
 - 2️⃣ **Tích hợp AI Agent trong IDE** (Copilot, Cursor, Claude)
   - Agent sẽ xin phép từng bước một.
@@ -164,11 +164,13 @@ tags:
   - Không quản lý agent thủ công nữa mà build hệ thống quản lý.
   - Mỗi agent lúc này như một thành viên, còn chúng ta là Product Manager.
 
+- ⚠️ **Đừng để đa số chúng ta giẫm chân tại giai đoạn** 1️⃣.
+
 ---
 
 <a name="4"></a>
 
-## 📌 4. Học cách tích hợp AI vào công việc — Lộ trình từ zero
+## 📌 4. Học cách tích hợp AI vào công việc
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -181,8 +183,8 @@ tags:
 │  Level 1    Nền tảng làm việc với AI                            │
 │  ───────    Prompt, tư duy Floor-Ceiling, nguyên tắc cơ bản     │
 │                                                                 │
-│  Level 2    Làm chủ AI Agent                                    │
-│  ───────    Chọn tool, thiết lập workflow, kiểm soát output     │
+│  Level 2    Tư duy làm việc với AI Agent                        │
+│  ───────    Trực quan hóa tư duy với Claude Code                │
 │                                                                 │
 │  Level 3    AI trong toàn bộ quy trình phần mềm                 │
 │  ───────    Requirement → Design → Code → Test → Deploy         │
@@ -193,44 +195,16 @@ tags:
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### Level 0: Hiểu bối cảnh — AI đang ở đâu và đi đến đâu?
+### <a href="/vuepress-blog/blog-posts/hidden/ai-agent-boi-canh.html" target="_blank">**Level 0: Hiểu bối cảnh — AI đang ở đâu và đi đến đâu?**</a>
 
-Trước khi dùng bất cứ tool nào, cần hiểu bức tranh lớn.
+### <a href="/vuepress-blog/blog-posts/hidden/ai-agent-nen-tang.html" target="_blank">**Level 1: Nền tảng — Tư duy đúng trước khi dùng tool**</a>
 
-- 1️⃣ <a href="/vuepress-blog/blog-posts/hidden/ai-nen-tang.html" target="_blank">**AI đang làm được gì trong ngành IT**</a>
-  - AI hiện tại hỗ trợ được gì ở từng giai đoạn: phân tích requirement, thiết kế, viết code, test, deploy, viết tài liệu...
-  - Biết giới hạn: AI mạnh ở đâu, yếu ở đâu, ở đâu vẫn cần con người 100%.
+### <a href="/vuepress-blog/blog-posts/ai/claude-code-series.html" target="_blank">**Level 2: Tư duy làm việc với AI Agent (Claude Code)**</a>
 
-- 2️⃣ <a href="/vuepress-blog/blog-posts/hidden/ai-nen-tang.html" target="_blank">**Quy trình phát triển phần mềm đã thay đổi — SDLC → ADLC**</a>
-  - SDLC truyền thống (waterfall, agile) đang được bổ sung bởi ADLC (AI-augmented Development Lifecycle).
-  - Mỗi giai đoạn trong quy trình đều có AI tham gia — không chỉ riêng phần coding.
-  - Hiểu sự thay đổi này giúp bạn biết **AI nên vào ở đâu** trong workflow hiện tại của team.
+- 1️⃣ **Claude Code — Học gì để dùng thật tốt trong thời đại AI Agent?**
+  - Học tư duy làm việc với AI Agent thông qua Claude Code
 
-### Level 1: Nền tảng — Tư duy đúng trước khi dùng tool
-
-- 1️⃣ <a href="/vuepress-blog/blog-posts/hidden/ai-nen-tang.html" target="_blank">**Mô hình Floor–Ceiling — Ranh giới giữa người và AI**</a>
-  - AI nâng "floor" (mức tối thiểu ai cũng làm được) nhưng không thay đổi "ceiling" (mức tối đa cần chuyên gia).
-  - Hiểu mô hình này giúp bạn biết khi nào nên dùng AI, khi nào cần tự tư duy.
-  - 💡 Đây là framework quan trọng nhất để tránh bẫy Dunning-Kruger khi dùng AI.
-
-- 2️⃣ **Prompt Engineering — Không chỉ là "hỏi cho hay"**
-  - Khác với prompt ChatGPT thông thường — prompt cho AI agent cần **rõ ràng, có scope, có tiêu chí done**.
-  - Nguyên tắc: nói rõ muốn gì, không muốn gì, format output mong muốn.
-  - Áp dụng cho mọi role: BA dùng prompt để gen user story, tester dùng prompt để gen test case, PM dùng prompt để phân tích risk...
-
-### Level 2: Làm chủ AI Agent — Từ dùng thử đến dùng thật
-
-- 1️⃣ <a href="/vuepress-blog/blog-posts/hidden/ai-nen-tang.html" target="_blank">**Chọn công cụ phù hợp**</a>
-  - Claude Code vs. Cursor vs. Copilot vs. Windsurf — không có tool "tốt nhất", chỉ có tool phù hợp nhất với workflow của bạn.
-  - Tiêu chí chọn: CLI hay IDE? Cần agent tự chủ cao hay chỉ cần gợi ý? Budget bao nhiêu?
-  - 💡 Bài viết chi tiết về Claude Code: <a href="/vuepress-blog/blog-posts/hidden/claude-code-series.html" target="_blank">Claude Code — Học gì để dùng thật tốt?</a>
-
-- 2️⃣ **Thiết lập workflow có kỷ luật — Thoát khỏi Vibe Coding**
-  - ❌ Vibe Coding: prompt → nhận code → lỗi → prompt lại → lặp. Tốn token, tốn thời gian, output kém.
-  - ✅ Structured workflow: spec trước → plan → implement → review.
-  - Công cụ hỗ trợ: Plan Mode, OpenSpec (spec-driven development), Agent Skills (kỹ năng tái sử dụng cho agent).
-
-- 3️⃣ **Chiến lược review và kiểm soát output AI**
+- 2️⃣ **Chiến lược review và kiểm soát output AI**
   - AI output không phải lúc nào cũng đúng — bạn cần chiến lược review rõ ràng.
   - Nguyên tắc: không review từng dòng code mà **review theo behavior** — output có đúng yêu cầu không? Test có pass không? Có side effect không?
   - Kết hợp Hooks (tự động lint, test sau mỗi thay đổi) để giảm gánh nặng review thủ công.
