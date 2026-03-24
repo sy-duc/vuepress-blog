@@ -2,7 +2,7 @@
 title: "Claude Code — Học gì để dùng thật tốt trong thời đại AI Agent?"
 summary: "Danh sách nội dung cần học để sử dụng Claude Code hiệu quả — từ cơ bản đến nâng cao, hướng đến phát triển AI Agent."
 date: "2026-03-15"
-image: "/vuepress-blog/images/posts/claude-code-series.png"
+image: "/vuepress-blog/images/posts/claude-code.png"
 category: "AI"
 tags:
   - ai
