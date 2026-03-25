@@ -16,61 +16,58 @@ title: "Nền tảng — Tư duy đúng trước khi dùng tool"
 
 [4. Những bẫy tư duy khi bắt đầu dùng AI](#4)
 
-[5. Checklist trước khi bước vào Level 2](#5)
-
 ---
 
 <a name="1"></a>
 
 ## 📌 1. Mô hình Floor-Ceiling — AI nâng sàn nhưng không nâng trần
 
-Đây là mental model quan trọng nhất để hiểu AI ảnh hưởng thế nào đến năng lực của bạn.
+- Đây là mental model quan trọng nhất để hiểu AI ảnh hưởng thế nào đến năng lực của bạn.
+  - **Floor (sàn)** = mức tối thiểu mà bất kỳ ai cũng có thể đạt được.
+  - **Ceiling (trần)** = mức tối đa, đòi hỏi chuyên gia với kinh nghiệm sâu.
 
-- **Floor (sàn)** = mức tối thiểu mà bất kỳ ai cũng có thể đạt được.
-- **Ceiling (trần)** = mức tối đa, đòi hỏi chuyên gia với kinh nghiệm sâu.
+- 💡 **AI nâng floor lên rất nhanh — nhưng ceiling gần như không đổi.**
 
-💡 **AI nâng floor lên rất nhanh — nhưng ceiling gần như không đổi.**
+  ```
+                      Trước AI                    Sau AI
 
-```
-                    Trước AI                    Sau AI
-
-Ceiling ─ ─ ─ ─ ┬──────────────────┐ ─ ─ ─ ─ ┬──────────────────┐
-(trần)          │  Vùng chuyên gia │         │  Vùng chuyên gia │
-                │  (kinh nghiệm,   │         │  (vẫn cần con    │
-                │   phán đoán,     │         │   người 100%)    │
-                │   kiến trúc)     │         │                  │
-                │                  │         ├──────────────────┤
-                │                  │         │  ░░░ AI zone ░░░ │
-                │                  │         │  AI có thể hỗ trợ│
-                ├──────────────────┤         │  hoặc tự làm     │
-Floor ─ ─ ─ ─ ─ │  Mức cơ bản      │         ├──────────────────┤
-(sàn)           │  (ai cũng làm    │         │  Floor mới       │
-                │   được)          │         │                  │
-                └──────────────────┘         └──────────────────┘
-```
+  Ceiling ─ ─ ─ ─ ┬──────────────────┐ ─ ─ ─ ─ ┬──────────────────┐
+  (trần)          │  Vùng chuyên gia │         │  Vùng chuyên gia │
+                  │  (kinh nghiệm,   │         │  (vẫn cần con    │
+                  │   phán đoán,     │         │   người 100%)    │
+                  │   kiến trúc)     │         │                  │
+                  │                  │         ├──────────────────┤
+                  │                  │         │  ░░░ AI zone ░░░ │
+                  │                  │         │  AI có thể hỗ trợ│
+                  ├──────────────────┤         │  hoặc tự làm     │
+  Floor ─ ─ ─ ─ ─ │  Mức cơ bản      │         ├──────────────────┤
+  (sàn)           │  (ai cũng làm    │         │  Floor mới       │
+                  │   được)          │         │                  │
+                  └──────────────────┘         └──────────────────┘
+  ```
 
 ### Ví dụ thực tế trong ngành IT
 
-**Floor được nâng lên — AI giúp người ít kinh nghiệm làm được nhiều hơn:**
+- **Floor được nâng lên — AI giúp người ít kinh nghiệm làm được nhiều hơn:**
 
-| Công việc                 | Trước AI                              | Sau AI (floor mới)                                   |
-| ------------------------- | ------------------------------------- | ---------------------------------------------------- |
-| Viết REST API             | Junior mất vài ngày, hay sai cấu trúc | Mô tả yêu cầu → AI gen code hoạt động trong vài phút |
-| Viết unit test            | Nhiều team bỏ qua vì tốn thời gian    | AI gen test suite, coverage 80%+ ngay lập tức        |
-| Làm việc với ngôn ngữ mới | Mất vài tuần học cú pháp cơ bản       | Viết code bằng ngôn ngữ lạ ngay trong ngày đầu       |
-| Setup CI/CD               | Cần DevOps chuyên trách               | AI gen Docker, Terraform, GitHub Actions từ mô tả    |
-| Viết SQL phức tạp         | Window function, CTE là rào cản lớn   | Mô tả bằng tiếng Việt → AI viết query chính xác      |
-| Viết tài liệu             | Thường bị bỏ qua vì nhàm chán         | AI gen docs từ code, dev chỉ cần review              |
+  | Công việc                 | Trước AI                              | Sau AI (floor mới)                                   |
+  | ------------------------- | ------------------------------------- | ---------------------------------------------------- |
+  | Viết REST API             | Junior mất vài ngày, hay sai cấu trúc | Mô tả yêu cầu → AI gen code hoạt động trong vài phút |
+  | Viết unit test            | Nhiều team bỏ qua vì tốn thời gian    | AI gen test suite, coverage 80%+ ngay lập tức        |
+  | Làm việc với ngôn ngữ mới | Mất vài tuần học cú pháp cơ bản       | Viết code bằng ngôn ngữ lạ ngay trong ngày đầu       |
+  | Setup CI/CD               | Cần DevOps chuyên trách               | AI gen Docker, Terraform, GitHub Actions từ mô tả    |
+  | Viết SQL phức tạp         | Window function, CTE là rào cản lớn   | Mô tả bằng tiếng Việt → AI viết query chính xác      |
+  | Viết tài liệu             | Thường bị bỏ qua vì nhàm chán         | AI gen docs từ code, dev chỉ cần review              |
 
-**Ceiling vẫn giữ nguyên — những thứ AI không thể thay thế:**
+- **Ceiling vẫn giữ nguyên — những thứ AI không thể thay thế:**
 
-| Công việc                   | Tại sao ceiling vẫn cần con người?                                                                                                                                       |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Thiết kế kiến trúc hệ thống | Chọn microservices hay monolith? Database nào? Cần hiểu business context, team capability, kế hoạch scale — AI không có thông tin này                                    |
-| Debug production incident   | AI không thể tái hiện sự kết hợp giữa infrastructure, load pattern, và data cụ thể của hệ thống. Senior engineer dùng trực giác từ hàng năm kinh nghiệm                  |
-| Quyết định refactor         | Refactor cái gì, khi nào, đến đâu — đòi hỏi hiểu context tổ chức và business priority                                                                                    |
-| Security architecture       | AI-generated code thường chứa lỗ hổng bảo mật. Nghiên cứu của Stanford (2023) chỉ ra developer dùng AI viết code **kém bảo mật hơn**. Tư duy phòng thủ vẫn cần con người |
-| Code review chất lượng      | Không chỉ tìm bug — mà hiểu _tại sao_ code sai, dạy nguyên tắc, truyền đạt tư duy                                                                                        |
+  | Công việc                   | Tại sao ceiling vẫn cần con người?                                                                                                                                       |
+  | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | Thiết kế kiến trúc hệ thống | Chọn microservices hay monolith? Database nào? Cần hiểu business context, team capability, kế hoạch scale — AI không có thông tin này                                    |
+  | Debug production incident   | AI không thể tái hiện sự kết hợp giữa infrastructure, load pattern, và data cụ thể của hệ thống. Senior engineer dùng trực giác từ hàng năm kinh nghiệm                  |
+  | Quyết định refactor         | Refactor cái gì, khi nào, đến đâu — đòi hỏi hiểu context tổ chức và business priority                                                                                    |
+  | Security architecture       | AI-generated code thường chứa lỗ hổng bảo mật. Nghiên cứu của Stanford (2023) chỉ ra developer dùng AI viết code **kém bảo mật hơn**. Tư duy phòng thủ vẫn cần con người |
+  | Code review chất lượng      | Không chỉ tìm bug — mà hiểu _tại sao_ code sai, dạy nguyên tắc, truyền đạt tư duy                                                                                        |
 
 ### Điều này có nghĩa gì cho bạn?
 
